@@ -23,7 +23,7 @@ namespace HoloToolkit.Unity.InputModule
     /// Script teleports the user to the location being gazed at when Y was pressed on a Gamepad.
     /// </summary>
     [RequireComponent(typeof(SetGlobalListener))]
-    public class MixedRealityTeleport : Singleton<MixedRealityTeleport>, IControllerInputHandler
+    public class MixedRealityTeleport_old : Singleton<MixedRealityTeleport>, IControllerInputHandler
     {
         [Tooltip("Name of the thumbstick axis to check for teleport and strafe.")]
         public XboxControllerMappingTypes HorizontalStrafe = XboxControllerMappingTypes.XboxLeftStickHorizontal;
@@ -128,13 +128,7 @@ namespace HoloToolkit.Unity.InputModule
             {
                 HandleGamepad();
             }
-
-
-
 #endif
-
-            HandleGamepad();
-
 
             if (currentPointingSource != null)
             {
@@ -146,22 +140,19 @@ namespace HoloToolkit.Unity.InputModule
         {
             if (EnableTeleport && !fadeControl.Busy)
             {
-                //float leftX = Input.GetAxis(useCustomMapping ? LeftThumbstickX : XboxControllerMapping.GetMapping(HorizontalStrafe));
-                //float leftY = Input.GetAxis(useCustomMapping ? LeftThumbstickY : XboxControllerMapping.GetMapping(ForwardMovement));
+                float leftX = Input.GetAxis(useCustomMapping ? LeftThumbstickX : XboxControllerMapping.GetMapping(HorizontalStrafe));
+                float leftY = Input.GetAxis(useCustomMapping ? LeftThumbstickY : XboxControllerMapping.GetMapping(ForwardMovement));
 
-                float leftTrigger = Input.GetAxis(InputMappingAxisUtility.CONTROLLER_LEFT_TRIGGER);
-
-
-                //if (currentPointingSource == null && leftY > 0.8 && Math.Abs(leftX) < 0.3)
-                if (currentPointingSource == null && leftTrigger > 0.8)
+               
+                if (currentPointingSource == null && leftY > 0.8 && Math.Abs(leftX) < 0.3)
+                
                 {
                     if (FocusManager.Instance.TryGetSinglePointer(out currentPointingSource))
                     {
                         StartTeleport();
                     }
                 }
-                //else if (currentPointingSource != null && new Vector2(leftX, leftY).magnitude < 0.2)
-                else if (currentPointingSource != null && leftTrigger < 0.2)
+                else if (currentPointingSource != null && new Vector2(leftX, leftY).magnitude < 0.2)
                 {
                     FinishTeleport();
                 }
@@ -202,29 +193,23 @@ namespace HoloToolkit.Unity.InputModule
             }
         }
 
-        
-
         void IControllerInputHandler.OnInputPositionChanged(InputPositionEventData eventData)
         {
             if (eventData.PressType == InteractionSourcePressInfo.Thumbstick)
-            //float leftTrigger = Input.GetAxis(InputMappingAxisUtility.CONTROLLER_LEFT_TRIGGER);
-            //if (leftTrigger > 0.8)
             {
                 if (EnableTeleport)
                 {
                     if (currentPointingSource == null && eventData.Position.y > 0.8 && Math.Abs(eventData.Position.x) < 0.3)
-                    //if (currentPointingSource == null && leftTrigger > 0.8)
                     {
                         if (FocusManager.Instance.TryGetPointingSource(eventData, out currentPointingSource))
                         {
                             currentSourceId = eventData.SourceId;
-                           // StartTeleport();
+                            StartTeleport();
                         }
                     }
                     else if (currentPointingSource != null && currentSourceId == eventData.SourceId && eventData.Position.magnitude < 0.2)
-                    //else if (currentPointingSource != null && leftTrigger < 0.2)
                     {
-                      //  FinishTeleport();
+                        FinishTeleport();
                     }
                 }
 
