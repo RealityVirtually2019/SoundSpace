@@ -19,9 +19,9 @@ using UnityEngine.VR.WSA.Input;
 using HoloToolkit.Unity.InputModule;
 
 
-//using Autodesk.Forge.ARKit;
+using Autodesk.Forge.ARKit;
 
-public class RaycastEffectTest : MonoBehaviour, IInputClickHandler
+public class RaycastEffectTest : MonoBehaviour
 {
 
     private IPointingSource currentPointingSource;
@@ -53,32 +53,12 @@ public class RaycastEffectTest : MonoBehaviour, IInputClickHandler
             {
                 Ray ray = new Ray(pos, dir);
                 if (Physics.Raycast(ray, out hit))
-                {
-                    Debug.Log(hit.point);
-                    //ForgeProperties fp = hit.collider.gameObject.GetComponentInParent<ForgeProperties>();
-                    //Debug.Log("testing");
+                {                    
+                    ForgeProperties fp = hit.collider.gameObject.GetComponentInParent<ForgeProperties>();
+                    Debug.Log(fp.PropertiesString);
+                    
                 }
             }
     }
-
-    public void OnInputClicked(InputClickedEventData eventData)
-    {
-        
-        if (FocusManager.Instance.TryGetPointingSource(eventData, out currentPointingSource))
-        {
-            currentSourceId = eventData.SourceId;
-
-            Ray ray = currentPointingSource.Ray;
-            //Debug.Log(ray.origin);
-            RaycastHit hit;
-            if(Physics.Raycast(ray, out hit))
-            {
-                Debug.Log(hit.point);
-                //ForgeProperties fp = hit.collider.gameObject.GetComponentInParent<ForgeProperties>();
-                //Debug.Log("testing");
-            }
-
-                
-        }
-    }
+    
 }
