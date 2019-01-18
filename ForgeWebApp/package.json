@@ -1,14 +1,29 @@
 {
-  "name": "toolkitserverv2-master",
-  "version": "1.0.0",
-  "description": "Example website to help you get started with ARVR Toolkit and Unity",
-  "main": "index.js",
-  "directories": {
-    "doc": "docs"
-  },
+  "name": "viewer-walkthrough-online.viewer",
+  "version": "2.0.0",
+  "description": "Code sample for the Forge Viewer API",
+  "main": "start.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node start.js"
   },
-  "author": "",
-  "license": "ISC"
+  "keywords": [
+    "2-legged",
+    "auth",
+    "app",
+    "web",
+    "tutorial",
+    "sample"
+  ],
+  "author": "Autodesk (www.autodesk.com)",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.3",
+    "multer": "^1.4.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.0.1"
+  }
 }
