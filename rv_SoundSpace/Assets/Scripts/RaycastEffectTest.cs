@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Collections;
 using UnityEngine;
 
 #if UNITY_2017_2_OR_NEWER
@@ -20,10 +21,11 @@ using HoloToolkit.Unity.InputModule;
 
 
 using Autodesk.Forge.ARKit;
+using SimpleJSON;
 
 public class RaycastEffectTest : MonoBehaviour
 {
-
+    public GameObject go;
     private IPointingSource currentPointingSource;
     private uint currentSourceId;
 
@@ -31,6 +33,22 @@ public class RaycastEffectTest : MonoBehaviour
     void Start()
     {
         InteractionManager.InteractionSourcePressed += testHit;
+
+        ForgeProperties fp = go.GetComponentInParent<ForgeProperties>();
+
+        JSONNode temp = fp.Properties["props"];
+        Debug.Log("testing");
+        foreach (var v in temp.Values)
+        {
+            
+            //JSONNode prop = v.Value;
+            if (v["name"] == "Finish")
+            {
+                Debug.Log(v["value"]);
+            }
+        }
+
+
     }
 
     // Update is called once per frame
@@ -44,7 +62,7 @@ public class RaycastEffectTest : MonoBehaviour
 
     public void testHit(InteractionSourcePressedEventArgs eventData)
     {
-        Debug.Log("hello");
+        
         Vector3 pos;
         Vector3 dir;
         RaycastHit hit;
@@ -55,8 +73,16 @@ public class RaycastEffectTest : MonoBehaviour
                 if (Physics.Raycast(ray, out hit))
                 {                    
                     ForgeProperties fp = hit.collider.gameObject.GetComponentInParent<ForgeProperties>();
-                    Debug.Log(fp.PropertiesString);
                     
+                    JSONNode temp = fp.Properties["props"];
+                    Debug.Log("testing");
+                    foreach (var v in temp.Values)
+                    {                                         
+                        if (v["name"] == "Absorptance")
+                        {
+                            Debug.Log(v["value"]);
+                        }
+                    }
                 }
             }
     }
