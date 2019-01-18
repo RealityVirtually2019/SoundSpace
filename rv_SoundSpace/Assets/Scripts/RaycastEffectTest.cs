@@ -73,16 +73,21 @@ public class RaycastEffectTest : MonoBehaviour
                 if (Physics.Raycast(ray, out hit))
                 {                    
                     ForgeProperties fp = hit.collider.gameObject.GetComponentInParent<ForgeProperties>();
-                    
-                    JSONNode temp = fp.Properties["props"];
-                    Debug.Log("testing");
-                    foreach (var v in temp.Values)
-                    {                                         
-                        if (v["name"] == "Absorptance")
+                    if(fp != null)
+                    {
+                        JSONNode temp = fp.Properties["props"];
+                        Debug.Log("testing");
+                        foreach (var v in temp.Values)
                         {
-                            Debug.Log(v["value"]);
+                            if (v["name"] == "Absorptance")
+                            {
+                                Debug.Log(v["value"]);
+                            }
                         }
                     }
+
+
+                   
                 }
             }
     }
