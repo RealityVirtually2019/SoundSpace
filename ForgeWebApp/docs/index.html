@@ -1,0 +1,48 @@
+<head>
+	<meta charset="utf-8" />
+	<title>ForgeToolkit Sample Gallery</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<link rel="stylesheet" href="./skeleton.min.css">
+	<link rel="shortcut icon" href="#">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.6/vue.min.js"></script>
+</head>
+
+
+<body style="margin:0; overflow-y: hidden;">
+  <div id="app">
+  <div class="container">
+    <nav class="navbar">
+      <div class="container">
+        <ul class="navbar-list">
+          <li class="navbar-item"><img class="navbar-img" src="logo.png"/></li>
+          <li class="navbar-item"><button @click="uploadFile()" class="navbar-button button-primary">Upload</button></li>
+          <li class="navbar-itemr"><a href="https://github.com/wallabyway/toolkitServerv2"><button class="navbar-button">GitHub</button></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div class="overlay" style="left: 1em; top: 5em; display: flex;">
+      <div v-for="item in Items" :key="item.urn" @click="loadModel(item.urn, item.objectKey)" >
+        <button  :title="item.objectKey" class="button" @click="createScene(item)" >x</button>
+          <img class="thumb" v-auth-image="item.urn" width="100px" height="100px">
+      </div>
+  </div>
+
+  <div class="container overlay" style="left: 1em; top: 15em; width:250px">
+    {{form.title}}
+    <div class="row"><div class="three columns">URN:</div><div class="nine columns"><input placeholder="URN" class="u-full-width" v-model="form.urn"></div> </div>
+      <div class="row"><div class="three columns">Token:</div><div class="nine columns"><input placeholder="TOKEN" class="u-full-width" v-model="form.token"></div> </div>
+      <div class="row"><div class="three columns">Scene:</div><div class="nine columns"><input placeholder="SCENE" class="u-full-width" v-model="form.scene"></div> </div>
+  </div>
+  <div id="toast" v-bind:class="{ show: istoast }">{{toastmsg}}</div>
+
+</div>
+  <div id="forgeViewer"></div>
+</body>
+<script language="JavaScript" src="https://xf79h9aa3l.execute-api.us-west-2.amazonaws.com/toolkit2/api/_adsk.js"></script>
+<!--
+<script language="JavaScript" src="./api/_adsk.js"></script>
+-->
+<script language="JavaScript" src="app.js"></script>
+<script src="https://developer.api.autodesk.com/modelderivative/v2/viewers/6.*/viewer3D.min.js" language="JavaScript"></script>
+<link  href="https://developer.api.autodesk.com/modelderivative/v2/viewers/6.*/style.min.css" type="text/css" rel="stylesheet" >
