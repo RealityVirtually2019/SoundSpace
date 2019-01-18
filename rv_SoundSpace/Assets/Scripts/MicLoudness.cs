@@ -1,34 +1,45 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Audio;
 
 public class MicInput : MonoBehaviour
 {
+    #region SingleTon
+
+    public static MicInput Inctance { set; get; }
+
+    #endregion
 
     public static float MicLoudness;
+    public static float MicLoudnessinDecibels;
 
     private string _device;
 
     //mic initialization
-    void InitMic()
+    public void InitMic()
     {
-        if (_device == null) _device = Microphone.devices[0];
+        if (_device == null)
+        {
+            _device = Microphone.devices[1];
+            
+        }
         _clipRecord = Microphone.Start(_device, true, 999, 44100);
+        _isInitialized = true;
     }
 
-    void StopMicrophone()
+    public void StopMicrophone()
     {
         Microphone.End(_device);
+        _isInitialized = false;
     }
 
 
     AudioClip _clipRecord;
-    
+    AudioClip _recordedClip;
     int _sampleWindow = 128;
 
     //get data from microphone into audioclip
-    float LevelMax()
+    float MicrophoneLevelMax()
     {
         float levelMax = 0;
         float[] waveData = new float[_sampleWindow];
@@ -47,13 +58,70 @@ public class MicInput : MonoBehaviour
         return levelMax;
     }
 
+    //get data from microphone into audioclip
+    float MicrophoneLevelMaxDecibels()
+    {
+
+        float db = 20 * Mathf.Log10(Mathf.Abs(MicLoudness));
+
+        return db;
+    }
+
+    public float FloatLinearOfClip(AudioClip clip)
+    {
+        StopMicrophone();
+
+        _recordedClip = clip;
+
+        float levelMax = 0;
+        float[] waveData = new float[_recordedClip.samples];
+
+        _recordedClip.GetData(waveData, 0);
+        // Getting a peak on the last 128 samples
+        for (int i = 0; i < _recordedClip.samples; i++)
+        {
+            float wavePeak = waveData[i] * waveData[i];
+            if (levelMax < wavePeak)
+            {
+                levelMax = wavePeak;
+            }
+        }
+        return levelMax;
+    }
+
+    public float DecibelsOfClip(AudioClip clip)
+    {
+        StopMicrophone();
+
+        _recordedClip = clip;
+
+        float levelMax = 0;
+        float[] waveData = new float[_recordedClip.samples];
+
+        _recordedClip.GetData(waveData, 0);
+        // Getting a peak on the last 128 samples
+        for (int i = 0; i < _recordedClip.samples; i++)
+        {
+            float wavePeak = waveData[i] * waveData[i];
+            if (levelMax < wavePeak)
+            {
+                levelMax = wavePeak;
+            }
+        }
+
+        float db = 20 * Mathf.Log10(Mathf.Abs(levelMax));
+
+        return db;
+    }
+
 
 
     void Update()
     {
         // levelMax equals to the highest normalized value power 2, a small number because < 1
         // pass the value to a static var so we can access it from anywhere
-        MicLoudness = LevelMax();
+        MicLoudness = MicrophoneLevelMax();
+        MicLoudnessinDecibels = MicrophoneLevelMaxDecibels();
     }
 
     bool _isInitialized;
@@ -62,6 +130,7 @@ public class MicInput : MonoBehaviour
     {
         InitMic();
         _isInitialized = true;
+        Inctance = this;
     }
 
     //stop mic when loading a new level or quit application
@@ -87,7 +156,6 @@ public class MicInput : MonoBehaviour
             {
                 //Debug.Log("Init Mic");
                 InitMic();
-                _isInitialized = true;
             }
         }
         if (!focus)
@@ -95,7 +163,6 @@ public class MicInput : MonoBehaviour
             //Debug.Log("Pause");
             StopMicrophone();
             //Debug.Log("Stop Mic");
-            _isInitialized = false;
 
         }
     }
