@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 15
-  productGUID: 33d432e4fef5afd418144478784e3696
+  productGUID: a2ba8a209bdd4964cbe29d3f9e7366db
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: rv_SoundSpace
+  productName: aeFX
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -288,10 +288,6 @@ PlayerSettings:
     m_Devices:
     - Oculus
     - OpenVR
-  - m_BuildTarget: Metro
-    m_Enabled: 1
-    m_Devices:
-    - WindowsMR
   m_BuildTargetEnableVuforiaSettings: []
   openGLRequireES31: 0
   openGLRequireES31AEP: 0
@@ -526,8 +522,7 @@ PlayerSettings:
   webGLThreadsSupport: 0
   scriptingDefineSymbols: {}
   platformArchitecture: {}
-  scriptingBackend:
-    Metro: 1
+  scriptingBackend: {}
   il2cppCompilerConfiguration: {}
   managedStrippingLevel: {}
   incrementalIl2cppBuild: {}
@@ -537,13 +532,13 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: Template3D
-  metroPackageVersion: 1.0.0.0
-  metroCertificatePath: Assets\WSATestCertificate.pfx
+  metroPackageName: Template_3D
+  metroPackageVersion: 
+  metroCertificatePath: 
   metroCertificatePassword: 
-  metroCertificateSubject: DefaultCompany
-  metroCertificateIssuer: DefaultCompany
-  metroCertificateNotAfter: 0085038d02cfd501
+  metroCertificateSubject: 
+  metroCertificateIssuer: 
+  metroCertificateNotAfter: 0000000000000000
   metroApplicationDescription: Template_3D
   wsaImages: {}
   metroTileShortName: 
@@ -559,53 +554,8 @@ PlayerSettings:
   metroSplashScreenBackgroundColor: {r: 0.12941177, g: 0.17254902, b: 0.21568628,
     a: 1}
   metroSplashScreenUseBackgroundColor: 0
-  platformCapabilities:
-    WindowsStoreApps:
-      AllJoyn: False
-      Appointments: False
-      BackgroundMediaPlayback: False
-      BlockedChatMessages: False
-      Bluetooth: True
-      Chat: False
-      CodeGeneration: False
-      Contacts: False
-      EnterpriseAuthentication: False
-      HumanInterfaceDevice: False
-      InputInjectionBrokered: False
-      InternetClient: False
-      InternetClientServer: False
-      Location: False
-      LowLevelDevices: False
-      Microphone: True
-      MusicLibrary: False
-      Objects3D: False
-      OfflineMapsManagement: False
-      PhoneCall: False
-      PhoneCallHistoryPublic: False
-      PicturesLibrary: False
-      PointOfService: False
-      PrivateNetworkClientServer: False
-      Proximity: False
-      RecordedCallsFolder: False
-      RemoteSystem: False
-      RemovableStorage: False
-      SharedUserCertificates: False
-      SpatialPerception: True
-      SystemManagement: False
-      UserAccountInformation: False
-      UserDataTasks: False
-      UserNotificationListener: False
-      VideosLibrary: False
-      VoipCall: False
-      WebCam: True
-  metroTargetDeviceFamilies:
-    Desktop: False
-    Holographic: False
-    IoT: False
-    IoTHeadless: False
-    Mobile: False
-    Team: False
-    Xbox: False
+  platformCapabilities: {}
+  metroTargetDeviceFamilies: {}
   metroFTAName: 
   metroFTAFileTypes: []
   metroProtocolName: 

@@ -27,7 +27,8 @@ public class MainSoundControl : MonoBehaviour
 
     public void OnControllerPressed(InteractionSourcePressedEventArgs eventData)
     {
-        CreateEmitter(new Vector3(0, 0, 0));
+        if(eventData.state.source.handedness == InteractionSourceHandedness.Right)
+            CreateEmitter(new Vector3(0, 0, 0));
     }
 
     public void CreateEmitter(Vector3 position)
