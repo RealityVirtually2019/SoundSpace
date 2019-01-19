@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.XR.WSA.Input;
+//using HoloToolkit.Unity.InputModule;
+
 public class MainSoundControl : MonoBehaviour
 {
 
@@ -10,7 +13,7 @@ public class MainSoundControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        InteractionManager.InteractionSourcePressed += OnControllerPressed;
     }
 
     // Update is called once per frame
@@ -18,8 +21,18 @@ public class MainSoundControl : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            GameObject newEmitter = Instantiate(emitterPrefab, new Vector3(0, 0, 0), Quaternion.identity);
-            newEmitter.GetComponent<WaveEmitter>().MakeNoise();
+            CreateEmitter(new Vector3(0, 0, 0));
         }
+    }
+
+    public void OnControllerPressed(InteractionSourcePressedEventArgs eventData)
+    {
+        CreateEmitter(new Vector3(0, 0, 0));
+    }
+
+    public void CreateEmitter(Vector3 position)
+    {
+        GameObject newEmitter = Instantiate(emitterPrefab, position, Quaternion.identity);
+        newEmitter.GetComponent<WaveEmitter>().MakeNoise();
     }
 }
