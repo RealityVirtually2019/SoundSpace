@@ -1286,6 +1286,292 @@ ModelImporter:
     4300260: Generic Models 1 Generic Models 1 [6011062]
     4300262: circles circles [6011906]
     4300264: CircleLights CircleLights [6012102]
+    6400000: Basic Wall _Generic - 10" [6000035]
+    6400002: Basic Wall _Generic - 10" [6000036]
+    6400004: Basic Wall _Generic - 10" [6000037]
+    6400006: Basic Wall _Generic - 10" [6000038]
+    6400008: Basic Wall _Generic - 10" [6000040]
+    6400010: Basic Wall _Generic - 10" [6000042]
+    6400012: Basic Wall _Generic - 10" [6000045]
+    6400014: Basic Wall _Generic - 10" [6000046]
+    6400016: Basic Wall _Generic - 10" [6000047]
+    6400018: Basic Wall _Generic - 10" [6000231]
+    6400020: Basic Wall _Generic - 10" [6000232]
+    6400022: Basic Wall _Generic - 10" [6000233]
+    6400024: Basic Wall _Generic - 10" [6000234]
+    6400026: Basic Wall _Generic - 10" [6000235]
+    6400028: Basic Wall _Generic - 10" [6000326]
+    6400030: Basic Wall _Generic - 10" [6000327]
+    6400032: Basic Wall _Generic - 10" [6000410]
+    6400034: Basic Wall _Generic - 10" [6000621]
+    6400036: Basic Wall _Generic - 10" [6000676]
+    6400038: Basic Wall _Generic - 10" [6007473]
+    6400040: Basic Wall _Generic - 12" [6000350]
+    6400042: Basic Wall _Generic - 12" [6000846]
+    6400044: Basic Wall _Generic - 14" [6000039]
+    6400046: Basic Wall _Generic - 14" [6000043]
+    6400048: Basic Wall _Generic - 2" [6000622]
+    6400050: Basic Wall _Generic - 6" [6000048]
+    6400052: Basic Wall _Generic - 6" [6000049]
+    6400054: Basic Wall _Generic - 6" [6000050]
+    6400056: Basic Wall _Generic - 6" [6000051]
+    6400058: Basic Wall _Generic - 6" [6000054]
+    6400060: Basic Wall _Generic - 6" [6000323]
+    6400062: Basic Wall _Generic - 6" [6000324]
+    6400064: Basic Wall _Generic - 6" [6000325]
+    6400066: Basic Wall _Generic - 6" [6000574]
+    6400068: Basic Wall _Generic - 6" [6000623]
+    6400070: Basic Wall _Generic - 6" [6000624]
+    6400072: Basic Wall _Generic - 6" [6000625]
+    6400074: Basic Wall _Generic - 6" [6000704]
+    6400076: Basic Wall _Generic -24" [6000408]
+    6400078: Basic Wall _Generic -24" [6000409]
+    6400080: Basic Wall _Generic -24" [6000677]
+    6400082: Basic Wall _Generic -24" [6000847]
+    6400084: Basic Wall _Generic -24" [6000848]
+    6400086: CEILING 1 CEILING 1 [6000736]
+    6400088: CircleLights CircleLights [6012102]
+    6400090: circles circles [6011906]
+    6400092: Compound Ceiling GWB on Mtl. Stud [6000764]
+    6400094: Compound Ceiling GWB on Mtl. Stud [6000777]
+    6400096: Compound Ceiling GWB on Mtl. Stud [6000823]
+    6400098: Concrete Column2 Concrete Column [6001104]
+    6400100: F_SingleFlush_Frameless_HOK_I Generic 36 x 84 [6000429]
+    6400102: Floor Concrete Slab - 6" [6000330]
+    6400104: FormIt360_Group_Table-Rectangular 72" x 30" [6000857]
+    6400106: FormIt360_Group_Table-Rectangular 72" x 30" [6000858]
+    6400108: FormIt360_Group_Table-Rectangular 72" x 30" [6001004]
+    6400110: FormIt360_Group_Table-Rectangular 72" x 30" [6001005]
+    6400112: FormIt360_Group_Table-Rectangular 72" x 30" [6008935]
+    6400114: FormIt360_Group_Table-Rectangular 72" x 30" [6008936]
+    6400116: FormIt360_Group_Table-Rectangular 72" x 30" [6008946]
+    6400118: FormIt360_Group_Table-Rectangular 72" x 30" [6008947]
+    6400120: FormIt360_Group_Table-Rectangular 72" x 30" [6008954]
+    6400122: FormIt360_Group_Table-Rectangular 72" x 30" [6008955]
+    6400124: FormIt360_Group_Table-Rectangular 72" x 30" [6008956]
+    6400126: FormIt360_Group_Table-Rectangular 72" x 30" [6008979]
+    6400128: FormIt360_Group_Table-Rectangular 72" x 30" [6009000]
+    6400130: FormIt360_Group_Table-Rectangular 72" x 30" [6009015]
+    6400132: FormIt360_Group_Table-Rectangular 72" x 30" [6009034]
+    6400134: FormIt360_Group_Table-Rectangular 72" x 30" [6009094]
+    6400136: FormIt360_Group_Table-Rectangular 72" x 30" [6009109]
+    6400138: FormIt360_Group_Table-Rectangular 72" x 30" [6009124]
+    6400140: FormIt360_Group_Table-Rectangular 72" x 30" [6009235]
+    6400142: FormIt360_Group_Table-Rectangular 72" x 30" [6009273]
+    6400144: FormIt360_Group_Table-Rectangular 72" x 30" [6009288]
+    6400146: FormIt360_Group_Table-Rectangular 72" x 30" [6009331]
+    6400148: Generic Models 1 Generic Models 1 [6011062]
+    6400150: Railing Single Bar Hand Rail -Glass [6000561]
+    6400152: Railing Single Bar Hand Rail -Glass [6000561]_[5366988]
+    6400154: Railing Single Bar Hand Rail -Glass [6000561]_[5366988] 1
+    6400156: Railing Single Bar Hand Rail -Glass [6000561]_[5366988] 10
+    6400158: Railing Single Bar Hand Rail -Glass [6000561]_[5366988] 11
+    6400160: Railing Single Bar Hand Rail -Glass [6000561]_[5366988] 12
+    6400162: Railing Single Bar Hand Rail -Glass [6000561]_[5366988] 13
+    6400164: Railing Single Bar Hand Rail -Glass [6000561]_[5366988] 14
+    6400166: Railing Single Bar Hand Rail -Glass [6000561]_[5366988] 15
+    6400168: Railing Single Bar Hand Rail -Glass [6000561]_[5366988] 16
+    6400170: Railing Single Bar Hand Rail -Glass [6000561]_[5366988] 17
+    6400172: Railing Single Bar Hand Rail -Glass [6000561]_[5366988] 18
+    6400174: Railing Single Bar Hand Rail -Glass [6000561]_[5366988] 19
+    6400176: Railing Single Bar Hand Rail -Glass [6000561]_[5366988] 2
+    6400178: Railing Single Bar Hand Rail -Glass [6000561]_[5366988] 20
+    6400180: Railing Single Bar Hand Rail -Glass [6000561]_[5366988] 21
+    6400182: Railing Single Bar Hand Rail -Glass [6000561]_[5366988] 22
+    6400184: Railing Single Bar Hand Rail -Glass [6000561]_[5366988] 23
+    6400186: Railing Single Bar Hand Rail -Glass [6000561]_[5366988] 24
+    6400188: Railing Single Bar Hand Rail -Glass [6000561]_[5366988] 25
+    6400190: Railing Single Bar Hand Rail -Glass [6000561]_[5366988] 26
+    6400192: Railing Single Bar Hand Rail -Glass [6000561]_[5366988] 27
+    6400194: Railing Single Bar Hand Rail -Glass [6000561]_[5366988] 28
+    6400196: Railing Single Bar Hand Rail -Glass [6000561]_[5366988] 29
+    6400198: Railing Single Bar Hand Rail -Glass [6000561]_[5366988] 3
+    6400200: Railing Single Bar Hand Rail -Glass [6000561]_[5366988] 30
+    6400202: Railing Single Bar Hand Rail -Glass [6000561]_[5366988] 31
+    6400204: Railing Single Bar Hand Rail -Glass [6000561]_[5366988] 4
+    6400206: Railing Single Bar Hand Rail -Glass [6000561]_[5366988] 5
+    6400208: Railing Single Bar Hand Rail -Glass [6000561]_[5366988] 6
+    6400210: Railing Single Bar Hand Rail -Glass [6000561]_[5366988] 7
+    6400212: Railing Single Bar Hand Rail -Glass [6000561]_[5366988] 8
+    6400214: Railing Single Bar Hand Rail -Glass [6000561]_[5366988] 9
+    6400216: Railing Single Bar Hand Rail -Glass [6000561]_[5366990]
+    6400218: Railing Single Bar Hand Rail -Glass [6000561]_[5366990] 1
+    6400220: Railing Single Bar Hand Rail -Glass [6000561]_[5366990] 2
+    6400222: Railing Single Bar Hand Rail -Glass [6000561]_[5366990] 3
+    6400224: Railing Single Bar Hand Rail -Glass [6000561]_[5366990] 4
+    6400226: Railing Single Bar Hand Rail -Glass [6000747]
+    6400228: Railing Single Bar Hand Rail -Glass [6000747]_[5366988]
+    6400230: Railing Single Bar Hand Rail -Glass [6000747]_[5366988] 1
+    6400232: Railing Single Bar Hand Rail -Glass [6000747]_[5366988] 2
+    6400234: Railing Single Bar Hand Rail -Glass [6000747]_[5366988] 3
+    6400236: Railing Single Bar Hand Rail -Glass [6000747]_[5366988] 4
+    6400238: Railing Single Bar Hand Rail -Glass [6000747]_[5366990]
+    6400240: Railing Single Bar Hand Rail -Glass [6000747]_[5366990] 1
+    6400242: Railing Single Bar Hand Rail -Glass [6009470]
+    6400244: Railing Single Bar Hand Rail -Glass [6009470]_[5366988]
+    6400246: Railing Single Bar Hand Rail -Glass [6009470]_[5366988] 1
+    6400248: Railing Single Bar Hand Rail -Glass [6009470]_[5366988] 10
+    6400250: Railing Single Bar Hand Rail -Glass [6009470]_[5366988] 11
+    6400252: Railing Single Bar Hand Rail -Glass [6009470]_[5366988] 12
+    6400254: Railing Single Bar Hand Rail -Glass [6009470]_[5366988] 2
+    6400256: Railing Single Bar Hand Rail -Glass [6009470]_[5366988] 3
+    6400258: Railing Single Bar Hand Rail -Glass [6009470]_[5366988] 4
+    6400260: Railing Single Bar Hand Rail -Glass [6009470]_[5366988] 5
+    6400262: Railing Single Bar Hand Rail -Glass [6009470]_[5366988] 6
+    6400264: Railing Single Bar Hand Rail -Glass [6009470]_[5366988] 7
+    6400266: Railing Single Bar Hand Rail -Glass [6009470]_[5366988] 8
+    6400268: Railing Single Bar Hand Rail -Glass [6009470]_[5366988] 9
+    6400270: Railing Single Bar Hand Rail -Glass [6009470]_[5366990]
+    6400272: Rectangular Mullion 2.5" x 5" rectangular [6000062]
+    6400274: Rectangular Mullion 2.5" x 5" rectangular [6000063]
+    6400276: Rectangular Mullion 2.5" x 5" rectangular [6000064]
+    6400278: Rectangular Mullion 2.5" x 5" rectangular [6000065]
+    6400280: Rectangular Mullion 2.5" x 5" rectangular [6000066]
+    6400282: Rectangular Mullion 2.5" x 5" rectangular [6000067]
+    6400284: Rectangular Mullion 2.5" x 5" rectangular [6000092]
+    6400286: Rectangular Mullion 2.5" x 5" rectangular [6000093]
+    6400288: Rectangular Mullion 2.5" x 5" rectangular [6000094]
+    6400290: Rectangular Mullion 2.5" x 5" rectangular [6000095]
+    6400292: Rectangular Mullion 2.5" x 5" rectangular [6000096]
+    6400294: Rectangular Mullion 2.5" x 5" rectangular [6000097]
+    6400296: Rectangular Mullion 2.5" x 5" rectangular [6000098]
+    6400298: Rectangular Mullion 2.5" x 5" rectangular [6000099]
+    6400300: Rectangular Mullion 2.5" x 5" rectangular [6000100]
+    6400302: Rectangular Mullion 2.5" x 5" rectangular [6000101]
+    6400304: Rectangular Mullion 2.5" x 5" rectangular [6000102]
+    6400306: Rectangular Mullion 2.5" x 5" rectangular [6000103]
+    6400308: Rectangular Mullion 2.5" x 5" rectangular [6000104]
+    6400310: Rectangular Mullion 2.5" x 5" rectangular [6000105]
+    6400312: Rectangular Mullion 2.5" x 5" rectangular [6000106]
+    6400314: Rectangular Mullion 2.5" x 5" rectangular [6000107]
+    6400316: Rectangular Mullion 2.5" x 5" rectangular [6000108]
+    6400318: Rectangular Mullion 2.5" x 5" rectangular [6000109]
+    6400320: Rectangular Mullion 2.5" x 5" rectangular [6000110]
+    6400322: Rectangular Mullion 2.5" x 5" rectangular [6000111]
+    6400324: Rectangular Mullion 2.5" x 5" rectangular [6000133]
+    6400326: Rectangular Mullion 2.5" x 5" rectangular [6000134]
+    6400328: Rectangular Mullion 2.5" x 5" rectangular [6000135]
+    6400330: Rectangular Mullion 2.5" x 5" rectangular [6000136]
+    6400332: Rectangular Mullion 2.5" x 5" rectangular [6000137]
+    6400334: Rectangular Mullion 2.5" x 5" rectangular [6000138]
+    6400336: Rectangular Mullion 2.5" x 5" rectangular [6000139]
+    6400338: Rectangular Mullion 2.5" x 5" rectangular [6000140]
+    6400340: Rectangular Mullion 2.5" x 5" rectangular [6000141]
+    6400342: Rectangular Mullion 2.5" x 5" rectangular [6000142]
+    6400344: Rectangular Mullion 2.5" x 5" rectangular [6000177]
+    6400346: Rectangular Mullion 2.5" x 5" rectangular [6000178]
+    6400348: Rectangular Mullion 2.5" x 5" rectangular [6000179]
+    6400350: Rectangular Mullion 2.5" x 5" rectangular [6000180]
+    6400352: Rectangular Mullion 2.5" x 5" rectangular [6000181]
+    6400354: Rectangular Mullion 2.5" x 5" rectangular [6000182]
+    6400356: Rectangular Mullion 2.5" x 5" rectangular [6000183]
+    6400358: Rectangular Mullion 2.5" x 5" rectangular [6000184]
+    6400360: Rectangular Mullion 2.5" x 5" rectangular [6000185]
+    6400362: Rectangular Mullion 2.5" x 5" rectangular [6000186]
+    6400364: Rectangular Mullion 2.5" x 5" rectangular [6000187]
+    6400366: Rectangular Mullion 2.5" x 5" rectangular [6000188]
+    6400368: Rectangular Mullion 2.5" x 5" rectangular [6000189]
+    6400370: Rectangular Mullion 2.5" x 5" rectangular [6000190]
+    6400372: Rectangular Mullion 2.5" x 5" rectangular [6000191]
+    6400374: Rectangular Mullion 2.5" x 5" rectangular [6000192]
+    6400376: Rectangular Mullion 2.5" x 5" rectangular [6000193]
+    6400378: Rectangular Mullion 2.5" x 5" rectangular [6000194]
+    6400380: Rectangular Mullion 2.5" x 5" rectangular [6000195]
+    6400382: Rectangular Mullion 2.5" x 5" rectangular [6000196]
+    6400384: Rectangular Mullion 2.5" x 5" rectangular [6000197]
+    6400386: Rectangular Mullion 2.5" x 5" rectangular [6000198]
+    6400388: Rectangular Mullion 2.5" x 5" rectangular [6000199]
+    6400390: Rectangular Mullion 2.5" x 5" rectangular [6000200]
+    6400392: Rectangular Mullion 2.5" x 5" rectangular [6000201]
+    6400394: Rectangular Mullion 2.5" x 5" rectangular [6000202]
+    6400396: Rectangular Mullion 2.5" x 5" rectangular [6000203]
+    6400398: Rectangular Mullion 2.5" x 5" rectangular [6000204]
+    6400400: Rectangular Mullion 2.5" x 5" rectangular [6000224]
+    6400402: Rectangular Mullion 2.5" x 5" rectangular [6000225]
+    6400404: Rectangular Mullion 2.5" x 5" rectangular [6000226]
+    6400406: Rectangular Mullion 2.5" x 5" rectangular [6000227]
+    6400408: Rectangular Mullion 2.5" x 5" rectangular [6002009]
+    6400410: Rectangular Mullion 2.5" x 5" rectangular [6002010]
+    6400412: Rectangular Mullion 5" x12" square [6000068]
+    6400414: Rectangular Mullion 5" x12" square [6000069]
+    6400416: Rectangular Mullion 5" x12" square [6000070]
+    6400418: Rectangular Mullion 5" x12" square [6000071]
+    6400420: Rectangular Mullion 5" x12" square [6000112]
+    6400422: Rectangular Mullion 5" x12" square [6000113]
+    6400424: Rectangular Mullion 5" x12" square [6000114]
+    6400426: Rectangular Mullion 5" x12" square [6000115]
+    6400428: Rectangular Mullion 5" x12" square [6000116]
+    6400430: Rectangular Mullion 5" x12" square [6000117]
+    6400432: Rectangular Mullion 5" x12" square [6000118]
+    6400434: Rectangular Mullion 5" x12" square [6000119]
+    6400436: Rectangular Mullion 5" x12" square [6000120]
+    6400438: Rectangular Mullion 5" x12" square [6000121]
+    6400440: Rectangular Mullion 5" x12" square [6000122]
+    6400442: Rectangular Mullion 5" x12" square [6000143]
+    6400444: Rectangular Mullion 5" x12" square [6000144]
+    6400446: Rectangular Mullion 5" x12" square [6000145]
+    6400448: Rectangular Mullion 5" x12" square [6000146]
+    6400450: Rectangular Mullion 5" x12" square [6000147]
+    6400452: Rectangular Mullion 5" x12" square [6000148]
+    6400454: Rectangular Mullion 5" x12" square [6000205]
+    6400456: Rectangular Mullion 5" x12" square [6000206]
+    6400458: Rectangular Mullion 5" x12" square [6000207]
+    6400460: Rectangular Mullion 5" x12" square [6000208]
+    6400462: Rectangular Mullion 5" x12" square [6000209]
+    6400464: Rectangular Mullion 5" x12" square [6000210]
+    6400466: Rectangular Mullion 5" x12" square [6000211]
+    6400468: Rectangular Mullion 5" x12" square [6000212]
+    6400470: Rectangular Mullion 5" x12" square [6000213]
+    6400472: Rectangular Mullion 5" x12" square [6000214]
+    6400474: Rectangular Mullion 5" x12" square [6000215]
+    6400476: Rectangular Mullion 5" x12" square [6000216]
+    6400478: Rectangular Mullion 5" x12" square [6000217]
+    6400480: Rectangular Mullion 5" x12" square [6000218]
+    6400482: Rectangular Mullion 5" x12" square [6000219]
+    6400484: Rectangular Mullion 5" x12" square [6000228]
+    6400486: Rectangular Mullion 5" x12" square [6000229]
+    6400488: Rectangular Mullion 5" x12" square [6000230]
+    6400490: Rectangular Mullion 5" x12" square [6002011]
+    6400492: System Panel Glazed [6000057]
+    6400494: System Panel Glazed [6000059]
+    6400496: System Panel Glazed [6000061]
+    6400498: System Panel Glazed [6000073]
+    6400500: System Panel Glazed [6000077]
+    6400502: System Panel Glazed [6000079]
+    6400504: System Panel Glazed [6000081]
+    6400506: System Panel Glazed [6000083]
+    6400508: System Panel Glazed [6000085]
+    6400510: System Panel Glazed [6000089]
+    6400512: System Panel Glazed [6000091]
+    6400514: System Panel Glazed [6000124]
+    6400516: System Panel Glazed [6000128]
+    6400518: System Panel Glazed [6000130]
+    6400520: System Panel Glazed [6000132]
+    6400522: System Panel Glazed [6000150]
+    6400524: System Panel Glazed [6000152]
+    6400526: System Panel Glazed [6000154]
+    6400528: System Panel Glazed [6000156]
+    6400530: System Panel Glazed [6000158]
+    6400532: System Panel Glazed [6000160]
+    6400534: System Panel Glazed [6000162]
+    6400536: System Panel Glazed [6000164]
+    6400538: System Panel Glazed [6000166]
+    6400540: System Panel Glazed [6000168]
+    6400542: System Panel Glazed [6000170]
+    6400544: System Panel Glazed [6000172]
+    6400546: System Panel Glazed [6000174]
+    6400548: System Panel Glazed [6000176]
+    6400550: System Panel Glazed [6000221]
+    6400552: System Panel Glazed [6002008]
+    6400554: System Panel Glazed [6002065]
+    6400556: TG1_SingleGlass_CurtainWall_HOK_I Generic [6000075]
+    6400558: TG1_SingleGlass_CurtainWall_HOK_I Generic [6000087]
+    6400560: TG1_SingleGlass_CurtainWall_HOK_I Generic [6000126]
+    6400562: tv1 tv [6000884]
+    6400564: tv10 tv [6000936]
+    6400566: tv2 tv [6000897]
+    6400568: tv3 tv [6000910]
+    6400570: tv4 tv [6000923]
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -1319,7 +1605,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     useSRGBMaterialColor: 1
     importVisibility: 1
     importBlendShapes: 1

@@ -16,7 +16,7 @@ public static class GetNRC
         if (fp != null)
         {
             JSONNode temp = fp.Properties["props"];
-            Debug.Log("testing");
+            //Debug.Log("testing");
             foreach (var v in temp.Values)
             {
                 if (v["name"] == "Absorptance")
