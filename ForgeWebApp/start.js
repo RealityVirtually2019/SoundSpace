@@ -205,6 +205,20 @@ app.get('/api/forge/modelderivative/:urn', function (req, res) {
     var urn = req.params.urn;
     var format_type = 'svf';
     var format_views = ['2d', '3d'];
+
+    // // Initialize Firebase
+    // var config = {
+    //     apiKey: "AIzaSyDAlcCuLe_5kZdKte0a3tb-s0plFEDHdfY",
+    //     authDomain: "soundspace-ae6e9.firebaseapp.com",
+    //     databaseURL: "https://soundspace-ae6e9.firebaseio.com",
+    //     projectId: "soundspace-ae6e9",
+    //     storageBucket: "soundspace-ae6e9.appspot.com",
+    //     messagingSenderId: "582427693879"
+    // };
+    // firebase.initializeApp(config);
+
+    // var database = firebase.database();
+
     Axios({
         method: 'POST',
         url: 'https://developer.api.autodesk.com/modelderivative/v2/designdata/job',
@@ -229,6 +243,21 @@ app.get('/api/forge/modelderivative/:urn', function (req, res) {
         .then(function (response) {
             // Success
             console.log(response);
+  
+            // database.ref().child('/Projects/' + req.file.originalname).update({
+        
+            //   //SCHEMA
+            //   projectName: req.file.originalname,
+            //   urn: urn,
+            //   token: access_token,
+          
+            // });
+
+            // send this data off to firebase
+            console.log("Adam: ");
+            console.log("Project Name:" + req.file.originalname);
+            console.log("Token:" + access_token);
+            console.log("URN:" + urn);
             res.redirect('/viewer.html?urn=' + urn);
         })
         .catch(function (error) {
