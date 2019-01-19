@@ -122,6 +122,7 @@ public class WaveEmitter : MonoBehaviour
                 {
                     Destroy(EmptyRayHolders[m]);
                 }
+                //Destroy(this);
                 hasBeenPressed = 0;
 
             }

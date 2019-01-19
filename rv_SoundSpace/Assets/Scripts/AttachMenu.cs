@@ -24,8 +24,8 @@ public class AttachMenu : MonoBehaviour
 
         //}
 
-        GameObject controller = GameObject.Find("1118/1627/0/LeftController");
-        transform.SetParent(controller.transform);
+        //GameObject controller = GameObject.Find("1118/1627/0/LeftController");
+        //transform.SetParent(controller.transform);
 
     }
     //1118/1627/0/LeftController
