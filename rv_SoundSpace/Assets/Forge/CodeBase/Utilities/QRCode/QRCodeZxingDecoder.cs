@@ -17,7 +17,7 @@ using ZXing; // https://github.com/micjahn/ZXing.Net
 using ZXing.Common;
 using ZXing.QrCode;
 #endif
-
+/*
 namespace Autodesk.Forge.ARKit {
 
 	public partial class QRCodeZxingDecoder :  QRCodeDecoderBase {
@@ -130,7 +130,7 @@ namespace Autodesk.Forge.ARKit {
 					ReturnCodabarStartEnd =true,
 					PureBarcode =false
 				}
-			}*/ ;
+			}*//* ;
 			var result =reader.Decode (pixels, _wct.width, _wct.height) ;
 			if ( result != null && _photoTaken != null ) {
 				UnityMainThreadDispatcher.Instance ().Enqueue (() => {
@@ -164,3 +164,4 @@ namespace Autodesk.Forge.ARKit {
 #endif
 
 }
+*/

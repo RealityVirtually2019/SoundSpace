@@ -16,12 +16,12 @@ using UnityEngine.XR.WSA.WebCam;
 #else
 using UnityEngine.VR.WSA.WebCam;
 #endif
-using ZXing; // https://github.com/micjahn/ZXing.Net-WINMD
-using ZXing.Common;
-using ZXing.QrCode;
+//using ZXing; // https://github.com/micjahn/ZXing.Net-WINMD
+//using ZXing.Common;
+//using ZXing.QrCode;
 #endif
 
-
+/*
 namespace Autodesk.Forge.ARKit {
 
 #if !UNITY_EDITOR && UNITY_WSA
@@ -145,3 +145,5 @@ namespace Autodesk.Forge.ARKit {
 #endif
 
 }
+
+    */

@@ -7,6 +7,7 @@ public class Raytrace1 : MonoBehaviour
     public int lengthOfLineRenderer = 20;
 
     public int counter = 0;
+    public int createMeshCounter = 0; //Temporary value to check from other script
 
     public int numOfVectors = 2562; //2562
 
@@ -21,7 +22,7 @@ public class Raytrace1 : MonoBehaviour
     public Vector3 TravelVector = new Vector3(1, 0, 0);
     public Vector3[] points = new Vector3[20];
     public Vector3[] TravelVectors = new Vector3[2562]; //2562
-
+    public float stepFactor = 0.1f; //distance per step
 
     void Start()
     {
@@ -2602,10 +2603,10 @@ public class Raytrace1 : MonoBehaviour
 
         if (hasBeenPressed == 1)
         {
-
+            createMeshCounter++; //temporary to help other script
             for (int m = 0; m < numOfVectors; m++)
             {
-
+                
 
                 LineRenderer lineRenderer = EmptyRayHolders[m].GetComponent<LineRenderer>();
 
@@ -2624,7 +2625,7 @@ public class Raytrace1 : MonoBehaviour
 
 
                 RaycastHit hit;
-                if (Physics.Raycast(OldPosition, TravelVectors[m], out hit, 1))
+                if (Physics.Raycast(OldPosition, TravelVectors[m], out hit, stepFactor))
                 {
                     TravelVectors[m] = Vector3.Reflect(TravelVectors[m], hit.normal);
                     //Debug.Log(hit.normal);
@@ -2641,9 +2642,9 @@ public class Raytrace1 : MonoBehaviour
                 ////change TravelVector to this new vector
 
                 // Change the NewPosition Vector's x and y components
-                NewPosition.x = OldPosition.x + TravelVectors[m].x;
-                NewPosition.y = OldPosition.y + TravelVectors[m].y;
-                NewPosition.z = OldPosition.z + TravelVectors[m].z;
+                NewPosition.x = OldPosition.x + TravelVectors[m].x * stepFactor;
+                NewPosition.y = OldPosition.y + TravelVectors[m].y * stepFactor;
+                NewPosition.z = OldPosition.z + TravelVectors[m].z * stepFactor;
 
 
 
@@ -2653,6 +2654,7 @@ public class Raytrace1 : MonoBehaviour
             }
         }
         counter++;
+
     }
 
     public void MakeNoise()
@@ -2682,5 +2684,15 @@ public class Raytrace1 : MonoBehaviour
             //    myarrays[i][j] = new Vector3(0, 0, 0);
             //}
         }
+    }
+
+    public Vector3[] GetVectorsListAtIndex(int index)
+    {
+        Vector3[] vects = new Vector3[2562];
+        for (int i = 0; i < 2562; i++)
+        {
+            vects[i] = myarrays[i][1];
+        }
+        return vects;
     }
 }
