@@ -14,6 +14,6 @@ public class GetMicrophoneVolume : MonoBehaviour
     void Update()
     {
         
-        Debug.Log(MicInput.MicLoudness);
+        //Debug.Log(MicInput.MicLoudness);
     }
 }
