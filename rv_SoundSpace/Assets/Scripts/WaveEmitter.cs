@@ -84,7 +84,7 @@ public class WaveEmitter : MonoBehaviour
                 {
                     TravelVectors[m] = Vector3.Reflect(TravelVectors[m], hit.normal);
 
-                    Instantiate(spherePrefab, hit.point, Quaternion.Identity);
+                    //Instantiate(spherePrefab, hit.point, Quaternion.identity);
 
                     colorArrayAlpha[m] = colorArrayAlpha[m] - colorWallHitFalloff;
 
