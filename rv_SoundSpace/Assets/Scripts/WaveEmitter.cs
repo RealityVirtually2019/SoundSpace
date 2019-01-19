@@ -4,28 +4,40 @@ using UnityEngine;
 
 public class WaveEmitter : MonoBehaviour
 {
-    public int lengthOfLineRenderer = 20; // this corresponds to the number of positions on the line renderer
+
+    //Line Render Color
+
+    float colorCounter = 1.0f;
+    float colorFalloff = 0.002f;
+
+    public int pause = 0; //PAUSE THE GAME
     
+
+    public int lengthOfLineRenderer = 5; // The number of positions on the line renderer
+    public GameObject linePrefab; // reference the linestyle prefab
+
+    //General Variables
+
     public int counter = 0;  // global counting variable 
 
-    public int numOfVectors = 2562; // the number of mesh verticies... this number will change based on emitter throw angle
-
-    public GameObject linePrefab; // reference the linestyle
-
+    public int numOfVectors = 2562; // the number of mesh verticies... this number would change based on emitter throw angle
+    public float stepFactor = 0.5f; //distance per step... this decreases the size + speed, and increases the resolution
+    //public float stepFactor1 = 0.5f; //distance per step... this decreases the size + speed, and increases the resolution
     public int hasBeenPressed = 0; //check if mouse has been pressed, this could just be a boolean....
 
+
+    // Empty Arrays
+
     public Vector3[][] myarrays = new Vector3[2562][]; //the 3D Points. there are 2562 lines (numOfVectors) made up of 20 points (lengthOfLineRenderer) to make a line
+    public GameObject[] EmptyRayHolders; //Each line renderer requires its own GameObject. These are those gameobjects.
+    private Vector3[] TravelVectors; //Vectors set in the start below
 
-    public GameObject[] EmptyRayHolders; //
 
-    //private Vector3[] points = new Vector3[20];
-    private Vector3[] TravelVectors; 
-    public float stepFactor = 0.1f; //distance per step... also speed.
 
     void Start()
     {
 
-        TravelVectors = new Vector3[2562]; //2562
+        TravelVectors = new Vector3[numOfVectors]; //2562
 
         TravelVectors[0] = new Vector3(0f, 0f, 1f);
         TravelVectors[1] = new Vector3(0.89f, 0f, 0.45f);
@@ -2592,12 +2604,13 @@ public class WaveEmitter : MonoBehaviour
 
     }
 
-    void Update()
+    void FixedUpdate()
     {
-               
+
 
         if (hasBeenPressed == 1)
-        {           
+        {
+
             for (int m = 0; m < numOfVectors; m++)
             {
 
@@ -2625,33 +2638,54 @@ public class WaveEmitter : MonoBehaviour
                     //Debug.Log(hit.normal);
 
                 }
-                
+
 
                 // Change the NewPosition Vector's x and y components
-                NewPosition.x = OldPosition.x + TravelVectors[m].x * stepFactor;
-                NewPosition.y = OldPosition.y + TravelVectors[m].y * stepFactor;
-                NewPosition.z = OldPosition.z + TravelVectors[m].z * stepFactor;
-                
+                NewPosition.x = OldPosition.x + (TravelVectors[m].x * stepFactor);
+                NewPosition.y = OldPosition.y + (TravelVectors[m].y * stepFactor);
+                NewPosition.z = OldPosition.z + (TravelVectors[m].z * stepFactor);
 
+                Color c1 = new Color(1, 1, 1, colorCounter);
+                Color c2 = new Color(1, 1, 1, 0);
 
                 myarrays[m][lengthOfLineRenderer - 1] = NewPosition;
                 lineRenderer.SetPositions(myarrays[m]);
+                lineRenderer.SetColors(c2, c1);
+
+
+
 
             }
-            
-        }
-        counter++;
+            colorCounter = colorCounter - colorFalloff;
 
+            if (pause == 1) // to pause the game
+            {
+                hasBeenPressed = 0;
+            }
+
+            if (colorCounter < .01)
+            {
+                for (int m = 0; m < numOfVectors; m++)
+                {
+                    Destroy(EmptyRayHolders[m]);
+                }
+                hasBeenPressed = 0;
+
+            }
+            counter++;
+            //Debug.Log(Time.deltaTime);
+
+        }
     }
 
     public void MakeNoise()
     {
-        for (int x = 0; x < 2562; x++)
+        for (int x = 0; x < numOfVectors; x++)
         {
-            myarrays[x] = new Vector3[20];
-            for (int y = 0; y < 20; y++)
+            myarrays[x] = new Vector3[lengthOfLineRenderer];
+            for (int y = 0; y < lengthOfLineRenderer; y++)
             {
-                myarrays[x][y] = new Vector3(0, 0, 0);
+                myarrays[x][y] = new Vector3(0.5f, 0.5f, 0.5f); // change this variable to change where the sound is emitted
             }
         }
 
@@ -2669,8 +2703,8 @@ public class WaveEmitter : MonoBehaviour
 
     public Vector3[] GetVectorsListAtIndex(int index)
     {
-        Vector3[] vects = new Vector3[2562];
-        for (int i = 0; i < 2562; i++)
+        Vector3[] vects = new Vector3[numOfVectors];
+        for (int i = 0; i < numOfVectors; i++)
         {
             vects[i] = myarrays[i][1];
         }
