@@ -32,8 +32,8 @@ public class MeshWave : MonoBehaviour
 
 
         //create empty color list
-        Color[] colors = new Color[2562];
-        for (int i=0;i<2562;i++)
+        Color[] colors = new Color[TriangleList.GetVectorCount()];
+        for (int i=0;i< TriangleList.GetVectorCount(); i++)
         {
             colors[i] = new Color(0f, 0f, 1f, 0.4f);
         }

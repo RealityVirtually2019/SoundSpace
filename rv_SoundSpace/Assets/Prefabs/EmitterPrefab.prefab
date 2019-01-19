@@ -45,14 +45,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 850c62505effab64d83882420f9d7a14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lengthOfLineRenderer: 20
-  counter: 0
-  numOfVectors: 2562
+  pause: 0
+  lengthOfLineRenderer: 5
   linePrefab: {fileID: 4724163039135247707, guid: 13ec28240439fb8418e2ed5781195c45,
     type: 3}
+  counter: 0
+  numOfVectors: 2562
+  stepFactor: 0.01
   hasBeenPressed: 0
   EmptyRayHolders: []
-  stepFactor: 0.01
 --- !u!114 &4399313741191751520
 MonoBehaviour:
   m_ObjectHideFlags: 0
