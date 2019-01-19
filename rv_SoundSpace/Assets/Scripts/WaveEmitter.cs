@@ -4,27 +4,28 @@ using UnityEngine;
 
 public class WaveEmitter : MonoBehaviour
 {
-    public int lengthOfLineRenderer = 20;
+    public int lengthOfLineRenderer = 20; // this corresponds to the number of positions on the line renderer
     
-    public int counter = 0;   
+    public int counter = 0;  // global counting variable 
 
-    public int numOfVectors = 2562; //2562
+    public int numOfVectors = 2562; // the number of mesh verticies... this number will change based on emitter throw angle
 
-    public GameObject linePrefab;
+    public GameObject linePrefab; // reference the linestyle
 
-    public int hasBeenPressed = 0;
+    public int hasBeenPressed = 0; //check if mouse has been pressed, this could just be a boolean....
 
-    public Vector3[][] myarrays = new Vector3[2562][];
+    public Vector3[][] myarrays = new Vector3[2562][]; //the 3D Points. there are 2562 lines (numOfVectors) made up of 20 points (lengthOfLineRenderer) to make a line
 
-    public GameObject[] EmptyRayHolders;
+    public GameObject[] EmptyRayHolders; //
 
-    private Vector3 TravelVector = new Vector3(1, 0, 0);
-    private Vector3[] points = new Vector3[20];
-    private Vector3[] TravelVectors = new Vector3[2562]; //2562
-    public float stepFactor = 0.1f; //distance per step
+    //private Vector3[] points = new Vector3[20];
+    private Vector3[] TravelVectors; 
+    public float stepFactor = 0.1f; //distance per step... also speed.
 
     void Start()
     {
+
+        TravelVectors = new Vector3[2562]; //2562
 
         TravelVectors[0] = new Vector3(0f, 0f, 1f);
         TravelVectors[1] = new Vector3(0.89f, 0f, 0.45f);
@@ -2624,15 +2625,7 @@ public class WaveEmitter : MonoBehaviour
                     //Debug.Log(hit.normal);
 
                 }
-                //else
-                //{
-                //    Debug.Log("Did not Hit");
-                //}
-
-                ////if raycast = true
-                ////find raycast hit point and normal
-                ////vector3.reflect using normal @ point
-                ////change TravelVector to this new vector
+                
 
                 // Change the NewPosition Vector's x and y components
                 NewPosition.x = OldPosition.x + TravelVectors[m].x * stepFactor;
@@ -2645,6 +2638,7 @@ public class WaveEmitter : MonoBehaviour
                 lineRenderer.SetPositions(myarrays[m]);
 
             }
+            
         }
         counter++;
 
@@ -2664,18 +2658,12 @@ public class WaveEmitter : MonoBehaviour
         Debug.Log("MousePressed");
         hasBeenPressed = 1;
 
-        //myarrays = new Vector3[numOfVectors][];
 
         EmptyRayHolders = new GameObject[numOfVectors];
         for (int i = 0; i < numOfVectors; i++)
         {
             GameObject currentGameObject = Instantiate(linePrefab, new Vector3(0, 0, 0), Quaternion.identity);
             EmptyRayHolders[i] = currentGameObject;
-            //myarrays[i] = [new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0)];
-            //for (int j = 0; j < lengthOfLineRenderer; j++)
-            //{
-            //    myarrays[i][j] = new Vector3(0, 0, 0);
-            //}
         }
     }
 
