@@ -10,7 +10,7 @@ public static class GetNRC
     public static float getNRCFromCollider(Collider collider)
     {
 
-        float result = 0.1f;
+        float result = 0.5f;
         ForgeProperties fp = collider.gameObject.GetComponentInParent<ForgeProperties>();
                 
         if (fp != null)

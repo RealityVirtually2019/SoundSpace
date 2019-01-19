@@ -86,8 +86,8 @@ public class WaveEmitter : MonoBehaviour
 
                     //Instantiate(spherePrefab, hit.point, Quaternion.identity);
 
-                    colorArrayAlpha[m] = colorArrayAlpha[m] - colorWallHitFalloff;
-
+                    //colorArrayAlpha[m] = colorArrayAlpha[m] - colorWallHitFalloff;
+                    colorArrayAlpha[m] = colorArrayAlpha[m] * (1 - GetNRC.getNRCFromCollider(hit.collider));
 
                 }
 
@@ -103,6 +103,8 @@ public class WaveEmitter : MonoBehaviour
                 myarrays[m][lengthOfLineRenderer - 1] = NewPosition;
                 lineRenderer.SetPositions(myarrays[m]);
                 lineRenderer.SetColors(c2, c1);
+
+                //Set material color and opacity
 
 
                 colorArrayAlpha[m] = colorArrayAlpha[m] - colorFalloff;
