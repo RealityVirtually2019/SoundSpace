@@ -54,6 +54,11 @@ public class WaveEmitter : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown("space"))
+        {
+            PauseSound();
+        }
+
 
 
         if (hasBeenPressed == 1)
@@ -97,7 +102,7 @@ public class WaveEmitter : MonoBehaviour
                 NewPosition.y = OldPosition.y + (TravelVectors[m].y * stepFactor);
                 NewPosition.z = OldPosition.z + (TravelVectors[m].z * stepFactor);
 
-                Color c1 = new Color(1, 1, 1, colorArrayAlpha[m]);
+                Color c1 = new Color(.2f, .6f, 1, colorArrayAlpha[m]);
                 Color c2 = new Color(1, 1, 1, 0);
 
                 myarrays[m][lengthOfLineRenderer - 1] = NewPosition;
@@ -136,6 +141,7 @@ public class WaveEmitter : MonoBehaviour
 
     public void MakeNoise()
     {
+        //hasBeenPressed = 1;
         for (int x = 0; x < numOfVectors; x++)
         {
             myarrays[x] = new Vector3[5];
@@ -158,7 +164,20 @@ public class WaveEmitter : MonoBehaviour
         }
     }
 
-    public Vector3[] GetVectorsListAtIndex(int index)
+    public void PauseSound()
+    {
+        if (hasBeenPressed == 0)
+        {
+            hasBeenPressed = 1;
+        }
+        else
+        {
+            hasBeenPressed = 0;
+        }
+    }
+
+
+        public Vector3[] GetVectorsListAtIndex(int index)
     {
         Vector3[] vects = new Vector3[numOfVectors];
         for (int i = 0; i < numOfVectors; i++)
