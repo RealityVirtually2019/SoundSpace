@@ -2615,7 +2615,7 @@ MonoBehaviour:
   spherePrefab: {fileID: 0}
   counter: 0
   numOfVectors: 2562
-  stepFactor: 0.05
+  stepFactor: 0.01
   hasBeenPressed: 0
   EmptyRayHolders: []
 --- !u!114 &4399313741191751520
