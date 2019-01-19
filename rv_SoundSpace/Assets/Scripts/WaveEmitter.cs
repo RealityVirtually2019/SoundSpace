@@ -2638,7 +2638,7 @@ public class WaveEmitter : MonoBehaviour
                 NewPosition.x = OldPosition.x + TravelVectors[m].x * stepFactor;
                 NewPosition.y = OldPosition.y + TravelVectors[m].y * stepFactor;
                 NewPosition.z = OldPosition.z + TravelVectors[m].z * stepFactor;
-
+                
 
 
                 myarrays[m][lengthOfLineRenderer - 1] = NewPosition;

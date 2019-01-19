@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3257938179564292850}
   - component: {fileID: 6439270694528031462}
+  - component: {fileID: 4399313741191751520}
   m_Layer: 0
   m_Name: EmitterPrefab
   m_TagString: Untagged
@@ -51,3 +52,15 @@ MonoBehaviour:
   hasBeenPressed: 0
   EmptyRayHolders: []
   stepFactor: 0.1
+--- !u!114 &4399313741191751520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7024971291593200805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 383fbe58c78c6c9478e0d21e2937137a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
