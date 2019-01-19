@@ -8,7 +8,7 @@ public class WaveEmitter : MonoBehaviour
     //Line Render Color
 
     float colorCounter = 1.0f;
-    float colorFalloff = 0.005f;
+    float colorFalloff = 0.001f;
     float colorWallHitFalloff = 0.05f;
     float[] colorArrayAlpha = new float[2562];
 
@@ -84,7 +84,7 @@ public class WaveEmitter : MonoBehaviour
                 {
                     TravelVectors[m] = Vector3.Reflect(TravelVectors[m], hit.normal);
 
-                    Instantiate(spherePrefab, hit.point, Quaternion.identity);
+                    //Instantiate(spherePrefab, hit.point, Quaternion.identity);
 
                     //colorArrayAlpha[m] = colorArrayAlpha[m] - colorWallHitFalloff;
                     colorArrayAlpha[m] = colorArrayAlpha[m] * (1 - GetNRC.getNRCFromCollider(hit.collider));
@@ -124,7 +124,7 @@ public class WaveEmitter : MonoBehaviour
                 {
                     Destroy(EmptyRayHolders[m]);
                 }
-                //Destroy(this);
+                Destroy(gameObject);
                 hasBeenPressed = 0;
 
             }
@@ -141,7 +141,8 @@ public class WaveEmitter : MonoBehaviour
             myarrays[x] = new Vector3[5];
             for (int y = 0; y < 5; y++)
             {
-                myarrays[x][y] = new Vector3(0.5f, 0.5f, 0.5f); // change this variable to change where the sound is emitted
+                //myarrays[x][y] = new Vector3(0.5f, 0.5f, 0.5f); // change this variable to change where the sound is emitted
+                myarrays[x][y] = gameObject.transform.position; // change this variable to change where the sound is emitted
             }
         }
 
@@ -162,7 +163,7 @@ public class WaveEmitter : MonoBehaviour
         Vector3[] vects = new Vector3[numOfVectors];
         for (int i = 0; i < numOfVectors; i++)
         {
-            vects[i] = myarrays[i][1];
+            vects[i] = myarrays[i][1] - gameObject.transform.position;
         }
         return vects;
     }
