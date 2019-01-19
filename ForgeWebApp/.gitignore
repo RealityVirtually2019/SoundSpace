@@ -1,3 +1,4 @@
 /node_modules
-package-lock.json
-/tmp
+/.idea
+/routes/data
+/.vscode
