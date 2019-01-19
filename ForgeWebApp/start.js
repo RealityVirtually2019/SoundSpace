@@ -23,6 +23,7 @@
 var express = require('express');           // For web server
 var Axios = require('axios');               // A Promised base http client
 var bodyParser = require('body-parser');    // Receive JSON format
+require('dotenv').config();
 
 // Set up Express web server
 var app = express();
@@ -40,10 +41,8 @@ var server = app.listen(app.get('port'), function () {
 // Initialize the 2-legged OAuth2 client, and
 // set specific scopes
 //-------------------------------------------------------------------
-// var FORGE_CLIENT_ID = process.env.FORGE_CLIENT_ID;
-// var FORGE_CLIENT_SECRET = process.env.FORGE_CLIENT_SECRET;
-var FORGE_CLIENT_ID = "KlgAixlHZuMrFtkuXQemmPGoV1mGYGoz";
-var FORGE_CLIENT_SECRET = "vXnNP74no3YXIXVm";
+var FORGE_CLIENT_ID = process.env.FORGE_CLIENT_ID;
+var FORGE_CLIENT_SECRET = process.env.FORGE_CLIENT_SECRET;
 var access_token = '';
 var scopes = 'data:read data:write data:create bucket:create bucket:read';
 const querystring = require('querystring');
