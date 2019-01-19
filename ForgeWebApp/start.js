@@ -255,7 +255,7 @@ app.get('/api/forge/modelderivative/:urn', function (req, res) {
 
             // send this data off to firebase
             console.log("Adam: ");
-            console.log("Project Name:" + req.file.originalname);
+            // console.log("Project Name:" + req.file.originalname);
             console.log("Token:" + access_token);
             console.log("URN:" + urn);
             res.redirect('/viewer.html?urn=' + urn);
