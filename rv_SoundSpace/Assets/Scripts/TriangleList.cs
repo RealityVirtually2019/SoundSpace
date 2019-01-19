@@ -84,7 +84,7 @@ public static class TriangleList
         }
     }
 
-    public static Vector3[] getLowResVectors()
+    private static Vector3[] getLowResVectors()
 {
 	Vector3[] TravelVectors = new Vector3[2562];
         TravelVectors[0] = new Vector3(0f, 0f, 1f);
@@ -2652,7 +2652,7 @@ public static class TriangleList
 
 	return TravelVectors;
 }
-  public static Vector3[] getHighResVectors()
+    private static Vector3[] getHighResVectors()
 {
 	Vector3[] TravelVectors = new Vector3[10242];
 TravelVectors[0] = new Vector3(-0.00002f,2.5879e-6f,1.0f);
@@ -12899,7 +12899,7 @@ TravelVectors[10240] = new Vector3(0.203395f,-0.562585f,-0.801329f);
 TravelVectors[10241] = new Vector3(0.193103f,-0.594317f,-0.780704f);
 	return TravelVectors;
 }
-  public static Vector3[] getBeamVectors()
+    private static Vector3[] getBeamVectors()
 {
 	Vector3[] TravelVectors = new Vector3[1200];
 TravelVectors[0] = new Vector3(-0.006762f,0.999977f,-0.000903f);
