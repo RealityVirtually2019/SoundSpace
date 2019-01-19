@@ -496,6 +496,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   emitterPrefab: {fileID: 7024971291593200805, guid: 6d7400811ebb50240b77c7ee83294a4a,
     type: 3}
+  repeatEmitterPrefab: {fileID: 2661246846336162083, guid: 8e01c9dff156ac6459596c9edecdba32,
+    type: 3}
 --- !u!4 &1218698630
 Transform:
   m_ObjectHideFlags: 0
@@ -919,6 +921,10 @@ PrefabInstance:
     - target: {fileID: 1850730992894404, guid: d29bc40b7f3df26479d6a0aac211c355, type: 3}
       propertyPath: m_Name
       value: MixedRealityCameraParent
+      objectReference: {fileID: 0}
+    - target: {fileID: 1850730992894404, guid: d29bc40b7f3df26479d6a0aac211c355, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4541142303025740, guid: d29bc40b7f3df26479d6a0aac211c355, type: 3}
       propertyPath: m_LocalPosition.x

@@ -9,6 +9,7 @@ public class MainSoundControl : MonoBehaviour
 {
 
     public GameObject emitterPrefab;
+    public GameObject repeatEmitterPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +40,7 @@ public class MainSoundControl : MonoBehaviour
             Vector3 forward;
 
             if (eventData.state.sourcePose.TryGetPosition(out pos) && (eventData.state.sourcePose.TryGetForward(out forward)))
-                CreateEmitter(pos + offset + forward);
+                CreateRepeatEmitter(pos + offset + forward, emitterPrefab);
         }
             
     }
@@ -48,5 +49,12 @@ public class MainSoundControl : MonoBehaviour
     {
         GameObject newEmitter = Instantiate(emitterPrefab, position, Quaternion.identity);
         newEmitter.GetComponent<WaveEmitter>().MakeNoise();
+    }
+
+
+    public void CreateRepeatEmitter(Vector3 position, GameObject emitter)
+    {
+        GameObject newEmitter = Instantiate(repeatEmitterPrefab, position, Quaternion.identity);
+        newEmitter.GetComponent<RepeatEmitter>().startEmitting(emitter);
     }
 }

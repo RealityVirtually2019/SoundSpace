@@ -35,7 +35,9 @@ public class MeshWave : MonoBehaviour
         Color[] colors = new Color[TriangleList.GetVectorCount()];
         for (int i=0;i< TriangleList.GetVectorCount(); i++)
         {
-            colors[i] = new Color(0f, 0f, 1f, 0.4f);
+            float alpha = waveEmitter.colorArrayAlpha[i];
+            float maxAlpha = 1f;
+            colors[i] = new Color(0f, 0f, 1f, alpha * maxAlpha);
         }
         //
 
@@ -43,7 +45,16 @@ public class MeshWave : MonoBehaviour
         mesh.vertices = waveEmitter.GetVectorsListAtIndex(1);
         mesh.triangles = TriangleList.GetTriangleList();
         mesh.colors = colors;
+        
         mesh.RecalculateNormals();
+
+        Color c = transform.GetComponent<MeshRenderer>().material.color;
+        float a = waveEmitter.colorArrayAlpha[0];
+        float gloss = a * 0.2f;
+        c.a = waveEmitter.colorArrayAlpha[0];
+        c.r = 1-waveEmitter.colorArrayAlpha[0];
+        transform.GetComponent<MeshRenderer>().material.SetColor("_Color", c);
+        transform.GetComponent<MeshRenderer>().material.SetFloat("_Glossiness", gloss);
     }
        
     

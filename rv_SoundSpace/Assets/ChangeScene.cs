@@ -14,7 +14,7 @@ public class ChangeScene : MonoBehaviour
 
     IEnumerator Wait()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(10);
         SceneManager.LoadScene("MR_MediaLab", LoadSceneMode.Single);
         SplashVideo.SetActive(false);
     }
