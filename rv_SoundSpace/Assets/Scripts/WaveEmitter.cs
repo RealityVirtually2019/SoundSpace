@@ -8,13 +8,16 @@ public class WaveEmitter : MonoBehaviour
     //Line Render Color
 
     float colorCounter = 1.0f;
-    float colorFalloff = 0.002f;
+    float colorFalloff = 0.005f;
+    float colorWallHitFalloff = 0.05f;
+    float[] colorArrayAlpha = new float[2562];
 
     public int pause = 0; //PAUSE THE GAME
     
 
     public int lengthOfLineRenderer = 5; // The number of positions on the line renderer
     public GameObject linePrefab; // reference the linestyle prefab
+    public GameObject spherePrefab;
 
     //General Variables
 
@@ -37,8 +40,12 @@ public class WaveEmitter : MonoBehaviour
 
     void Start()
     {
-        //TriangleList.emitType = TriangleList.EmitType.Beam;
-        TravelVectors = TriangleList.GetVectorList();
+        for (int m = 0; m < numOfVectors; m++)
+        {
+            colorArrayAlpha[m] = 1.0f;
+        }
+            //TriangleList.emitType = TriangleList.EmitType.Beam;
+            TravelVectors = TriangleList.GetVectorList();
         numOfVectors = TriangleList.GetVectorCount();
         //myarrays = new Vector3[numOfVectors][];
 
@@ -76,7 +83,11 @@ public class WaveEmitter : MonoBehaviour
                 if (Physics.Raycast(OldPosition, TravelVectors[m], out hit, stepFactor))
                 {
                     TravelVectors[m] = Vector3.Reflect(TravelVectors[m], hit.normal);
-                    //Debug.Log(hit.normal);
+
+                    Instantiate(spherePrefab, hit.point, Quaternion.Identity);
+
+                    colorArrayAlpha[m] = colorArrayAlpha[m] - colorWallHitFalloff;
+
 
                 }
 
@@ -86,17 +97,18 @@ public class WaveEmitter : MonoBehaviour
                 NewPosition.y = OldPosition.y + (TravelVectors[m].y * stepFactor);
                 NewPosition.z = OldPosition.z + (TravelVectors[m].z * stepFactor);
 
-                Color c1 = new Color(1, 1, 1, colorCounter);
+                Color c1 = new Color(1, 1, 1, colorArrayAlpha[m]);
                 Color c2 = new Color(1, 1, 1, 0);
 
                 myarrays[m][lengthOfLineRenderer - 1] = NewPosition;
                 lineRenderer.SetPositions(myarrays[m]);
-                //lineRenderer.SetColors(c2, c1);
+                lineRenderer.SetColors(c2, c1);
 
 
-
+                colorArrayAlpha[m] = colorArrayAlpha[m] - colorFalloff;
 
             }
+            
             colorCounter = colorCounter - colorFalloff;
 
             if (pause == 1) // to pause the game
