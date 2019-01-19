@@ -8,19 +8,19 @@ public class Raytrace1 : MonoBehaviour
 
     public int counter = 0;
 
-    int numOfVectors = 2562; //2562
+    public int numOfVectors = 2562; //2562
 
     public GameObject go;
 
-    int hasBeenPressed = 0;
+    public int hasBeenPressed = 0;
 
-    Vector3[][] myarrays = new Vector3[2562][];
+    public Vector3[][] myarrays = new Vector3[2562][];
 
-    GameObject[] EmptyRayHolders;
+    public GameObject[] EmptyRayHolders;
 
-    Vector3 TravelVector = new Vector3(1, 0, 0);
-    Vector3[] points = new Vector3[20];
-    Vector3[] TravelVectors = new Vector3[2562]; //2562
+    public Vector3 TravelVector = new Vector3(1, 0, 0);
+    public Vector3[] points = new Vector3[20];
+    public Vector3[] TravelVectors = new Vector3[2562]; //2562
 
 
     void Start()
@@ -2596,34 +2596,8 @@ public class Raytrace1 : MonoBehaviour
         
         //If MouseButtonDown = True
         if (Input.GetMouseButtonDown(0))
-        {
-            
-            for (int x = 0; x < 2562; x++)
-            {
-                myarrays[x] = new Vector3[20];
-                for (int y = 0; y < 20; y++)
-                {
-                    myarrays[x][y] = new Vector3(0, 0, 0);
-                }
-            }
-
-            Debug.Log("MousePressed");
-            hasBeenPressed = 1;
-
-            //myarrays = new Vector3[numOfVectors][];
-
-            EmptyRayHolders = new GameObject[numOfVectors];
-            for (int i = 0; i < numOfVectors; i++)
-            {
-                GameObject currentGameObject = Instantiate(go, new Vector3(0, 0, 0), Quaternion.identity);
-                EmptyRayHolders[i] = currentGameObject;
-                //myarrays[i] = [new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0)];
-                //for (int j = 0; j < lengthOfLineRenderer; j++)
-                //{
-                //    myarrays[i][j] = new Vector3(0, 0, 0);
-                //}
-            }
-
+        {            
+            MakeNoise();
         }
 
         if (hasBeenPressed == 1)
@@ -2679,5 +2653,34 @@ public class Raytrace1 : MonoBehaviour
             }
         }
         counter++;
+    }
+
+    public void MakeNoise()
+    {
+        for (int x = 0; x < 2562; x++)
+        {
+            myarrays[x] = new Vector3[20];
+            for (int y = 0; y < 20; y++)
+            {
+                myarrays[x][y] = new Vector3(0, 0, 0);
+            }
+        }
+
+        Debug.Log("MousePressed");
+        hasBeenPressed = 1;
+
+        //myarrays = new Vector3[numOfVectors][];
+
+        EmptyRayHolders = new GameObject[numOfVectors];
+        for (int i = 0; i < numOfVectors; i++)
+        {
+            GameObject currentGameObject = Instantiate(go, new Vector3(0, 0, 0), Quaternion.identity);
+            EmptyRayHolders[i] = currentGameObject;
+            //myarrays[i] = [new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0),new Vector3(0, 0, 0)];
+            //for (int j = 0; j < lengthOfLineRenderer; j++)
+            //{
+            //    myarrays[i][j] = new Vector3(0, 0, 0);
+            //}
+        }
     }
 }
