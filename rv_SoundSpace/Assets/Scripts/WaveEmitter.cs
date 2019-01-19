@@ -10,7 +10,7 @@ public class WaveEmitter : MonoBehaviour
     float colorCounter = 1.0f;
     float colorFalloff = 0.001f;
     float colorWallHitFalloff = 0.05f;
-    float[] colorArrayAlpha = new float[2562];
+    public float[] colorArrayAlpha = new float[2562];
 
     public int pause = 0; //PAUSE THE GAME
     
