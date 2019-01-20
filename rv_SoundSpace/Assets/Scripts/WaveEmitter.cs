@@ -94,9 +94,14 @@ public class WaveEmitter : MonoBehaviour
                     Deconstruct.y = Deconstruct.y * .05f;
                     Deconstruct.z = Deconstruct.z * .05f;
 
+                    if (colorArrayAlpha[m] > .01)
+                    {
+                        GameObject ripple = Instantiate(spriteBillboardPrefab, hit.point + Deconstruct, Quaternion.identity);
+                        Destroy(ripple, 1);
+                    }
 
-                    GameObject ripple = Instantiate(spriteBillboardPrefab, hit.point + Deconstruct, Quaternion.identity);
-                    Destroy(ripple, 1);
+
+                    
 
 
                     colorArrayAlpha[m] = colorArrayAlpha[m] * (1 - GetNRC.getNRCFromCollider(hit.collider));
