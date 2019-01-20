@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.XR.WSA.Input;
+
 public class WaveEmitter : MonoBehaviour
 {
 
@@ -43,6 +45,10 @@ public class WaveEmitter : MonoBehaviour
 
     void Start()
     {
+        //Contoller events for thumbstick
+        InteractionManager.InteractionSourcePressed += OnControllerPressed;
+        InteractionManager.InteractionSourceUpdated += OnSourceUpdated;
+
         for (int m = 0; m < numOfVectors; m++)
         {
             colorArrayAlpha[m] = 1.0f;
@@ -53,6 +59,27 @@ public class WaveEmitter : MonoBehaviour
         //myarrays = new Vector3[numOfVectors][];
 
 
+    }
+
+    public void OnSourceUpdated(InteractionSourceUpdatedEventArgs eventData)
+    {
+        if (eventData.state.thumbstickPosition.x > 0.5)
+        {
+            forwards = 1;
+            hasBeenPressed = 1;
+        }else if (eventData.state.thumbstickPosition.x < -0.5)
+        {
+            forwards = 0;
+            hasBeenPressed = 1;
+        }
+    }
+
+    public void OnControllerPressed(InteractionSourcePressedEventArgs eventData)
+    {
+        if (eventData.pressType == InteractionSourcePressType.Thumbstick)
+        {
+            PauseSound();
+        }
     }
 
     void Update()
@@ -113,9 +140,12 @@ public class WaveEmitter : MonoBehaviour
 
                     float NRC = GetNRC.getNRCFromCollider(hit.collider);
 
+                    //If forwards, reduce vloume of hit ray according to NRC of surface
+                    if(forwards == 1)
+                        colorArrayAlpha[m] = colorArrayAlpha[m] * (1 - NRC);
+                    else
+                        colorArrayAlpha[m] = colorArrayAlpha[m] / (1 - NRC);
 
-
-                    colorArrayAlpha[m] = colorArrayAlpha[m] * (1 - NRC);
 
                     if (colorArrayAlpha[m] > .01)
                     {
