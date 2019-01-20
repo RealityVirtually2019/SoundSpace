@@ -2,37 +2,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.XR.WSA.Input;
+
+
 public class WaveEmitterBeam : MonoBehaviour
 {
 
-    //Line Render Color
-
+    //Line Render Colors
     float colorCounter = 1.0f;
     float colorFalloff = 0.001f;
     float colorWallHitFalloff = 0.05f;
     public float[] colorArrayAlpha = new float[1200];
 
-    public int pause = 0; //PAUSE THE GAME
-    
 
-    public int lengthOfLineRenderer = 5; // The number of positions on the line renderer
+    //GameControllers
+    public int pause = 0; //PAUSE THE GAME
+    public int forwards = 1; //1 = forwards, 0 = backwards
+   
+
+    //Referenced GameObjects+Prefabs    
     public GameObject linePrefab; // reference the linestyle prefab
-    public GameObject spherePrefab;
+    public GameObject spherePrefab; //the balls that hit the walls
+    public GameObject spriteBillboardPrefab; //the ripples that hit the walls
+    public GameObject spriteBillboardPrefab1; //the ripples that hit the walls
+    public GameObject spriteBillboardPrefab2; //the ripples that hit the walls
+
 
     //General Variables
-
     public int counter = 0;  // global counting variable 
-
+    public int lengthOfLineRenderer = 5; // The number of positions on the line renderer
+    public int hasBeenPressed = 0; //check if mouse has been pressed, this could just be a boolean....
     public int numOfVectors; // the number of mesh verticies... this number would change based on emitter throw angle
     public float stepFactor = 0.5f; //distance per step... this decreases the size + speed, and increases the resolution
-    //public float stepFactor1 = 0.5f; //distance per step... this decreases the size + speed, and increases the resolution
-    public int hasBeenPressed = 0; //check if mouse has been pressed, this could just be a boolean....
 
 
-    // Empty Arrays
-
+    // Empty Arrays to fill
     public Vector3[][] myarrays = new Vector3[1200][]; //the 3D Points. there are 2562 lines (numOfVectors) made up of 20 points (lengthOfLineRenderer) to make a line
-
     public GameObject[] EmptyRayHolders; //Each line renderer requires its own GameObject. These are those gameobjects.
     private Vector3[] TravelVectors; //Vectors set in the start below
 
@@ -40,22 +45,48 @@ public class WaveEmitterBeam : MonoBehaviour
 
     void Start()
     {
+        //Contoller events for thumbstick
+        InteractionManager.InteractionSourcePressed += OnControllerPressed;
+        InteractionManager.InteractionSourceUpdated += OnSourceUpdated;
+
         for (int m = 0; m < numOfVectors; m++)
         {
             colorArrayAlpha[m] = 1.0f;
         }
-            //TriangleList.emitType = TriangleList.EmitType.Beam;
-            TravelVectors = TriangleList.GetVectorList(TriangleList.EmitType.Beam);
+
+        TravelVectors = TriangleList.GetVectorList(TriangleList.EmitType.Beam);
         numOfVectors = TriangleList.GetVectorCount(TriangleList.EmitType.Beam);
-        //myarrays = new Vector3[numOfVectors][];
+
 
         Quaternion rot = gameObject.transform.rotation;
         for(int i = 0;i<numOfVectors;i++)
         {
             TravelVectors[i] = rot * TravelVectors[i];
         }
+    }
 
+    //Forward and backwards with thumb stick
+    public void OnSourceUpdated(InteractionSourceUpdatedEventArgs eventData)
+    {
+        if (eventData.state.thumbstickPosition.x > 0.5)
+        {
+            forwards = 1;
+            hasBeenPressed = 1;
+        }
+        else if (eventData.state.thumbstickPosition.x < -0.5)
+        {
+            forwards = 0;
+            hasBeenPressed = 1;
+        }
+    }
 
+    //Pause with thumbstick
+    public void OnControllerPressed(InteractionSourcePressedEventArgs eventData)
+    {
+        if (eventData.pressType == InteractionSourcePressType.Thumbstick)
+        {
+            PauseSound();
+        }
     }
 
     void Update()
@@ -63,6 +94,18 @@ public class WaveEmitterBeam : MonoBehaviour
         if (Input.GetKeyDown("space"))
         {
             PauseSound();
+        }
+
+        if (Input.GetKeyDown("r"))
+        {
+            if (forwards == 1)
+            {
+                forwards = 0;
+            }
+            else
+            {
+                forwards = 1;
+            }
         }
 
 
@@ -97,18 +140,61 @@ public class WaveEmitterBeam : MonoBehaviour
                 {
                     TravelVectors[m] = Vector3.Reflect(TravelVectors[m], hit.normal);
 
-                    //Instantiate(spherePrefab, hit.point, Quaternion.identity);
+                    Vector3 Deconstruct = hit.normal;
+                    Deconstruct.x = Deconstruct.x * .05f;
+                    Deconstruct.y = Deconstruct.y * .05f;
+                    Deconstruct.z = Deconstruct.z * .05f;
 
-                    //colorArrayAlpha[m] = colorArrayAlpha[m] - colorWallHitFalloff;
-                    colorArrayAlpha[m] = colorArrayAlpha[m] * (1 - GetNRC.getNRCFromCollider(hit.collider));
+                    float NRC = GetNRC.getNRCFromCollider(hit.collider);
 
+
+
+                    colorArrayAlpha[m] = colorArrayAlpha[m] * (1 - NRC);
+
+                    if (colorArrayAlpha[m] > .01)
+                    {
+                        if (NRC < .2)
+                        {
+                            GameObject ripple = Instantiate(spriteBillboardPrefab, hit.point + Deconstruct, Quaternion.identity);
+                            Destroy(ripple, 1);
+                        }
+                        else if (NRC > .2 && NRC < .6)
+                        {
+                            GameObject ripple = Instantiate(spriteBillboardPrefab1, hit.point + Deconstruct, Quaternion.identity);
+                            Destroy(ripple, 1);
+                        }
+                        else
+                        {
+                            GameObject ripple = Instantiate(spriteBillboardPrefab2, hit.point + Deconstruct, Quaternion.identity);
+                            Destroy(ripple, 1);
+                        }
+                    }
                 }
 
 
                 // Change the NewPosition Vector's x and y components
-                NewPosition.x = OldPosition.x + (TravelVectors[m].x * stepFactor);
-                NewPosition.y = OldPosition.y + (TravelVectors[m].y * stepFactor);
-                NewPosition.z = OldPosition.z + (TravelVectors[m].z * stepFactor);
+                if (forwards == 1)
+                {
+
+                    NewPosition.x = OldPosition.x + (TravelVectors[m].x * stepFactor);
+                    NewPosition.y = OldPosition.y + (TravelVectors[m].y * stepFactor);
+                    NewPosition.z = OldPosition.z + (TravelVectors[m].z * stepFactor);
+                }
+                else
+                {
+                    if (OldPosition == gameObject.transform.position)
+                    {
+                        NewPosition.x = OldPosition.x;
+                        NewPosition.y = OldPosition.y;
+                        NewPosition.z = OldPosition.z;
+                    }
+                    else
+                    {
+                        NewPosition.x = OldPosition.x - (TravelVectors[m].x * stepFactor);
+                        NewPosition.y = OldPosition.y - (TravelVectors[m].y * stepFactor);
+                        NewPosition.z = OldPosition.z - (TravelVectors[m].z * stepFactor);
+                    }
+                }
 
                 Color c1 = new Color(.2f, .6f, 1, colorArrayAlpha[m]);
                 Color c2 = new Color(1, 1, 1, 0);
@@ -119,11 +205,10 @@ public class WaveEmitterBeam : MonoBehaviour
 
                 //Set material color and opacity
 
-
                 colorArrayAlpha[m] = colorArrayAlpha[m] - colorFalloff;
 
             }
-            
+
             colorCounter = colorCounter - colorFalloff;
 
             if (pause == 1) // to pause the game

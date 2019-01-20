@@ -27,7 +27,7 @@ public class RepeatEmitter : MonoBehaviour
         if(emitType == TriangleList.EmitType.LowRes)
         {
             newEmitter.GetComponent<WaveEmitter>().MakeNoise();
-            StartCoroutine(emit(3));
+            //StartCoroutine(emit(3));
         } else
         {
             newEmitter.GetComponent<WaveEmitterBeam>().MakeNoise();

@@ -121,7 +121,7 @@ public class MainSoundControl : MonoBehaviour
                     Ray ray = new Ray(pos, forward);
                     if (Physics.Raycast(ray, out hit))
                     {
-                        hitPosition = hit.point;// + (1.6f * hit.normal);
+                        hitPosition = hit.point + (1.6f * hit.normal);
                     }    
                     CreateRepeatEmitter(hitPosition + offset, rot, emitterPrefab);
                 } else
