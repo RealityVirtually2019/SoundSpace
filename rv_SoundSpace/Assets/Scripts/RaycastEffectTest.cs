@@ -22,6 +22,8 @@ using HoloToolkit.Unity.InputModule;
 
 using Autodesk.Forge.ARKit;
 using SimpleJSON;
+using UnityEngine.XR.WSA.Input;
+using HoloToolkit.Unity;
 
 public class RaycastEffectTest : MonoBehaviour
 {

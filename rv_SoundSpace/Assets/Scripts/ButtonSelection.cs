@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class ButtonSelection : MonoBehaviour
@@ -8,9 +9,26 @@ public class ButtonSelection : MonoBehaviour
     private Color32 NotSelectedColor = new Color32(106, 106, 106, 255);
     private Color32 SelectedColor = new Color32(255, 0, 255, 255);
 
+    public Button SisterButton;
+
     public void OnClick()
     {
-        string name = EventSystem.current.currentSelectedGameObject.name;
-        Debug.Log(name);
+        var ClickedButton = EventSystem.current.currentSelectedGameObject;
+
+        var ClickedButtonisSelected = ClickedButton.transform.GetChild(0);
+
+        var sisterIsSelected = SisterButton.transform.GetChild(0);
+
+        //turn on or off isSelected panel of the button that you clicked on
+        if (ClickedButtonisSelected.gameObject.activeInHierarchy)
+        {
+            ClickedButtonisSelected.gameObject.SetActive(false);
+            sisterIsSelected.gameObject.SetActive(true);
+        }
+           else
+        {
+            ClickedButtonisSelected.gameObject.SetActive(true);
+            sisterIsSelected.gameObject.SetActive(false);
+        }
     }
 }
