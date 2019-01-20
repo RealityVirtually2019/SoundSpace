@@ -9,7 +9,7 @@ public class WaveEmitter : MonoBehaviour
 
     //Line Render Colors
     float colorCounter = 1.0f;
-    float colorFalloff = 0.001f;
+    float colorFalloff = 0.005f;
     float colorWallHitFalloff = 0.05f;
     public float[] colorArrayAlpha = new float[2562];
     
@@ -187,7 +187,7 @@ public class WaveEmitter : MonoBehaviour
                    // }
                 }
 
-                Color c1 = new Color(colorArrayAlpha[m], .6f, 1, colorArrayAlpha[m]*2);
+                Color c1 = new Color(0.5f * colorArrayAlpha[m], colorArrayAlpha[m], 1, colorArrayAlpha[m]*2);
                 Color c2 = new Color(1, 1, 1, 0);
 
                 myarrays[m][lengthOfLineRenderer - 1] = NewPosition;
