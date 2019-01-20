@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
-    <title>Forge Model Derivative API sample</title>
+    <title>Sound Spcae</title>
     <link rel="stylesheet" href="/css/jstree.style.min.css"/>
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="/css/bootstrap.min.css"> -->
     <!--<link rel="stylesheet" href="https://developer-stg.api.autodesk.com/viewingservice/v1/viewers/style.css"-->
     <!--type="text/css">-->
     <script language="JavaScript" src="/js/jquery.min.js"></script>
     <script language="JavaScript" src="/js/jquery.storageapi.min.js"></script>
     <script language="JavaScript" src="/js/scripts.js"></script>
     <script src="/js/jstree.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
+    <!-- <script src="/js/bootstrap.min.js"></script> -->
 
     <!-- for the viewer -->
     <!-- threejs no longer needed to be referenced 
@@ -24,85 +24,123 @@
     ?v=v2.10 -->
     <script src="https://developer.api.autodesk.com/modelderivative/v2/viewers/viewer3D.js?v=6.0"></script>
     <link rel="stylesheet" href="https://developer.api.autodesk.com/modelderivative/v2/viewers/style.min.css?v=6.0"/>
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <script language="JavaScript" src="/js/libraries/clipboard.min.js"></script>
 
     <link rel="stylesheet" href="/css/index.css"/>
+    <link rel="stylesheet" src="/css/style.css">
 </head>
 <body>
 <div class="container-fluid">
-    <div class="jumbotron" style="background-color: black">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">Sound Space</a>
+        
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <br>
+
+    <!-- <div class="jumbotron" style="background-color: black">
         <h1>Sound Space</h1>
-        <div class="row">
-            <div class="col-sm-3" style="height:40px; float: right;">
+    </div> -->
 
-                <a href="#" id="authenticate" class="btn btn-success btn-block">
-                    <span class="glyphicon glyphicon-user"></span>
-                    Log In
-                </a>
-            </div>
-            <div class="col-sm-3" style="height:40px">
-                <div id="wipVsStorage" class="btn btn-primary active" data-toggle="button" aria-pressed="false" autocomplete="off" style="font-size: 10pt; visibility: hidden;">
-                    <span id="wipVsStorageText">Use WIP (instead of Storage)</span>
-                </div>
-            </div>
+    <div class="row">
+        <div class="col-sm-1" style="height:40px; float: right;">
+
+            <a href="#" id="authenticate" class="btn btn-success btn-block">
+                <span class="glyphicon glyphicon-user"></span>
+                Log In
+            </a>
         </div>
-        <div class="row">
-            <div class="col-sm-3" style="height:40px">
-                <div id="progressInfo" class="btn btn-info" style="font-size: 10pt ">
-                    <span id="progressInfoText">Progress info</span>
-                    <span id="progressInfoIcon"></span>
-                </div>
+        <div class="col-sm-3" style="height:40px">
+            <div id="wipVsStorage" class="btn btn-primary active" data-toggle="button" aria-pressed="false" autocomplete="off" style="font-size: 10pt; visibility: hidden;">
+                <span id="wipVsStorageText">Use WIP (instead of Storage)</span>
             </div>
         </div>
-        <div class="row">
-
+    </div>
+    <div class="row">
+        <div class="col-sm-3" style="height:40px">
+            <div id="progressInfo" class="btn btn-info" style="font-size: 10pt ">
+                <span id="progressInfoText">Progress info</span>
+                <span id="progressInfoIcon"></span>
+            </div>
         </div>
-        <div class="row" style="background: white">
-            <div class="col-sm-3 forgeTreeContainer">
-                <div id="forgeFiles">
+    </div>
+    <div class="row">
+        <br>
 
-                </div>
-                <div id="forgeUpload" class="forgeControlContainer">
-                    <div style="display: inline-block">
-                        <a id="uploadFile" class="btn btn-warning" disabled>
-                            <span class="glyphicon glyphicon-open-file"></span>
-                            Upload attachment
-                        </a>
+    </div>
+    <div class="row" style="background: white">
+        <div class="col-sm-11">
+            <div class="row">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-6 forgeTreeContainer">
+                    <div id="forgeFiles">
+        
                     </div>
-                    <input type="file" id="forgeUploadHidden" name="file"/>
-                </div>
-            </div>
-            <div class="col-sm-4 forgeTreeContainer" style="position: relative">
-                <div id="forgeHierarchy" class="forgeControl"></div>
-                <div id="forgeFileOptions" class="forgeControlContainer" style="height:50px; overflow: hidden;">
-
-                    <div style="display: inline-block">
-                        <select id="forgeFormats" class="input-small form-control" style="width:90px">
-                        </select>
-                     </div>
-
-                    <div style="display: inline-block">
-                        <a id="downloadExport" class="btn btn-warning">
-                            <span class="glyphicon glyphicon-save-file"></span>
-                            Download
-                        </a>
-                    </div>
-
-                    <div style="display: inline-block">
-                        <a id="deleteManifest" class="btn btn-warning">
-                            <span class="glyphicon glyphicon-trash"></span>
-                            Delete
-                        </a>
+                    <div id="forgeUpload" class="forgeControlContainer">
+                        <div style="display: inline-block">
+                            <a id="uploadFile" class="btn btn-warning" disabled>
+                                <span class="glyphicon glyphicon-open-file"></span>
+                                Upload attachment
+                            </a>
+                        </div>
+                        <input type="file" id="forgeUploadHidden" name="file"/>
                     </div>
                 </div>
-                <div id="forgeProperties" class="forgeControl"></div>
+                <div class="col-sm-5 forgeTreeContainer" style="position: relative">
+                    <div id="forgeHierarchy" class="forgeControl"></div>
+                    <div id="forgeFileOptions" class="forgeControlContainer" style="height:50px; overflow: hidden;">
+        
+                        <div style="display: inline-block">
+                            <select id="forgeFormats" class="input-small form-control" style="width:90px">
+                            </select>
+                            </div>
+        
+                        <div style="display: inline-block">
+                            <a id="downloadExport" class="btn btn-warning">
+                                <span class="glyphicon glyphicon-save-file"></span>
+                                Download
+                            </a>
+                        </div>
+        
+                        <div style="display: inline-block">
+                            <a id="deleteManifest" class="btn btn-warning">
+                                <span class="glyphicon glyphicon-trash"></span>
+                                Delete
+                            </a>
+                        </div>
+                    </div>
+                    <div id="forgeProperties" class="forgeControl"></div>
+                </div>
             </div>
-
-            <div class="col-sm-5 forgeViewer">
-                <div id="forgeViewer"></div>
+            <br>
+            <div class="row">
+                    <div class="col-sm-1"></div>
+                <div class="col-sm-11 forgeViewer">
+                    <div id="forgeViewer"></div>
+                </div>
             </div>
         </div>
+
     </div>
 </div>
 
@@ -190,6 +228,10 @@
 <script>
     new Clipboard('.input-group-addon');
 </script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
 <iframe id="hiddenFrame" style="visibility: hidden" />
 

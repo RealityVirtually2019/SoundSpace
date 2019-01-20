@@ -6,16 +6,17 @@ using UnityEngine.EventSystems;
 
 public class ButtonSelection : MonoBehaviour
 {
-    private Color32 NotSelectedColor = new Color32(106, 106, 106, 255);
-    private Color32 SelectedColor = new Color32(255, 0, 255, 255);
-
     public Button SisterButton;
 
     public void OnClick()
     {
         var ClickedButton = EventSystem.current.currentSelectedGameObject;
+        var ClickedButtonisSelected;
 
-        var ClickedButtonisSelected = ClickedButton.transform.GetChild(0);
+        if(ClickedButton.transform.childCount > 0)
+        {
+            ClickedButtonisSelected = ClickedButton.transform.GetChild(0);
+        }
 
         var sisterIsSelected = SisterButton.transform.GetChild(0);
 
