@@ -150,7 +150,7 @@ namespace HoloToolkit.Unity.InputModule
                 //float leftY = Input.GetAxis(useCustomMapping ? LeftThumbstickY : XboxControllerMapping.GetMapping(ForwardMovement));
 
                 float leftTrigger = Input.GetAxis(InputMappingAxisUtility.CONTROLLER_LEFT_TRIGGER);
-
+                //float rightTrigger = Input.GetAxis(InputMappingAxisUtility.CONTROLLER_RIGHT_TRIGGER);
 
                 //if (currentPointingSource == null && leftY > 0.8 && Math.Abs(leftX) < 0.3)
                 if (currentPointingSource == null && leftTrigger > 0.8)

@@ -6,6 +6,7 @@ public class RepeatEmitter : MonoBehaviour
 {
 
     GameObject emitterPrefab;
+    TriangleList.EmitType emitType = TriangleList.EmitType.LowRes;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,12 +23,16 @@ public class RepeatEmitter : MonoBehaviour
     {
         emitterPrefab = emitter;
         GameObject newEmitter = Instantiate(emitterPrefab, gameObject.transform.position, gameObject.transform.rotation);
-        //newEmitter.GetComponent<WaveEmitter>().MakeNoise();
-        newEmitter.GetComponent<WaveEmitterBeam>().MakeNoise();
-
-        //StartCoroutine(emit(3));
-        //StartCoroutine(emit(6));
-
+        if(emitType == TriangleList.EmitType.LowRes)
+        {
+            newEmitter.GetComponent<WaveEmitter>().MakeNoise();
+            StartCoroutine(emit(3));
+        } else
+        {
+            newEmitter.GetComponent<WaveEmitterBeam>().MakeNoise();
+        }
+            
+       
     }
 
     IEnumerator emit(int seconds)

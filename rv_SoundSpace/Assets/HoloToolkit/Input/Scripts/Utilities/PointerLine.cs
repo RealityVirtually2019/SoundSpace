@@ -13,15 +13,15 @@ namespace HoloToolkit.Unity.InputModule
     {
         [Header("Colors")]
         [SerializeField]
-        [GradientDefault(GradientDefaultAttribute.ColorEnum.Blue, GradientDefaultAttribute.ColorEnum.White, 1f, 0.25f)]
+        [GradientDefault(GradientDefaultAttribute.ColorEnum.Blue, GradientDefaultAttribute.ColorEnum.White, 1f, 1f)] //changed from 0.25
         protected Gradient LineColorSelected;
 
         [SerializeField]
-        [GradientDefault(GradientDefaultAttribute.ColorEnum.Blue, GradientDefaultAttribute.ColorEnum.White, 1f, 0.5f)]
+        [GradientDefault(GradientDefaultAttribute.ColorEnum.Blue, GradientDefaultAttribute.ColorEnum.White, 1f, 1f)] //changed from 0.5
         protected Gradient LineColorValid;
 
         [SerializeField]
-        [GradientDefault(GradientDefaultAttribute.ColorEnum.Gray, GradientDefaultAttribute.ColorEnum.White, 1f, 0.5f)]
+        [GradientDefault(GradientDefaultAttribute.ColorEnum.Gray, GradientDefaultAttribute.ColorEnum.White, 1f, 1f)] //changed from 0.5
         protected Gradient LineColorNoTarget;
 
         [Range(5, 100)]

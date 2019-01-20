@@ -12,12 +12,13 @@ public class MainSoundControl : MonoBehaviour
     public GameObject emitterBeamPrefab;
     public GameObject repeatEmitterPrefab;
 
-    
+    TriangleList.EmitType emitType = TriangleList.EmitType.LowRes;
 
     // Start is called before the first frame update
     void Start()
     {
         InteractionManager.InteractionSourcePressed += OnControllerPressed;
+        InteractionManager.InteractionSourceUpdated += OnSourceUpdated;
     }
 
     // Update is called once per frame
@@ -27,11 +28,74 @@ public class MainSoundControl : MonoBehaviour
         {
             CreateEmitter(new Vector3(0, 0, 0));
         }
+
+        //var interactionSourceStates = InteractionManager.GetCurrentReading();
+        //foreach (var interactionSourceState in interactionSourceStates)
+        //{
+        //    if (interactionSourceState.source.handedness == InteractionSourceHandedness.Right)
+        //    {
+        //        Vector3 pos;
+        //        Vector3 forward;
+        //        if (interactionSourceState.sourcePose.TryGetPosition(out pos) && interactionSourceState.sourcePose.TryGetForward(out forward))
+        //        {
+        //            Debug.DrawLine(pos, pos + (5f * forward), Color.white,0.1f);
+
+        //        }
+        //    }
+        //}
+    }
+
+    public void OnSourceUpdated(InteractionSourceUpdatedEventArgs eventData)
+    {
+        if (eventData.state.source.handedness == InteractionSourceHandedness.Right && eventData.state.touchpadTouched)
+        {
+            Vector3 pos;
+            Vector3 forward;
+            Vector3 right;
+
+            if (eventData.state.sourcePose.TryGetPosition(out pos) && eventData.state.sourcePose.TryGetForward(out forward) && eventData.state.sourcePose.TryGetRight(out right))
+            {
+                forward = Quaternion.AngleAxis(35, right) * forward;
+                //Quaternion rotateDown = Quaternion.Euler(20f, 0, 0);
+                //forward = rotateDown * forward;
+                // Debug.DrawLine(pos, pos + (5f * forward), Color.white, 0.1f);
+                //change gameobject based on emittype
+                if (emitType == TriangleList.EmitType.LowRes)
+                {
+                    RaycastHit hit;
+                    Ray ray = new Ray(pos, forward);
+                    if (Physics.Raycast(ray, out hit))
+                    {
+                        LineRenderer line = GetComponent<LineRenderer>();
+
+                        if (line != null)
+                        {
+                            line.enabled = true;
+                            line.SetPosition(0, pos);
+                            line.SetPosition(1, hit.point);
+                        }
+                    }
+
+                }
+            }
+            
+        } else
+        {
+            LineRenderer line = GetComponent<LineRenderer>();
+            if (line != null)
+            {
+                line.enabled = false;
+            }
+        }
     }
 
     public void OnControllerPressed(InteractionSourcePressedEventArgs eventData)
     {
         //change gameobject based on emittype
+        if(emitType == TriangleList.EmitType.LowRes)
+        {
+            
+        }
 
         GameObject HMD = GameObject.Find("MixedRealityCameraParent");
         Vector3 offset = new Vector3(0, 0, 0);
@@ -39,14 +103,33 @@ public class MainSoundControl : MonoBehaviour
         {
             offset = HMD.transform.position;
         }
-        if(eventData.state.source.handedness == InteractionSourceHandedness.Right && (eventData.pressType == InteractionSourcePressType.Grasp))
+        if(eventData.state.source.handedness == InteractionSourceHandedness.Right && (eventData.pressType == InteractionSourcePressType.Touchpad))
         {
             Vector3 pos;
             Vector3 forward;
             Quaternion rot;
+            Vector3 right;
 
-            if (eventData.state.sourcePose.TryGetPosition(out pos) && (eventData.state.sourcePose.TryGetForward(out forward)) && eventData.state.sourcePose.TryGetRotation(out rot))
-                CreateRepeatEmitter(pos + offset + forward, rot, emitterBeamPrefab);
+            if (eventData.state.sourcePose.TryGetPosition(out pos) && (eventData.state.sourcePose.TryGetForward(out forward)) && eventData.state.sourcePose.TryGetRotation(out rot) && eventData.state.sourcePose.TryGetRight(out right))
+            {
+                Vector3 hitPosition = pos;
+                forward = Quaternion.AngleAxis(35, right) * forward;
+                //change gameobject based on emittype
+                if (emitType == TriangleList.EmitType.LowRes)
+                {                    
+                    RaycastHit hit;
+                    Ray ray = new Ray(pos, forward);
+                    if (Physics.Raycast(ray, out hit))
+                    {
+                        hitPosition = hit.point;// + (1.6f * hit.normal);
+                    }    
+                    CreateRepeatEmitter(hitPosition + offset, rot, emitterPrefab);
+                } else
+                {
+                    CreateRepeatEmitter(pos, rot, emitterBeamPrefab);
+                }
+            }
+                
         }
             
     }

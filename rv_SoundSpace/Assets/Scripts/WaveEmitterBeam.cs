@@ -189,7 +189,9 @@ public class WaveEmitterBeam : MonoBehaviour
         Vector3[] vects = new Vector3[numOfVectors];
         for (int i = 0; i < numOfVectors; i++)
         {
-            vects[i] = myarrays[i][1] - gameObject.transform.position;
+            Quaternion rot = Quaternion.Inverse(gameObject.transform.rotation);
+            vects[i] = rot * (myarrays[i][1] - gameObject.transform.position);
+            //vects[i] = myarrays[i][1] - gameObject.transform.position;
         }
         return vects;
     }

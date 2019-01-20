@@ -7,8 +7,11 @@ public class Billboard2 : MonoBehaviour
 
     void OnEnable()
     {
-        var m_CameraGO = GameObject.FindWithTag("MainCamera");
-        m_Camera = m_CameraGO.GetComponent<Camera>();
+
+        //var m_CameraGO = GameObject.FindWithTag("MainCamera");
+
+        //m_Camera = m_CameraGO.GetComponent<Camera>();
+        m_Camera = Camera.main;
     }
 
     //Orient the camera after all movement is completed this frame to avoid jittering
