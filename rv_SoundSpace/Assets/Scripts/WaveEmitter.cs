@@ -97,10 +97,12 @@ public class WaveEmitter : MonoBehaviour
 
                 }
 
-
+                //DONT HIT UI
+                int layerMask = 1 << 5;
+                layerMask = ~layerMask;
 
                 RaycastHit hit;
-                if (Physics.Raycast(OldPosition, TravelVectors[m], out hit, stepFactor))
+                if (Physics.Raycast(OldPosition, TravelVectors[m], out hit, stepFactor, layerMask))
                 {
                     TravelVectors[m] = Vector3.Reflect(TravelVectors[m], hit.normal);
 

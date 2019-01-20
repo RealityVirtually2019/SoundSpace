@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using UnityEngine.XR.WSA.Input;
+using UnityEngine.EventSystems;
 
 public class PointerLine : MonoBehaviour
 {
@@ -28,9 +29,15 @@ public class PointerLine : MonoBehaviour
                 {
                     forward = Quaternion.AngleAxis(35, right) * forward;
                     pos = pos + (0.035f * up);
+
+
+                    int layerMask = 1 << 5;
+                    //layerMask = ~layerMask;                
+
+
                     RaycastHit hit;
                     Ray ray = new Ray(pos, forward);
-                    if (Physics.Raycast(ray, out hit))
+                    if (Physics.Raycast(ray, out hit, 2f, layerMask))
                     {
                         LineRenderer line = GetComponent<LineRenderer>();
 
@@ -40,6 +47,14 @@ public class PointerLine : MonoBehaviour
                             line.SetPosition(0, pos);
                             line.SetPosition(1, hit.point);
                         }
+                    }else
+                    {
+                        LineRenderer line = GetComponent<LineRenderer>();
+                        if (line != null)
+                        {
+                            line.enabled = false;
+                        }
+
                     }
 
                 }
