@@ -91,11 +91,7 @@ public class MainSoundControl : MonoBehaviour
 
     public void OnControllerPressed(InteractionSourcePressedEventArgs eventData)
     {
-        //change gameobject based on emittype
-        if(emitType == TriangleList.EmitType.LowRes)
-        {
-            
-        }
+        
 
         GameObject HMD = GameObject.Find("MixedRealityCameraParent");
         Vector3 offset = new Vector3(0, 0, 0);
@@ -130,8 +126,21 @@ public class MainSoundControl : MonoBehaviour
                 }
             }
                 
+        } else if (eventData.pressType == InteractionSourcePressType.Menu)
+        {
+            WaveEmitterBeam[] beams = GameObject.FindObjectsOfType<WaveEmitterBeam>();
+            foreach(WaveEmitterBeam v in beams)
+            {
+                v.KillThisSound();
+            }
+            WaveEmitter[] spheres = GameObject.FindObjectsOfType<WaveEmitter>();
+            foreach (WaveEmitter v in spheres)
+            {
+                //v.KillThisSound();
+            }
         }
-            
+
+
     }
 
     public void CreateEmitter(Vector3 position)
