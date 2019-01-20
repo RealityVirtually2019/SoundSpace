@@ -151,12 +151,12 @@ public class WaveEmitter : MonoBehaviour
                     {
                         if (NRC < .3)
                         {
-                            GameObject ripple = Instantiate(spriteBillboardPrefab, hit.point + Deconstruct, Quaternion.identity);
+                            GameObject ripple = Instantiate(spriteBillboardPrefab1, hit.point + Deconstruct, Quaternion.identity);
                             Destroy(ripple, 1);
                         }
                         else
                         {
-                            GameObject ripple = Instantiate(spriteBillboardPrefab1, hit.point + Deconstruct, Quaternion.identity);
+                            GameObject ripple = Instantiate(spriteBillboardPrefab2, hit.point + Deconstruct, Quaternion.identity);
                             Destroy(ripple, 1);
                         }
                     }
