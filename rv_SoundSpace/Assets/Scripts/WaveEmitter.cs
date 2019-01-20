@@ -5,36 +5,37 @@ using UnityEngine;
 public class WaveEmitter : MonoBehaviour
 {
 
-    //Line Render Color
-
+    //Line Render Colors
     float colorCounter = 1.0f;
     float colorFalloff = 0.001f;
     float colorWallHitFalloff = 0.05f;
     public float[] colorArrayAlpha = new float[2562];
-
-    public int pause = 0; //PAUSE THE GAME
     
 
-    public int lengthOfLineRenderer = 5; // The number of positions on the line renderer
+    //GameControllers
+    public int pause = 0; //PAUSE THE GAME
+    public int forwards = 1; //1 = forwards, 0 = backwards
+
+
+    //Referenced GameObjects+Prefabs    
     public GameObject linePrefab; // reference the linestyle prefab
-    public GameObject spriteBillboardPrefab;
+    public GameObject spherePrefab; //the balls that hit the walls
+    public GameObject spriteBillboardPrefab; //the ripples that hit the walls
+
 
     //General Variables
-
     public int counter = 0;  // global counting variable 
-
+    public int lengthOfLineRenderer = 5; // The number of positions on the line renderer
+    public int hasBeenPressed = 0; //check if mouse has been pressed, this could just be a boolean....
     public int numOfVectors; // the number of mesh verticies... this number would change based on emitter throw angle
     public float stepFactor = 0.5f; //distance per step... this decreases the size + speed, and increases the resolution
-    //public float stepFactor1 = 0.5f; //distance per step... this decreases the size + speed, and increases the resolution
-    public int hasBeenPressed = 0; //check if mouse has been pressed, this could just be a boolean....
 
 
-    // Empty Arrays
-
+    // Empty Arrays to fill
     public Vector3[][] myarrays = new Vector3[2562][]; //the 3D Points. there are 2562 lines (numOfVectors) made up of 20 points (lengthOfLineRenderer) to make a line
-
     public GameObject[] EmptyRayHolders; //Each line renderer requires its own GameObject. These are those gameobjects.
     private Vector3[] TravelVectors; //Vectors set in the start below
+
 
 
 
@@ -99,20 +100,33 @@ public class WaveEmitter : MonoBehaviour
                         GameObject ripple = Instantiate(spriteBillboardPrefab, hit.point + Deconstruct, Quaternion.identity);
                         Destroy(ripple, 1);
                     }
-
-
-                    
-
-
                     colorArrayAlpha[m] = colorArrayAlpha[m] * (1 - GetNRC.getNRCFromCollider(hit.collider));
-
                 }
 
 
                 // Change the NewPosition Vector's x and y components
-                NewPosition.x = OldPosition.x + (TravelVectors[m].x * stepFactor);
-                NewPosition.y = OldPosition.y + (TravelVectors[m].y * stepFactor);
-                NewPosition.z = OldPosition.z + (TravelVectors[m].z * stepFactor);
+                if (forwards == 1)
+                {
+
+                    NewPosition.x = OldPosition.x + (TravelVectors[m].x * stepFactor);
+                    NewPosition.y = OldPosition.y + (TravelVectors[m].y * stepFactor);
+                    NewPosition.z = OldPosition.z + (TravelVectors[m].z * stepFactor);
+                }
+                else
+                {
+                    if (OldPosition == gameObject.transform.position)
+                    {
+                        NewPosition.x = OldPosition.x;
+                        NewPosition.y = OldPosition.y;
+                        NewPosition.z = OldPosition.z;
+                    }
+                    else
+                    {
+                        NewPosition.x = OldPosition.x - (TravelVectors[m].x * stepFactor);
+                        NewPosition.y = OldPosition.y - (TravelVectors[m].y * stepFactor);
+                        NewPosition.z = OldPosition.z - (TravelVectors[m].z * stepFactor);
+                    }
+                }
 
                 Color c1 = new Color(.2f, .6f, 1, colorArrayAlpha[m]);
                 Color c2 = new Color(1, 1, 1, 0);
@@ -122,8 +136,7 @@ public class WaveEmitter : MonoBehaviour
                 lineRenderer.SetColors(c2, c1);
 
                 //Set material color and opacity
-
-
+                
                 colorArrayAlpha[m] = colorArrayAlpha[m] - colorFalloff;
 
             }
@@ -185,11 +198,19 @@ public class WaveEmitter : MonoBehaviour
         else
         {
             hasBeenPressed = 0;
+            if (forwards == 1)
+            {
+                forwards = 0;
+            }
+            else
+            {
+                forwards = 1;
+            }
         }
     }
 
 
-        public Vector3[] GetVectorsListAtIndex(int index)
+    public Vector3[] GetVectorsListAtIndex(int index)
     {
         Vector3[] vects = new Vector3[numOfVectors];
         for (int i = 0; i < numOfVectors; i++)
