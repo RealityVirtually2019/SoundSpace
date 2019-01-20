@@ -160,12 +160,12 @@ public class WaveEmitterBeam : MonoBehaviour
                         }
                         else if (NRC > .2 && NRC < .6)
                         {
-                            GameObject ripple = Instantiate(spriteBillboardPrefab2, hit.point + Deconstruct, Quaternion.identity);
+                            GameObject ripple = Instantiate(spriteBillboardPrefab, hit.point + Deconstruct, Quaternion.identity);
                             Destroy(ripple, 1);
                         }
                         else
                         {
-                            GameObject ripple = Instantiate(spriteBillboardPrefab, hit.point + Deconstruct, Quaternion.identity);
+                            GameObject ripple = Instantiate(spriteBillboardPrefab2, hit.point + Deconstruct, Quaternion.identity);
                             Destroy(ripple, 1);
                         }
                     }
