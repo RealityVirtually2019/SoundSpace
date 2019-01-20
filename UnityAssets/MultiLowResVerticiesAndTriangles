@@ -1,0 +1,484 @@
+TravelVectors[0] = new Vector3(1f,0f,0f);
+TravelVectors[1] = new Vector3(0.447f,0f,0.894f);
+TravelVectors[2] = new Vector3(0.447f,0.851f,0.276f);
+TravelVectors[3] = new Vector3(0.447f,0.526f,-0.724f);
+TravelVectors[4] = new Vector3(0.447f,-0.526f,-0.724f);
+TravelVectors[5] = new Vector3(0.447f,-0.851f,0.276f);
+TravelVectors[6] = new Vector3(-0.447f,0.526f,0.724f);
+TravelVectors[7] = new Vector3(-0.447f,0.851f,-0.276f);
+TravelVectors[8] = new Vector3(-0.447f,0f,-0.894f);
+TravelVectors[9] = new Vector3(-0.447f,-0.851f,-0.276f);
+TravelVectors[10] = new Vector3(-0.447f,-0.526f,0.724f);
+TravelVectors[11] = new Vector3(-1f,0f,0f);
+TravelVectors[12] = new Vector3(0.851f,0f,0.526f);
+TravelVectors[13] = new Vector3(0.526f,0.5f,0.688f);
+TravelVectors[14] = new Vector3(0.851f,0.5f,0.162f);
+TravelVectors[15] = new Vector3(0.526f,0.809f,-0.263f);
+TravelVectors[16] = new Vector3(0.851f,0.309f,-0.425f);
+TravelVectors[17] = new Vector3(0.526f,0f,-0.851f);
+TravelVectors[18] = new Vector3(0.851f,-0.309f,-0.425f);
+TravelVectors[19] = new Vector3(0.526f,-0.809f,-0.263f);
+TravelVectors[20] = new Vector3(0.851f,-0.5f,0.162f);
+TravelVectors[21] = new Vector3(0.526f,-0.5f,0.688f);
+TravelVectors[22] = new Vector3(0f,-0.809f,0.588f);
+TravelVectors[23] = new Vector3(0f,-0.309f,0.951f);
+TravelVectors[24] = new Vector3(0f,0.309f,0.951f);
+TravelVectors[25] = new Vector3(0f,0.809f,0.588f);
+TravelVectors[26] = new Vector3(-0.526f,0f,0.851f);
+TravelVectors[27] = new Vector3(-0.526f,0.809f,0.263f);
+TravelVectors[28] = new Vector3(0f,1f,0f);
+TravelVectors[29] = new Vector3(0f,0.809f,-0.588f);
+TravelVectors[30] = new Vector3(-0.526f,0.5f,-0.688f);
+TravelVectors[31] = new Vector3(0f,0.309f,-0.951f);
+TravelVectors[32] = new Vector3(0f,-0.309f,-0.951f);
+TravelVectors[33] = new Vector3(-0.526f,-0.5f,-0.688f);
+TravelVectors[34] = new Vector3(0f,-0.809f,-0.588f);
+TravelVectors[35] = new Vector3(0f,-1f,0f);
+TravelVectors[36] = new Vector3(-0.526f,-0.809f,0.263f);
+TravelVectors[37] = new Vector3(-0.851f,-0.309f,0.425f);
+TravelVectors[38] = new Vector3(-0.851f,0.309f,0.425f);
+TravelVectors[39] = new Vector3(-0.851f,0.5f,-0.162f);
+TravelVectors[40] = new Vector3(-0.851f,0f,-0.526f);
+TravelVectors[41] = new Vector3(-0.851f,-0.5f,-0.162f);
+TravelVectors[42] = new Vector3(0.657f,0.717f,0.233f);
+TravelVectors[43] = new Vector3(0.727f,0.518f,0.45f);
+TravelVectors[44] = new Vector3(0.502f,0.717f,0.484f);
+TravelVectors[45] = new Vector3(0.968f,0f,0.251f);
+TravelVectors[46] = new Vector3(0.891f,0.267f,0.368f);
+TravelVectors[47] = new Vector3(0.968f,0.238f,0.077f);
+TravelVectors[48] = new Vector3(0.502f,0.238f,0.831f);
+TravelVectors[49] = new Vector3(0.727f,0.267f,0.632f);
+TravelVectors[50] = new Vector3(0.657f,0f,0.754f);
+TravelVectors[51] = new Vector3(0.657f,0.443f,-0.61f);
+TravelVectors[52] = new Vector3(0.727f,0.588f,-0.354f);
+TravelVectors[53] = new Vector3(0.502f,0.681f,-0.532f);
+TravelVectors[54] = new Vector3(0.891f,0.433f,-0.141f);
+TravelVectors[55] = new Vector3(0.968f,0.147f,-0.203f);
+TravelVectors[56] = new Vector3(0.502f,0.864f,0.03f);
+TravelVectors[57] = new Vector3(0.727f,0.684f,-0.059f);
+TravelVectors[58] = new Vector3(0.657f,-0.443f,-0.61f);
+TravelVectors[59] = new Vector3(0.727f,-0.155f,-0.668f);
+TravelVectors[60] = new Vector3(0.502f,-0.296f,-0.813f);
+TravelVectors[61] = new Vector3(0.891f,0f,-0.455f);
+TravelVectors[62] = new Vector3(0.968f,-0.147f,-0.203f);
+TravelVectors[63] = new Vector3(0.502f,0.296f,-0.813f);
+TravelVectors[64] = new Vector3(0.727f,0.155f,-0.668f);
+TravelVectors[65] = new Vector3(0.657f,-0.717f,0.233f);
+TravelVectors[66] = new Vector3(0.727f,-0.684f,-0.059f);
+TravelVectors[67] = new Vector3(0.502f,-0.864f,0.03f);
+TravelVectors[68] = new Vector3(0.891f,-0.433f,-0.141f);
+TravelVectors[69] = new Vector3(0.968f,-0.238f,0.077f);
+TravelVectors[70] = new Vector3(0.502f,-0.681f,-0.532f);
+TravelVectors[71] = new Vector3(0.727f,-0.588f,-0.354f);
+TravelVectors[72] = new Vector3(0.727f,-0.267f,0.632f);
+TravelVectors[73] = new Vector3(0.502f,-0.238f,0.831f);
+TravelVectors[74] = new Vector3(0.891f,-0.267f,0.368f);
+TravelVectors[75] = new Vector3(0.502f,-0.717f,0.484f);
+TravelVectors[76] = new Vector3(0.727f,-0.518f,0.45f);
+TravelVectors[77] = new Vector3(-0.252f,-0.443f,0.861f);
+TravelVectors[78] = new Vector3(0.009f,-0.588f,0.809f);
+TravelVectors[79] = new Vector3(-0.252f,-0.681f,0.687f);
+TravelVectors[80] = new Vector3(0.272f,-0.433f,0.859f);
+TravelVectors[81] = new Vector3(0.252f,-0.147f,0.957f);
+TravelVectors[82] = new Vector3(0.252f,-0.864f,0.436f);
+TravelVectors[83] = new Vector3(0.272f,-0.684f,0.677f);
+TravelVectors[84] = new Vector3(0.272f,0.684f,0.677f);
+TravelVectors[85] = new Vector3(0.252f,0.864f,0.436f);
+TravelVectors[86] = new Vector3(0.252f,0.147f,0.957f);
+TravelVectors[87] = new Vector3(0.272f,0.433f,0.859f);
+TravelVectors[88] = new Vector3(-0.252f,0.681f,0.687f);
+TravelVectors[89] = new Vector3(0.009f,0.588f,0.809f);
+TravelVectors[90] = new Vector3(-0.252f,0.443f,0.861f);
+TravelVectors[91] = new Vector3(-0.272f,0.155f,0.95f);
+TravelVectors[92] = new Vector3(-0.502f,0.296f,0.813f);
+TravelVectors[93] = new Vector3(-0.009f,0f,1f);
+TravelVectors[94] = new Vector3(-0.502f,-0.296f,0.813f);
+TravelVectors[95] = new Vector3(-0.272f,-0.155f,0.95f);
+TravelVectors[96] = new Vector3(-0.252f,0.955f,-0.155f);
+TravelVectors[97] = new Vector3(-0.272f,0.951f,0.146f);
+TravelVectors[98] = new Vector3(-0.502f,0.864f,-0.03f);
+TravelVectors[99] = new Vector3(-0.009f,0.951f,0.309f);
+TravelVectors[100] = new Vector3(0.252f,0.955f,0.155f);
+TravelVectors[101] = new Vector3(-0.502f,0.681f,0.532f);
+TravelVectors[102] = new Vector3(-0.272f,0.855f,0.441f);
+TravelVectors[103] = new Vector3(0.272f,0.855f,-0.441f);
+TravelVectors[104] = new Vector3(0.252f,0.681f,-0.687f);
+TravelVectors[105] = new Vector3(0.272f,0.951f,-0.146f);
+TravelVectors[106] = new Vector3(-0.252f,0.864f,-0.436f);
+TravelVectors[107] = new Vector3(0.009f,0.951f,-0.309f);
+TravelVectors[108] = new Vector3(-0.252f,0.147f,-0.957f);
+TravelVectors[109] = new Vector3(-0.272f,0.433f,-0.859f);
+TravelVectors[110] = new Vector3(-0.502f,0.238f,-0.831f);
+TravelVectors[111] = new Vector3(-0.009f,0.588f,-0.809f);
+TravelVectors[112] = new Vector3(0.252f,0.443f,-0.861f);
+TravelVectors[113] = new Vector3(-0.502f,0.717f,-0.484f);
+TravelVectors[114] = new Vector3(-0.272f,0.684f,-0.677f);
+TravelVectors[115] = new Vector3(0.273f,-0.155f,-0.95f);
+TravelVectors[116] = new Vector3(0.251f,-0.443f,-0.861f);
+TravelVectors[117] = new Vector3(0.273f,0.155f,-0.95f);
+TravelVectors[118] = new Vector3(-0.252f,-0.147f,-0.957f);
+TravelVectors[119] = new Vector3(0.009f,0f,-1f);
+TravelVectors[120] = new Vector3(-0.251f,-0.864f,-0.436f);
+TravelVectors[121] = new Vector3(-0.272f,-0.684f,-0.677f);
+TravelVectors[122] = new Vector3(-0.502f,-0.717f,-0.484f);
+TravelVectors[123] = new Vector3(-0.009f,-0.588f,-0.809f);
+TravelVectors[124] = new Vector3(0.252f,-0.681f,-0.687f);
+TravelVectors[125] = new Vector3(-0.502f,-0.238f,-0.831f);
+TravelVectors[126] = new Vector3(-0.272f,-0.433f,-0.859f);
+TravelVectors[127] = new Vector3(0.272f,-0.951f,-0.146f);
+TravelVectors[128] = new Vector3(0.251f,-0.955f,0.155f);
+TravelVectors[129] = new Vector3(0.272f,-0.855f,-0.441f);
+TravelVectors[130] = new Vector3(-0.252f,-0.955f,-0.155f);
+TravelVectors[131] = new Vector3(0.009f,-0.951f,-0.309f);
+TravelVectors[132] = new Vector3(-0.272f,-0.855f,0.441f);
+TravelVectors[133] = new Vector3(-0.502f,-0.681f,0.532f);
+TravelVectors[134] = new Vector3(-0.009f,-0.951f,0.309f);
+TravelVectors[135] = new Vector3(-0.502f,-0.864f,-0.03f);
+TravelVectors[136] = new Vector3(-0.272f,-0.951f,0.146f);
+TravelVectors[137] = new Vector3(-0.968f,0.147f,0.203f);
+TravelVectors[138] = new Vector3(-0.891f,0f,0.455f);
+TravelVectors[139] = new Vector3(-0.968f,-0.147f,0.203f);
+TravelVectors[140] = new Vector3(-0.727f,0.155f,0.668f);
+TravelVectors[141] = new Vector3(-0.657f,0.443f,0.61f);
+TravelVectors[142] = new Vector3(-0.657f,-0.443f,0.61f);
+TravelVectors[143] = new Vector3(-0.727f,-0.155f,0.668f);
+TravelVectors[144] = new Vector3(-0.727f,0.684f,0.059f);
+TravelVectors[145] = new Vector3(-0.657f,0.717f,-0.233f);
+TravelVectors[146] = new Vector3(-0.727f,0.588f,0.354f);
+TravelVectors[147] = new Vector3(-0.968f,0.238f,-0.077f);
+TravelVectors[148] = new Vector3(-0.891f,0.433f,0.141f);
+TravelVectors[149] = new Vector3(-0.727f,0.267f,-0.632f);
+TravelVectors[150] = new Vector3(-0.657f,0f,-0.754f);
+TravelVectors[151] = new Vector3(-0.727f,0.518f,-0.45f);
+TravelVectors[152] = new Vector3(-0.968f,0f,-0.251f);
+TravelVectors[153] = new Vector3(-0.891f,0.267f,-0.368f);
+TravelVectors[154] = new Vector3(-0.727f,-0.518f,-0.45f);
+TravelVectors[155] = new Vector3(-0.657f,-0.717f,-0.233f);
+TravelVectors[156] = new Vector3(-0.727f,-0.267f,-0.632f);
+TravelVectors[157] = new Vector3(-0.968f,-0.238f,-0.077f);
+TravelVectors[158] = new Vector3(-0.891f,-0.267f,-0.368f);
+TravelVectors[159] = new Vector3(-0.727f,-0.588f,0.354f);
+TravelVectors[160] = new Vector3(-0.727f,-0.684f,0.059f);
+TravelVectors[161] = new Vector3(-0.891f,-0.433f,0.141f);
+
+
+T{13;44;43}
+T{2;42;44}
+T{14;43;42}
+T{14;47;46}
+T{0;45;47}
+T{12;46;45}
+T{12;50;49}
+T{1;48;50}
+T{13;49;48}
+T{15;53;52}
+T{3;51;53}
+T{16;52;51}
+T{16;55;54}
+T{0;47;55}
+T{14;54;47}
+T{14;42;57}
+T{2;56;42}
+T{15;57;56}
+T{17;60;59}
+T{4;58;60}
+T{18;59;58}
+T{18;62;61}
+T{0;55;62}
+T{16;61;55}
+T{16;51;64}
+T{3;63;51}
+T{17;64;63}
+T{19;67;66}
+T{5;65;67}
+T{20;66;65}
+T{20;69;68}
+T{0;62;69}
+T{18;68;62}
+T{18;58;71}
+T{4;70;58}
+T{19;71;70}
+T{21;73;72}
+T{1;50;73}
+T{12;72;50}
+T{12;45;74}
+T{0;69;45}
+T{20;74;69}
+T{20;65;76}
+T{5;75;65}
+T{21;76;75}
+T{22;79;78}
+T{10;77;79}
+T{23;78;77}
+T{23;81;80}
+T{1;73;81}
+T{21;80;73}
+T{21;75;83}
+T{5;82;75}
+T{22;83;82}
+T{25;85;84}
+T{2;44;85}
+T{13;84;44}
+T{13;48;87}
+T{1;86;48}
+T{24;87;86}
+T{24;90;89}
+T{6;88;90}
+T{25;89;88}
+T{26;92;91}
+T{6;90;92}
+T{24;91;90}
+T{24;86;93}
+T{1;81;86}
+T{23;93;81}
+T{23;77;95}
+T{10;94;77}
+T{26;95;94}
+T{27;98;97}
+T{7;96;98}
+T{28;97;96}
+T{28;100;99}
+T{2;85;100}
+T{25;99;85}
+T{25;88;102}
+T{6;101;88}
+T{27;102;101}
+T{29;104;103}
+T{3;53;104}
+T{15;103;53}
+T{15;56;105}
+T{2;100;56}
+T{28;105;100}
+T{28;96;107}
+T{7;106;96}
+T{29;107;106}
+T{30;110;109}
+T{8;108;110}
+T{31;109;108}
+T{31;112;111}
+T{3;104;112}
+T{29;111;104}
+T{29;106;114}
+T{7;113;106}
+T{30;114;113}
+T{32;116;115}
+T{4;60;116}
+T{17;115;60}
+T{17;63;117}
+T{3;112;63}
+T{31;117;112}
+T{31;108;119}
+T{8;118;108}
+T{32;119;118}
+T{33;122;121}
+T{9;120;122}
+T{34;121;120}
+T{34;124;123}
+T{4;116;124}
+T{32;123;116}
+T{32;118;126}
+T{8;125;118}
+T{33;126;125}
+T{35;128;127}
+T{5;67;128}
+T{19;127;67}
+T{19;70;129}
+T{4;124;70}
+T{34;129;124}
+T{34;120;131}
+T{9;130;120}
+T{35;131;130}
+T{36;133;132}
+T{10;79;133}
+T{22;132;79}
+T{22;82;134}
+T{5;128;82}
+T{35;134;128}
+T{35;130;136}
+T{9;135;130}
+T{36;136;135}
+T{37;139;138}
+T{11;137;139}
+T{38;138;137}
+T{38;141;140}
+T{6;92;141}
+T{26;140;92}
+T{26;94;143}
+T{10;142;94}
+T{37;143;142}
+T{39;145;144}
+T{7;98;145}
+T{27;144;98}
+T{27;101;146}
+T{6;141;101}
+T{38;146;141}
+T{38;137;148}
+T{11;147;137}
+T{39;148;147}
+T{40;150;149}
+T{8;110;150}
+T{30;149;110}
+T{30;113;151}
+T{7;145;113}
+T{39;151;145}
+T{39;147;153}
+T{11;152;147}
+T{40;153;152}
+T{41;155;154}
+T{9;122;155}
+T{33;154;122}
+T{33;125;156}
+T{8;150;125}
+T{40;156;150}
+T{40;152;158}
+T{11;157;152}
+T{41;158;157}
+T{37;142;159}
+T{10;133;142}
+T{36;159;133}
+T{36;135;160}
+T{9;155;135}
+T{41;160;155}
+T{41;157;161}
+T{11;139;157}
+T{37;161;139}
+T{13;43;49}
+T{14;46;43}
+T{12;49;46}
+T{15;52;57}
+T{16;54;52}
+T{14;57;54}
+T{17;59;64}
+T{18;61;59}
+T{16;64;61}
+T{19;66;71}
+T{20;68;66}
+T{18;71;68}
+T{21;72;76}
+T{12;74;72}
+T{20;76;74}
+T{22;78;83}
+T{23;80;78}
+T{21;83;80}
+T{25;84;89}
+T{13;87;84}
+T{24;89;87}
+T{26;91;95}
+T{24;93;91}
+T{23;95;93}
+T{27;97;102}
+T{28;99;97}
+T{25;102;99}
+T{29;103;107}
+T{15;105;103}
+T{28;107;105}
+T{30;109;114}
+T{31;111;109}
+T{29;114;111}
+T{32;115;119}
+T{17;117;115}
+T{31;119;117}
+T{33;121;126}
+T{34;123;121}
+T{32;126;123}
+T{35;127;131}
+T{19;129;127}
+T{34;131;129}
+T{36;132;136}
+T{22;134;132}
+T{35;136;134}
+T{37;138;143}
+T{38;140;138}
+T{26;143;140}
+T{39;144;148}
+T{27;146;144}
+T{38;148;146}
+T{40;149;153}
+T{30;151;149}
+T{39;153;151}
+T{41;154;158}
+T{33;156;154}
+T{40;158;156}
+T{37;159;161}
+T{36;160;159}
+T{41;161;160}
+T{44;42;43}
+T{47;45;46}
+T{50;48;49}
+T{53;51;52}
+T{55;47;54}
+T{42;56;57}
+T{60;58;59}
+T{62;55;61}
+T{51;63;64}
+T{67;65;66}
+T{69;62;68}
+T{58;70;71}
+T{73;50;72}
+T{45;69;74}
+T{65;75;76}
+T{79;77;78}
+T{81;73;80}
+T{75;82;83}
+T{85;44;84}
+T{48;86;87}
+T{90;88;89}
+T{92;90;91}
+T{86;81;93}
+T{77;94;95}
+T{98;96;97}
+T{100;85;99}
+T{88;101;102}
+T{104;53;103}
+T{56;100;105}
+T{96;106;107}
+T{110;108;109}
+T{112;104;111}
+T{106;113;114}
+T{116;60;115}
+T{63;112;117}
+T{108;118;119}
+T{122;120;121}
+T{124;116;123}
+T{118;125;126}
+T{128;67;127}
+T{70;124;129}
+T{120;130;131}
+T{133;79;132}
+T{82;128;134}
+T{130;135;136}
+T{139;137;138}
+T{141;92;140}
+T{94;142;143}
+T{145;98;144}
+T{101;141;146}
+T{137;147;148}
+T{150;110;149}
+T{113;145;151}
+T{147;152;153}
+T{155;122;154}
+T{125;150;156}
+T{152;157;158}
+T{142;133;159}
+T{135;155;160}
+T{157;139;161}
+T{43;46;49}
+T{52;54;57}
+T{59;61;64}
+T{66;68;71}
+T{72;74;76}
+T{78;80;83}
+T{84;87;89}
+T{91;93;95}
+T{97;99;102}
+T{103;105;107}
+T{109;111;114}
+T{115;117;119}
+T{121;123;126}
+T{127;129;131}
+T{132;134;136}
+T{138;140;143}
+T{144;146;148}
+T{149;151;153}
+T{154;156;158}
+T{159;160;161}
