@@ -15,9 +15,9 @@ public class ButtonSelection : MonoBehaviour
 
         if(ClickedButton.transform.childCount > 0)
         {
-            ClickedButtonisSelected = ClickedButton.transform.GetChild(1);
+            ClickedButtonisSelected = ClickedButton.transform.GetChild(0);
 
-            var sisterIsSelected = SisterButton.transform.GetChild(1);
+            var sisterIsSelected = SisterButton.transform.GetChild(0);
 
             //turn on or off isSelected panel of the button that you clicked on
             if (ClickedButtonisSelected.gameObject.activeInHierarchy)
