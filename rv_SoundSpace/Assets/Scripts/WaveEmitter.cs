@@ -149,9 +149,14 @@ public class WaveEmitter : MonoBehaviour
 
                     if (colorArrayAlpha[m] > .01)
                     {
-                        if (NRC < .3)
+                        if (NRC < .2)
                         {
                             GameObject ripple = Instantiate(spriteBillboardPrefab1, hit.point + Deconstruct, Quaternion.identity);
+                            Destroy(ripple, 1);
+                        }
+                        else if (NRC > .2 && NRC < .6)
+                        {
+                            GameObject ripple = Instantiate(spriteBillboardPrefab2, hit.point + Deconstruct, Quaternion.identity);
                             Destroy(ripple, 1);
                         }
                         else
