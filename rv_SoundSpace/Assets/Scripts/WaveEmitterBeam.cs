@@ -15,11 +15,7 @@ public class WaveEmitterBeam : MonoBehaviour
     //GameControllers
     public int pause = 0; //PAUSE THE GAME
     public int forwards = 1; //1 = forwards, 0 = backwards
-
-
-    public int lengthOfLineRenderer = 5; // The number of positions on the line renderer
-    public GameObject linePrefab; // reference the linestyle prefab
-    public GameObject spherePrefab;
+   
 
     //Referenced GameObjects+Prefabs    
     public GameObject linePrefab; // reference the linestyle prefab
