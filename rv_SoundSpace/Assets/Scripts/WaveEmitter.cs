@@ -153,7 +153,8 @@ public class WaveEmitter : MonoBehaviour
                         {
                             GameObject ripple = Instantiate(spriteBillboardPrefab, hit.point + Deconstruct, Quaternion.identity);
                             Destroy(ripple, 1);
-                        }else if (NRC > .2 && NRC < .6)
+                        }
+                        else if (NRC > .2 && NRC < .6)
                         {
                             GameObject ripple = Instantiate(spriteBillboardPrefab1, hit.point + Deconstruct, Quaternion.identity);
                             Destroy(ripple, 1);
@@ -191,7 +192,7 @@ public class WaveEmitter : MonoBehaviour
                     }
                 }
 
-                Color c1 = new Color(.2f, .6f, 1, colorArrayAlpha[m]);
+                Color c1 = new Color(colorArrayAlpha[m], .6f, 1, colorArrayAlpha[m]*2);
                 Color c2 = new Color(1, 1, 1, 0);
 
                 myarrays[m][lengthOfLineRenderer - 1] = NewPosition;
