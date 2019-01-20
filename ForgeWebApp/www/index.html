@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
-    <title>Sound Spcae</title>
+    <title>Sound Space</title>
     <link rel="stylesheet" href="/css/jstree.style.min.css"/>
     <!-- <link rel="stylesheet" href="/css/bootstrap.min.css"> -->
     <!--<link rel="stylesheet" href="https://developer-stg.api.autodesk.com/viewingservice/v1/viewers/style.css"-->
     <!--type="text/css">-->
-    <script language="JavaScript" src="/js/jquery.min.js"></script>
+    <!-- <script language="JavaScript" src="/js/jquery.min.js"></script> -->
+    <script language="JavaScript" src="/js/jquery-3.3.1.js"></script>
     <script language="JavaScript" src="/js/jquery.storageapi.min.js"></script>
     <script language="JavaScript" src="/js/scripts.js"></script>
     <script src="/js/jstree.js"></script>
@@ -50,44 +51,33 @@
                 <a class="nav-link disabled" href="#">Disabled</a>
             </li>
             </ul>
+            <div id="progressInfo" class="btn btn-info" style="font-size: 10pt; margin-right: 10px; ">
+                <span id="progressInfoText">Progress info</span>
+                <span id="progressInfoIcon"></span>
+            </div>
+            <a href="#" id="authenticate" class="btn btn-success" style=" width: 120px; height: 35px; margin-right: 20px;">
+                <span class="glyphicon glyphicon-user"></span>
+                Log In
+            </a>
             <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
         </div>
     </nav>
+
     <br>
 
-    <!-- <div class="jumbotron" style="background-color: black">
-        <h1>Sound Space</h1>
-    </div> -->
-
     <div class="row">
-        <div class="col-sm-1" style="height:40px; float: right;">
-
-            <a href="#" id="authenticate" class="btn btn-success btn-block">
-                <span class="glyphicon glyphicon-user"></span>
-                Log In
-            </a>
-        </div>
         <div class="col-sm-3" style="height:40px">
             <div id="wipVsStorage" class="btn btn-primary active" data-toggle="button" aria-pressed="false" autocomplete="off" style="font-size: 10pt; visibility: hidden;">
                 <span id="wipVsStorageText">Use WIP (instead of Storage)</span>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-sm-3" style="height:40px">
-            <div id="progressInfo" class="btn btn-info" style="font-size: 10pt ">
-                <span id="progressInfoText">Progress info</span>
-                <span id="progressInfoIcon"></span>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <br>
 
-    </div>
+    <br>
+
     <div class="row" style="background: white">
         <div class="col-sm-11">
             <div class="row">
