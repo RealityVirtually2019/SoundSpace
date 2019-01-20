@@ -14,7 +14,7 @@
     overflow: hidden;
 }
 .forgeTreeContainer {
-    overflow: hidden; padding:0;  border:1px solid silver; height:500px;
+    overflow: hidden; padding:0;  border:1px solid silver; height:300px;
 }
 .forgeControlContainer {
     padding: 10px;
@@ -33,10 +33,10 @@
 
 
 #forgeHierarchy {
-    height: 250px; top: 0;
+    height: 300px; top: 0;
 }
 #forgeFileOptions {
-    height: 55px;   top: 245px;
+    height: 75px;   bottom: 10px;
     border-top-width: 1px; border-top-color: silver; border-top-style: solid;
 }
 #forgeProperties {
