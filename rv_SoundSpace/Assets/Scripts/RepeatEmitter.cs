@@ -19,8 +19,9 @@ public class RepeatEmitter : MonoBehaviour
         
     }
 
-    public void startEmitting(GameObject emitter)
+    public void startEmitting(GameObject emitter, TriangleList.EmitType eType)
     {
+        emitType = eType;
         emitterPrefab = emitter;
         GameObject newEmitter = Instantiate(emitterPrefab, gameObject.transform.position, gameObject.transform.rotation);
         if(emitType == TriangleList.EmitType.LowRes)

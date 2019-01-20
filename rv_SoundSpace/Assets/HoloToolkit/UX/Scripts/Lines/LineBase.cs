@@ -25,9 +25,9 @@ namespace HoloToolkit.Unity.UX
         [Tooltip("Clamps the line's normalized start point. This setting will affect line renderers.")]
         [Range(0f, 1f)]
         public float LineStartClamp = 0f;
-        [Range(0f, 1f)]
+        [Range(0f, 2f)]
         [Tooltip("Clamps the line's normalized end point. This setting will affect line renderers.")]
-        public float LineEndClamp = 1f;
+        public float LineEndClamp = 1.1f;
         
         public virtual bool Loops
         {

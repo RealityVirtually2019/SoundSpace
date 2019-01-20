@@ -141,6 +141,16 @@ public class MainSoundControl : MonoBehaviour
 
        }
 
+    public void ChangeTypeToBeam()
+    {
+        emitType = TriangleList.EmitType.Beam;
+
+    }
+    public void ChangeTypeToSphere()
+    {
+        emitType = TriangleList.EmitType.LowRes;
+
+    }
 
 
 
@@ -149,6 +159,6 @@ public class MainSoundControl : MonoBehaviour
     public void CreateRepeatEmitter(Vector3 position, Quaternion rotation, GameObject emitter)
     {
         GameObject newEmitter = Instantiate(repeatEmitterPrefab, position, rotation);
-        newEmitter.GetComponent<RepeatEmitter>().startEmitting(emitter);
+        newEmitter.GetComponent<RepeatEmitter>().startEmitting(emitter, emitType);
     }
 }
