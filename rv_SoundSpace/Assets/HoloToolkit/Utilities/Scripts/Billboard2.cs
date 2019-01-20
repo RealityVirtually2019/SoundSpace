@@ -7,7 +7,7 @@ public class Billboard2 : MonoBehaviour
 
     void OnEnable()
     {
-        var m_CameraGO = GameObject.Find("MixedRealityCamera");
+        var m_CameraGO = GameObject.FindWithTag("MainCamera");
         m_Camera = m_CameraGO.GetComponent<Camera>();
     }
 
