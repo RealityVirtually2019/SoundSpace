@@ -89,10 +89,21 @@ public class WaveEmitter : MonoBehaviour
                 {
                     TravelVectors[m] = Vector3.Reflect(TravelVectors[m], hit.normal);
 
-                    Instantiate(spriteBillboardPrefab, hit.point, Quaternion.identity);
-                    //Instantiate(spherePrefab, hit.point, Quaternion.identity);
+                    Vector3 Deconstruct = hit.normal;
+                    Deconstruct.x = Deconstruct.x * .05f;
+                    Deconstruct.y = Deconstruct.y * .05f;
+                    Deconstruct.z = Deconstruct.z * .05f;
 
-                    //colorArrayAlpha[m] = colorArrayAlpha[m] - colorWallHitFalloff;
+                    if (colorArrayAlpha[m] > .01)
+                    {
+                        GameObject ripple = Instantiate(spriteBillboardPrefab, hit.point + Deconstruct, Quaternion.identity);
+                        Destroy(ripple, 1);
+                    }
+
+
+                    
+
+
                     colorArrayAlpha[m] = colorArrayAlpha[m] * (1 - GetNRC.getNRCFromCollider(hit.collider));
 
                 }
