@@ -33,10 +33,10 @@
 
 
 #forgeHierarchy {
-    height: 300px; top: 0;
+    height: 240px; top: 0;
 }
 #forgeFileOptions {
-    height: 75px;   bottom: 10px;
+    height: 65px;   bottom: 0px;
     border-top-width: 1px; border-top-color: silver; border-top-style: solid;
 }
 #forgeProperties {
@@ -44,7 +44,7 @@
     border-top-width: 1px; border-top-color: silver; border-top-style: solid;
 }
 #forgeUpload {
-    height: 55px;   bottom: 0px;
+    height: 60px;   bottom: 0px;
     border-top-width: 1px; border-top-color: silver; border-top-style: solid;
     overflow: hidden;
 }
