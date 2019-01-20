@@ -7,6 +7,12 @@
     margin-top: 20px;
 }
 
+.btn-success {
+    color: #fff;
+    background-color: #FF00FE;
+    border-color: #FF00FE;
+  }
+
 .forgeViewer {
     border:1px solid silver; padding: 0;
     height:500px; vertical-align: middle;
