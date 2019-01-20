@@ -21,6 +21,14 @@ public class PointerLine : MonoBehaviour
         {
             if (interactionSourceState.source.handedness == InteractionSourceHandedness.Right)
             {
+
+                GameObject HMD = GameObject.Find("MixedRealityCameraParent");
+                Vector3 offset = new Vector3(0, 0, 0);
+                if (HMD != null)
+                {
+                    offset = HMD.transform.position;
+                }
+
                 Vector3 pos;
                 Vector3 forward;
                 Vector3 right;
@@ -28,7 +36,7 @@ public class PointerLine : MonoBehaviour
                 if (interactionSourceState.sourcePose.TryGetPosition(out pos) && interactionSourceState.sourcePose.TryGetForward(out forward) && interactionSourceState.sourcePose.TryGetRight(out right) && interactionSourceState.sourcePose.TryGetUp(out up))
                 {
                     forward = Quaternion.AngleAxis(35, right) * forward;
-                    pos = pos + (0.035f * up);
+                    pos = pos + (0.035f * up) + offset;
 
 
                     int layerMask = 1 << 5;
