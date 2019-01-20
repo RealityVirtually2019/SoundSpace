@@ -33,12 +33,14 @@ public class WaveEmitterCrowd : MonoBehaviour
     public int hasBeenPressed = 0; //check if mouse has been pressed, this could just be a boolean....
     public int numOfVectors; // the number of mesh verticies... this number would change based on emitter throw angle
     public float stepFactor = 0.5f; //distance per step... this decreases the size + speed, and increases the resolution
+    int hasAlreadyHappened = 0;
 
 
     // Empty Arrays to fill
     public Vector3[][] myarrays = new Vector3[162][]; //the 3D Points. there are 2562 lines (numOfVectors) made up of 20 points (lengthOfLineRenderer) to make a line
     public GameObject[] EmptyRayHolders; //Each line renderer requires its own GameObject. These are those gameobjects.
     private Vector3[] TravelVectors; //Vectors set in the start below
+    private Vector3[] ChangedTravelVectors; //Vectors set in the start below
 
 
 
@@ -55,6 +57,7 @@ public class WaveEmitterCrowd : MonoBehaviour
         }
 
         TravelVectors = new Vector3[numOfVectors]; //2562
+        ChangedTravelVectors = new Vector3[numOfVectors]; //2562
 
         TravelVectors[0] = new Vector3(1f, 0f, 0f);
         TravelVectors[1] = new Vector3(0.447f, 0f, 0.894f);
@@ -219,7 +222,10 @@ public class WaveEmitterCrowd : MonoBehaviour
         TravelVectors[160] = new Vector3(-0.727f, -0.684f, 0.059f);
         TravelVectors[161] = new Vector3(-0.891f, -0.433f, 0.141f);
 
-        
+        ChangedTravelVectors = TravelVectors;
+
+
+
     }
 
     public void OnSourceUpdated(InteractionSourceUpdatedEventArgs eventData)
@@ -250,22 +256,29 @@ public class WaveEmitterCrowd : MonoBehaviour
             PauseSound();
         }
 
-        if (Input.GetKeyDown("r"))
+        int myMod = Random.Range(80,200);
+        if (counter % myMod == 0)
         {
-            if (forwards == 1)
+            if (hasAlreadyHappened == 1)
             {
-                forwards = 0;
+                for (int m = 0; m < numOfVectors; m++)
+                {
+                    Destroy(EmptyRayHolders[m]);
+                }
             }
-            else
-            {
-                forwards = 1;
-            }
-        }
 
-        if (Input.GetKeyDown("c"))
-        {
+
+            ChangedTravelVectors = TravelVectors;
             MakeNoise();
+
+            for (int m = 0; m < numOfVectors; m++)
+            {
+                colorArrayAlpha[m] = 1;
+            }
+            counter = 0;
         }
+        //if (Input.GetKeyDown("c"))
+        
 
 
 
@@ -274,7 +287,6 @@ public class WaveEmitterCrowd : MonoBehaviour
 
             for (int m = 0; m < numOfVectors; m++)
             {
-
 
                 LineRenderer lineRenderer = EmptyRayHolders[m].GetComponent<LineRenderer>();
 
@@ -295,9 +307,9 @@ public class WaveEmitterCrowd : MonoBehaviour
                 layerMask = ~layerMask;
 
                 RaycastHit hit;
-                if (Physics.Raycast(OldPosition, TravelVectors[m], out hit, stepFactor, layerMask))
+                if (Physics.Raycast(OldPosition, ChangedTravelVectors[m], out hit, stepFactor, layerMask))
                 {
-                    TravelVectors[m] = Vector3.Reflect(TravelVectors[m], hit.normal);
+                    ChangedTravelVectors[m] = Vector3.Reflect(ChangedTravelVectors[m], hit.normal);
 
                     Vector3 Deconstruct = hit.normal;
                     Deconstruct.x = Deconstruct.x * .05f;
@@ -320,9 +332,9 @@ public class WaveEmitterCrowd : MonoBehaviour
                 if (forwards == 1)
                 {
 
-                    NewPosition.x = OldPosition.x + (TravelVectors[m].x * stepFactor);
-                    NewPosition.y = OldPosition.y + (TravelVectors[m].y * stepFactor);
-                    NewPosition.z = OldPosition.z + (TravelVectors[m].z * stepFactor);
+                    NewPosition.x = OldPosition.x + (ChangedTravelVectors[m].x * stepFactor);
+                    NewPosition.y = OldPosition.y + (ChangedTravelVectors[m].y * stepFactor);
+                    NewPosition.z = OldPosition.z + (ChangedTravelVectors[m].z * stepFactor);
                 }
                 else
                 {
@@ -334,9 +346,9 @@ public class WaveEmitterCrowd : MonoBehaviour
                     }
                     else
                     {
-                        NewPosition.x = OldPosition.x - (TravelVectors[m].x * stepFactor);
-                        NewPosition.y = OldPosition.y - (TravelVectors[m].y * stepFactor);
-                        NewPosition.z = OldPosition.z - (TravelVectors[m].z * stepFactor);
+                        NewPosition.x = OldPosition.x - (ChangedTravelVectors[m].x * stepFactor);
+                        NewPosition.y = OldPosition.y - (ChangedTravelVectors[m].y * stepFactor);
+                        NewPosition.z = OldPosition.z - (ChangedTravelVectors[m].z * stepFactor);
                     }
                 }
 
@@ -360,16 +372,7 @@ public class WaveEmitterCrowd : MonoBehaviour
                 hasBeenPressed = 0;
             }
 
-            if (colorCounter < .01)
-            {
-                for (int m = 0; m < numOfVectors; m++)
-                {
-                    Destroy(EmptyRayHolders[m]);
-                }
-                Destroy(gameObject);
-                hasBeenPressed = 0;
-
-            }
+            
             counter++;
             //Debug.Log(Time.deltaTime);
 
@@ -391,6 +394,7 @@ public class WaveEmitterCrowd : MonoBehaviour
 
         Debug.Log("MousePressed");
         hasBeenPressed = 1;
+        hasAlreadyHappened = 1;
 
 
         EmptyRayHolders = new GameObject[numOfVectors];
