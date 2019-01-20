@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.XR.WSA.Input;
+
+
 public class WaveEmitterBeam : MonoBehaviour
 {
 
@@ -42,6 +45,10 @@ public class WaveEmitterBeam : MonoBehaviour
 
     void Start()
     {
+        //Contoller events for thumbstick
+        InteractionManager.InteractionSourcePressed += OnControllerPressed;
+        InteractionManager.InteractionSourceUpdated += OnSourceUpdated;
+
         for (int m = 0; m < numOfVectors; m++)
         {
             colorArrayAlpha[m] = 1.0f;
@@ -55,6 +62,30 @@ public class WaveEmitterBeam : MonoBehaviour
         for(int i = 0;i<numOfVectors;i++)
         {
             TravelVectors[i] = rot * TravelVectors[i];
+        }
+    }
+
+    //Forward and backwards with thumb stick
+    public void OnSourceUpdated(InteractionSourceUpdatedEventArgs eventData)
+    {
+        if (eventData.state.thumbstickPosition.x > 0.5)
+        {
+            forwards = 1;
+            hasBeenPressed = 1;
+        }
+        else if (eventData.state.thumbstickPosition.x < -0.5)
+        {
+            forwards = 0;
+            hasBeenPressed = 1;
+        }
+    }
+
+    //Pause with thumbstick
+    public void OnControllerPressed(InteractionSourcePressedEventArgs eventData)
+    {
+        if (eventData.pressType == InteractionSourcePressType.Thumbstick)
+        {
+            PauseSound();
         }
     }
 
