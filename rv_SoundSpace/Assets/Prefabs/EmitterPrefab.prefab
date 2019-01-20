@@ -2609,15 +2609,17 @@ MonoBehaviour:
   - 0
   - 0
   pause: 0
-  lengthOfLineRenderer: 5
+  forwards: 1
   linePrefab: {fileID: 4724163039135247707, guid: 13ec28240439fb8418e2ed5781195c45,
     type: 3}
+  spherePrefab: {fileID: 0}
   spriteBillboardPrefab: {fileID: 7101138008352076436, guid: 6ca552eee7bc7cc428918a5c42afc16a,
     type: 3}
   counter: 0
-  numOfVectors: 2562
-  stepFactor: 0.01
+  lengthOfLineRenderer: 5
   hasBeenPressed: 0
+  numOfVectors: 2562
+  stepFactor: 0.07
   EmptyRayHolders: []
 --- !u!114 &4399313741191751520
 MonoBehaviour:
@@ -2631,7 +2633,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 383fbe58c78c6c9478e0d21e2937137a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enableMesh: 1
+  enableMesh: 0
 --- !u!23 &6070983541072506588
 MeshRenderer:
   m_ObjectHideFlags: 0
