@@ -60,6 +60,18 @@ public class WaveEmitter : MonoBehaviour
             PauseSound();
         }
 
+        if (Input.GetKeyDown("r"))
+        {
+            if (forwards == 1)
+            {
+                forwards = 0;
+            }
+            else
+            {
+                forwards = 1;
+            }
+        }
+
 
 
         if (hasBeenPressed == 1)
@@ -95,12 +107,29 @@ public class WaveEmitter : MonoBehaviour
                     Deconstruct.y = Deconstruct.y * .05f;
                     Deconstruct.z = Deconstruct.z * .05f;
 
+                    float NRC = GetNRC.getNRCFromCollider(hit.collider);
+
+
+
+                    colorArrayAlpha[m] = colorArrayAlpha[m] * (1 - NRC);
+
                     if (colorArrayAlpha[m] > .01)
                     {
-                        GameObject ripple = Instantiate(spriteBillboardPrefab, hit.point + Deconstruct, Quaternion.identity);
-                        Destroy(ripple, 1);
+                        if (NRC < .2)
+                        {
+                            GameObject ripple = Instantiate(spriteBillboardPrefab, hit.point + Deconstruct, Quaternion.identity);
+                            Destroy(ripple, 1);
+                        }else if (NRC > .2 && NRC < .6)
+                        {
+                            GameObject ripple = Instantiate(spriteBillboardPrefab, hit.point + Deconstruct, Quaternion.identity);
+                            Destroy(ripple, 1);
+                        }
+                        else
+                        {
+                            GameObject ripple = Instantiate(spriteBillboardPrefab, hit.point + Deconstruct, Quaternion.identity);
+                            Destroy(ripple, 1);
+                        }
                     }
-                    colorArrayAlpha[m] = colorArrayAlpha[m] * (1 - GetNRC.getNRCFromCollider(hit.collider));
                 }
 
 
@@ -198,14 +227,14 @@ public class WaveEmitter : MonoBehaviour
         else
         {
             hasBeenPressed = 0;
-            if (forwards == 1)
-            {
-                forwards = 0;
-            }
-            else
-            {
-                forwards = 1;
-            }
+            //if (forwards == 1)
+            //{
+            //    forwards = 0;
+            //}
+            //else
+            //{
+            //    forwards = 1;
+            //}
         }
     }
 
