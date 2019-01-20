@@ -5859,7 +5859,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: ray
+  m_Text: on
 --- !u!1 &5080104421196796319
 GameObject:
   m_ObjectHideFlags: 0
@@ -5938,7 +5938,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: wall texture
+  m_Text: ceiling shape
 --- !u!1 &5080104421240815152
 GameObject:
   m_ObjectHideFlags: 0
@@ -6159,6 +6159,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5080104421248638050}
         m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: TurnCrowdOn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6628,7 +6639,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: shape
+  m_Text: mesh
 --- !u!1 &5080104421371792593
 GameObject:
   m_ObjectHideFlags: 0
@@ -7518,7 +7529,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: ceiling shape
+  m_Text: wall shape
 --- !u!1 &5080104421676784497
 GameObject:
   m_ObjectHideFlags: 0
@@ -7597,7 +7608,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: mesh
+  m_Text: off
 --- !u!1 &5080104421683958087
 GameObject:
   m_ObjectHideFlags: 0
@@ -9983,6 +9994,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5080104422121828294}
         m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: TurnCrowdOff
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

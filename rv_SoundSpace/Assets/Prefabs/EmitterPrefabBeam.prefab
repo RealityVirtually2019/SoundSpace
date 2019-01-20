@@ -50,7 +50,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5f4eaf593060bba4aa106332030987c2, type: 2}
+  - {fileID: 2100000, guid: 893cb0101ee28314d96e095fb92a7762, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1311,5 +1311,5 @@ MonoBehaviour:
   lengthOfLineRenderer: 5
   hasBeenPressed: 0
   numOfVectors: 1200
-  stepFactor: 0.01
+  stepFactor: 0.05
   EmptyRayHolders: []

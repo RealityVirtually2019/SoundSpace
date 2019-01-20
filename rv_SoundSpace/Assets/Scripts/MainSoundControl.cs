@@ -19,6 +19,8 @@ public class MainSoundControl : MonoBehaviour
     {
         InteractionManager.InteractionSourcePressed += OnControllerPressed;
         InteractionManager.InteractionSourceUpdated += OnSourceUpdated;
+
+        //TurnCrowdOff();
     }
 
     // Update is called once per frame
@@ -182,4 +184,25 @@ public class MainSoundControl : MonoBehaviour
         GameObject newEmitter = Instantiate(repeatEmitterPrefab, position, rotation);
         newEmitter.GetComponent<RepeatEmitter>().startEmitting(emitter, emitType);
     }
+
+    public void TurnCrowdOn()
+    {
+        WaveEmitterCrowd[] crowd = GameObject.FindObjectsOfType<WaveEmitterCrowd>();
+        foreach(WaveEmitterCrowd c in crowd)
+        {
+            //c.gameObject.SetActive(true);
+            c.reEnable();
+        }
+    }
+
+    public void TurnCrowdOff()
+    {
+        WaveEmitterCrowd[] crowd = GameObject.FindObjectsOfType<WaveEmitterCrowd>();
+        foreach (WaveEmitterCrowd c in crowd)
+        {
+            //c.gameObject.SetActive(false);
+            c.clearPoints();
+        }
+    }
+
 }

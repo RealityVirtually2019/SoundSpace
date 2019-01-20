@@ -43,7 +43,10 @@ public class WaveEmitterCrowd : MonoBehaviour
     private Vector3[] ChangedTravelVectors; //Vectors set in the start below
 
 
+    private bool allowCrowd = false;
+    
 
+    
 
     void Start()
     {
@@ -256,27 +259,30 @@ public class WaveEmitterCrowd : MonoBehaviour
             PauseSound();
         }
 
-        int myMod = Random.Range(80,200);
-        if (counter % myMod == 0)
-        {
-            if (hasAlreadyHappened == 1)
+        if (allowCrowd){
+            int myMod = Random.Range(80, 200);
+            if (counter % myMod == 0)
             {
+                if (hasAlreadyHappened == 1)
+                {
+                    for (int m = 0; m < numOfVectors; m++)
+                    {
+                        Destroy(EmptyRayHolders[m]);
+                    }
+                }
+
+
+                ChangedTravelVectors = TravelVectors;
+                MakeNoise();
+
                 for (int m = 0; m < numOfVectors; m++)
                 {
-                    Destroy(EmptyRayHolders[m]);
+                    colorArrayAlpha[m] = 1;
                 }
+                counter = 0;
             }
-
-
-            ChangedTravelVectors = TravelVectors;
-            MakeNoise();
-
-            for (int m = 0; m < numOfVectors; m++)
-            {
-                colorArrayAlpha[m] = 1;
-            }
-            counter = 0;
         }
+        
         //if (Input.GetKeyDown("c"))
         
 
@@ -352,7 +358,7 @@ public class WaveEmitterCrowd : MonoBehaviour
                     }
                 }
 
-                Color c1 = new Color(colorArrayAlpha[m], .6f, 1, colorArrayAlpha[m]*2);
+                Color c1 = new Color(0.5f * colorArrayAlpha[m], colorArrayAlpha[m], 1, colorArrayAlpha[m] * 2);
                 Color c2 = new Color(1, 1, 1, 0);
 
                 myarrays[m][lengthOfLineRenderer - 1] = NewPosition;
@@ -434,5 +440,194 @@ public class WaveEmitterCrowd : MonoBehaviour
             vects[i] = myarrays[i][1] - gameObject.transform.position;
         }
         return vects;
+    }
+
+    public void clearPoints()
+    {
+        allowCrowd = false;                
+            for (int m = 0; m < numOfVectors; m++)
+            {
+                Destroy(EmptyRayHolders[m]);
+            }
+            
+            hasBeenPressed = 0;                
+    }
+    public void reEnable()
+    {
+        allowCrowd = true;
+
+        for (int m = 0; m < numOfVectors; m++)
+        {
+            colorArrayAlpha[m] = 1.0f;
+        }
+
+        TravelVectors = new Vector3[numOfVectors]; //2562
+        ChangedTravelVectors = new Vector3[numOfVectors]; //2562
+
+        TravelVectors[0] = new Vector3(1f, 0f, 0f);
+        TravelVectors[1] = new Vector3(0.447f, 0f, 0.894f);
+        TravelVectors[2] = new Vector3(0.447f, 0.851f, 0.276f);
+        TravelVectors[3] = new Vector3(0.447f, 0.526f, -0.724f);
+        TravelVectors[4] = new Vector3(0.447f, -0.526f, -0.724f);
+        TravelVectors[5] = new Vector3(0.447f, -0.851f, 0.276f);
+        TravelVectors[6] = new Vector3(-0.447f, 0.526f, 0.724f);
+        TravelVectors[7] = new Vector3(-0.447f, 0.851f, -0.276f);
+        TravelVectors[8] = new Vector3(-0.447f, 0f, -0.894f);
+        TravelVectors[9] = new Vector3(-0.447f, -0.851f, -0.276f);
+        TravelVectors[10] = new Vector3(-0.447f, -0.526f, 0.724f);
+        TravelVectors[11] = new Vector3(-1f, 0f, 0f);
+        TravelVectors[12] = new Vector3(0.851f, 0f, 0.526f);
+        TravelVectors[13] = new Vector3(0.526f, 0.5f, 0.688f);
+        TravelVectors[14] = new Vector3(0.851f, 0.5f, 0.162f);
+        TravelVectors[15] = new Vector3(0.526f, 0.809f, -0.263f);
+        TravelVectors[16] = new Vector3(0.851f, 0.309f, -0.425f);
+        TravelVectors[17] = new Vector3(0.526f, 0f, -0.851f);
+        TravelVectors[18] = new Vector3(0.851f, -0.309f, -0.425f);
+        TravelVectors[19] = new Vector3(0.526f, -0.809f, -0.263f);
+        TravelVectors[20] = new Vector3(0.851f, -0.5f, 0.162f);
+        TravelVectors[21] = new Vector3(0.526f, -0.5f, 0.688f);
+        TravelVectors[22] = new Vector3(0f, -0.809f, 0.588f);
+        TravelVectors[23] = new Vector3(0f, -0.309f, 0.951f);
+        TravelVectors[24] = new Vector3(0f, 0.309f, 0.951f);
+        TravelVectors[25] = new Vector3(0f, 0.809f, 0.588f);
+        TravelVectors[26] = new Vector3(-0.526f, 0f, 0.851f);
+        TravelVectors[27] = new Vector3(-0.526f, 0.809f, 0.263f);
+        TravelVectors[28] = new Vector3(0f, 1f, 0f);
+        TravelVectors[29] = new Vector3(0f, 0.809f, -0.588f);
+        TravelVectors[30] = new Vector3(-0.526f, 0.5f, -0.688f);
+        TravelVectors[31] = new Vector3(0f, 0.309f, -0.951f);
+        TravelVectors[32] = new Vector3(0f, -0.309f, -0.951f);
+        TravelVectors[33] = new Vector3(-0.526f, -0.5f, -0.688f);
+        TravelVectors[34] = new Vector3(0f, -0.809f, -0.588f);
+        TravelVectors[35] = new Vector3(0f, -1f, 0f);
+        TravelVectors[36] = new Vector3(-0.526f, -0.809f, 0.263f);
+        TravelVectors[37] = new Vector3(-0.851f, -0.309f, 0.425f);
+        TravelVectors[38] = new Vector3(-0.851f, 0.309f, 0.425f);
+        TravelVectors[39] = new Vector3(-0.851f, 0.5f, -0.162f);
+        TravelVectors[40] = new Vector3(-0.851f, 0f, -0.526f);
+        TravelVectors[41] = new Vector3(-0.851f, -0.5f, -0.162f);
+        TravelVectors[42] = new Vector3(0.657f, 0.717f, 0.233f);
+        TravelVectors[43] = new Vector3(0.727f, 0.518f, 0.45f);
+        TravelVectors[44] = new Vector3(0.502f, 0.717f, 0.484f);
+        TravelVectors[45] = new Vector3(0.968f, 0f, 0.251f);
+        TravelVectors[46] = new Vector3(0.891f, 0.267f, 0.368f);
+        TravelVectors[47] = new Vector3(0.968f, 0.238f, 0.077f);
+        TravelVectors[48] = new Vector3(0.502f, 0.238f, 0.831f);
+        TravelVectors[49] = new Vector3(0.727f, 0.267f, 0.632f);
+        TravelVectors[50] = new Vector3(0.657f, 0f, 0.754f);
+        TravelVectors[51] = new Vector3(0.657f, 0.443f, -0.61f);
+        TravelVectors[52] = new Vector3(0.727f, 0.588f, -0.354f);
+        TravelVectors[53] = new Vector3(0.502f, 0.681f, -0.532f);
+        TravelVectors[54] = new Vector3(0.891f, 0.433f, -0.141f);
+        TravelVectors[55] = new Vector3(0.968f, 0.147f, -0.203f);
+        TravelVectors[56] = new Vector3(0.502f, 0.864f, 0.03f);
+        TravelVectors[57] = new Vector3(0.727f, 0.684f, -0.059f);
+        TravelVectors[58] = new Vector3(0.657f, -0.443f, -0.61f);
+        TravelVectors[59] = new Vector3(0.727f, -0.155f, -0.668f);
+        TravelVectors[60] = new Vector3(0.502f, -0.296f, -0.813f);
+        TravelVectors[61] = new Vector3(0.891f, 0f, -0.455f);
+        TravelVectors[62] = new Vector3(0.968f, -0.147f, -0.203f);
+        TravelVectors[63] = new Vector3(0.502f, 0.296f, -0.813f);
+        TravelVectors[64] = new Vector3(0.727f, 0.155f, -0.668f);
+        TravelVectors[65] = new Vector3(0.657f, -0.717f, 0.233f);
+        TravelVectors[66] = new Vector3(0.727f, -0.684f, -0.059f);
+        TravelVectors[67] = new Vector3(0.502f, -0.864f, 0.03f);
+        TravelVectors[68] = new Vector3(0.891f, -0.433f, -0.141f);
+        TravelVectors[69] = new Vector3(0.968f, -0.238f, 0.077f);
+        TravelVectors[70] = new Vector3(0.502f, -0.681f, -0.532f);
+        TravelVectors[71] = new Vector3(0.727f, -0.588f, -0.354f);
+        TravelVectors[72] = new Vector3(0.727f, -0.267f, 0.632f);
+        TravelVectors[73] = new Vector3(0.502f, -0.238f, 0.831f);
+        TravelVectors[74] = new Vector3(0.891f, -0.267f, 0.368f);
+        TravelVectors[75] = new Vector3(0.502f, -0.717f, 0.484f);
+        TravelVectors[76] = new Vector3(0.727f, -0.518f, 0.45f);
+        TravelVectors[77] = new Vector3(-0.252f, -0.443f, 0.861f);
+        TravelVectors[78] = new Vector3(0.009f, -0.588f, 0.809f);
+        TravelVectors[79] = new Vector3(-0.252f, -0.681f, 0.687f);
+        TravelVectors[80] = new Vector3(0.272f, -0.433f, 0.859f);
+        TravelVectors[81] = new Vector3(0.252f, -0.147f, 0.957f);
+        TravelVectors[82] = new Vector3(0.252f, -0.864f, 0.436f);
+        TravelVectors[83] = new Vector3(0.272f, -0.684f, 0.677f);
+        TravelVectors[84] = new Vector3(0.272f, 0.684f, 0.677f);
+        TravelVectors[85] = new Vector3(0.252f, 0.864f, 0.436f);
+        TravelVectors[86] = new Vector3(0.252f, 0.147f, 0.957f);
+        TravelVectors[87] = new Vector3(0.272f, 0.433f, 0.859f);
+        TravelVectors[88] = new Vector3(-0.252f, 0.681f, 0.687f);
+        TravelVectors[89] = new Vector3(0.009f, 0.588f, 0.809f);
+        TravelVectors[90] = new Vector3(-0.252f, 0.443f, 0.861f);
+        TravelVectors[91] = new Vector3(-0.272f, 0.155f, 0.95f);
+        TravelVectors[92] = new Vector3(-0.502f, 0.296f, 0.813f);
+        TravelVectors[93] = new Vector3(-0.009f, 0f, 1f);
+        TravelVectors[94] = new Vector3(-0.502f, -0.296f, 0.813f);
+        TravelVectors[95] = new Vector3(-0.272f, -0.155f, 0.95f);
+        TravelVectors[96] = new Vector3(-0.252f, 0.955f, -0.155f);
+        TravelVectors[97] = new Vector3(-0.272f, 0.951f, 0.146f);
+        TravelVectors[98] = new Vector3(-0.502f, 0.864f, -0.03f);
+        TravelVectors[99] = new Vector3(-0.009f, 0.951f, 0.309f);
+        TravelVectors[100] = new Vector3(0.252f, 0.955f, 0.155f);
+        TravelVectors[101] = new Vector3(-0.502f, 0.681f, 0.532f);
+        TravelVectors[102] = new Vector3(-0.272f, 0.855f, 0.441f);
+        TravelVectors[103] = new Vector3(0.272f, 0.855f, -0.441f);
+        TravelVectors[104] = new Vector3(0.252f, 0.681f, -0.687f);
+        TravelVectors[105] = new Vector3(0.272f, 0.951f, -0.146f);
+        TravelVectors[106] = new Vector3(-0.252f, 0.864f, -0.436f);
+        TravelVectors[107] = new Vector3(0.009f, 0.951f, -0.309f);
+        TravelVectors[108] = new Vector3(-0.252f, 0.147f, -0.957f);
+        TravelVectors[109] = new Vector3(-0.272f, 0.433f, -0.859f);
+        TravelVectors[110] = new Vector3(-0.502f, 0.238f, -0.831f);
+        TravelVectors[111] = new Vector3(-0.009f, 0.588f, -0.809f);
+        TravelVectors[112] = new Vector3(0.252f, 0.443f, -0.861f);
+        TravelVectors[113] = new Vector3(-0.502f, 0.717f, -0.484f);
+        TravelVectors[114] = new Vector3(-0.272f, 0.684f, -0.677f);
+        TravelVectors[115] = new Vector3(0.273f, -0.155f, -0.95f);
+        TravelVectors[116] = new Vector3(0.251f, -0.443f, -0.861f);
+        TravelVectors[117] = new Vector3(0.273f, 0.155f, -0.95f);
+        TravelVectors[118] = new Vector3(-0.252f, -0.147f, -0.957f);
+        TravelVectors[119] = new Vector3(0.009f, 0f, -1f);
+        TravelVectors[120] = new Vector3(-0.251f, -0.864f, -0.436f);
+        TravelVectors[121] = new Vector3(-0.272f, -0.684f, -0.677f);
+        TravelVectors[122] = new Vector3(-0.502f, -0.717f, -0.484f);
+        TravelVectors[123] = new Vector3(-0.009f, -0.588f, -0.809f);
+        TravelVectors[124] = new Vector3(0.252f, -0.681f, -0.687f);
+        TravelVectors[125] = new Vector3(-0.502f, -0.238f, -0.831f);
+        TravelVectors[126] = new Vector3(-0.272f, -0.433f, -0.859f);
+        TravelVectors[127] = new Vector3(0.272f, -0.951f, -0.146f);
+        TravelVectors[128] = new Vector3(0.251f, -0.955f, 0.155f);
+        TravelVectors[129] = new Vector3(0.272f, -0.855f, -0.441f);
+        TravelVectors[130] = new Vector3(-0.252f, -0.955f, -0.155f);
+        TravelVectors[131] = new Vector3(0.009f, -0.951f, -0.309f);
+        TravelVectors[132] = new Vector3(-0.272f, -0.855f, 0.441f);
+        TravelVectors[133] = new Vector3(-0.502f, -0.681f, 0.532f);
+        TravelVectors[134] = new Vector3(-0.009f, -0.951f, 0.309f);
+        TravelVectors[135] = new Vector3(-0.502f, -0.864f, -0.03f);
+        TravelVectors[136] = new Vector3(-0.272f, -0.951f, 0.146f);
+        TravelVectors[137] = new Vector3(-0.968f, 0.147f, 0.203f);
+        TravelVectors[138] = new Vector3(-0.891f, 0f, 0.455f);
+        TravelVectors[139] = new Vector3(-0.968f, -0.147f, 0.203f);
+        TravelVectors[140] = new Vector3(-0.727f, 0.155f, 0.668f);
+        TravelVectors[141] = new Vector3(-0.657f, 0.443f, 0.61f);
+        TravelVectors[142] = new Vector3(-0.657f, -0.443f, 0.61f);
+        TravelVectors[143] = new Vector3(-0.727f, -0.155f, 0.668f);
+        TravelVectors[144] = new Vector3(-0.727f, 0.684f, 0.059f);
+        TravelVectors[145] = new Vector3(-0.657f, 0.717f, -0.233f);
+        TravelVectors[146] = new Vector3(-0.727f, 0.588f, 0.354f);
+        TravelVectors[147] = new Vector3(-0.968f, 0.238f, -0.077f);
+        TravelVectors[148] = new Vector3(-0.891f, 0.433f, 0.141f);
+        TravelVectors[149] = new Vector3(-0.727f, 0.267f, -0.632f);
+        TravelVectors[150] = new Vector3(-0.657f, 0f, -0.754f);
+        TravelVectors[151] = new Vector3(-0.727f, 0.518f, -0.45f);
+        TravelVectors[152] = new Vector3(-0.968f, 0f, -0.251f);
+        TravelVectors[153] = new Vector3(-0.891f, 0.267f, -0.368f);
+        TravelVectors[154] = new Vector3(-0.727f, -0.518f, -0.45f);
+        TravelVectors[155] = new Vector3(-0.657f, -0.717f, -0.233f);
+        TravelVectors[156] = new Vector3(-0.727f, -0.267f, -0.632f);
+        TravelVectors[157] = new Vector3(-0.968f, -0.238f, -0.077f);
+        TravelVectors[158] = new Vector3(-0.891f, -0.267f, -0.368f);
+        TravelVectors[159] = new Vector3(-0.727f, -0.588f, 0.354f);
+        TravelVectors[160] = new Vector3(-0.727f, -0.684f, 0.059f);
+        TravelVectors[161] = new Vector3(-0.891f, -0.433f, 0.141f);
+
+        ChangedTravelVectors = TravelVectors;
+
     }
 }
