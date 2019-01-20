@@ -19,7 +19,7 @@ public static class GetNRC
             //Debug.Log("testing");
             foreach (var v in temp.Values)
             {
-                if (v["name"] == "Absorptance")
+                if (v["name"] == "NRC")
                 {
                     string val = v["value"];
                     float tryResult;
@@ -27,6 +27,13 @@ public static class GetNRC
                         result = tryResult;
                     
                 }
+            }
+        } else
+        {
+            MaterialNRC m = collider.gameObject.GetComponent<MaterialNRC>();
+            if (m != null)    
+            {
+                result = m.NRC;
             }
         }
 
