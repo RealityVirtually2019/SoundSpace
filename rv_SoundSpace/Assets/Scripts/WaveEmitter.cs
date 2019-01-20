@@ -178,18 +178,18 @@ public class WaveEmitter : MonoBehaviour
                 }
                 else
                 {
-                    if (OldPosition == gameObject.transform.position)
-                    {
-                        NewPosition.x = OldPosition.x;
-                        NewPosition.y = OldPosition.y;
-                        NewPosition.z = OldPosition.z;
-                    }
-                    else
-                    {
+                    //if (OldPosition == gameObject.transform.position)
+                    //{
+                    //    NewPosition.x = OldPosition.x;
+                    //    NewPosition.y = OldPosition.y;
+                    //    NewPosition.z = OldPosition.z;
+                    //}
+                    //else
+                    //{
                         NewPosition.x = OldPosition.x - (TravelVectors[m].x * stepFactor);
                         NewPosition.y = OldPosition.y - (TravelVectors[m].y * stepFactor);
                         NewPosition.z = OldPosition.z - (TravelVectors[m].z * stepFactor);
-                    }
+                   // }
                 }
 
                 Color c1 = new Color(colorArrayAlpha[m], .6f, 1, colorArrayAlpha[m]*2);
