@@ -42,7 +42,7 @@ public class MeshWave : MonoBehaviour
         //
 
         
-        mesh.vertices = waveEmitter.GetVectorsListAtIndex(1);
+        mesh.vertices = waveEmitter.GetVectorsListAtIndex(0);
         mesh.triangles = TriangleList.GetTriangleList();
         mesh.colors = colors;
         

@@ -42,15 +42,15 @@ namespace HoloToolkit.Unity
         /// </summary>
         [Tooltip("Specifies the target we will orient to. If no target is specified, the main camera will be used.")]
         [SerializeField]
-        private Transform targetTransform;
-        public Transform TargetTransform
-        {
-            get { return targetTransform; }
-            set { targetTransform = value; }
-        }
+        private Transform TargetTransform;
+        //private Transform targetTransform;
+
 
         private void OnEnable()
         {
+            var TargetTransformGo = GameObject.Find("MixedRealityCamera");
+            TargetTransform = TargetTransformGo.GetComponent<Transform>();
+
             if (TargetTransform == null)
             {
                 if (CameraCache.Main != null)

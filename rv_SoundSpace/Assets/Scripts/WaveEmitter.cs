@@ -17,7 +17,7 @@ public class WaveEmitter : MonoBehaviour
 
     public int lengthOfLineRenderer = 5; // The number of positions on the line renderer
     public GameObject linePrefab; // reference the linestyle prefab
-    public GameObject spherePrefab;
+    public GameObject spriteBillboardPrefab;
 
     //General Variables
 
@@ -89,6 +89,7 @@ public class WaveEmitter : MonoBehaviour
                 {
                     TravelVectors[m] = Vector3.Reflect(TravelVectors[m], hit.normal);
 
+                    Instantiate(spriteBillboardPrefab, hit.point, Quaternion.identity);
                     //Instantiate(spherePrefab, hit.point, Quaternion.identity);
 
                     //colorArrayAlpha[m] = colorArrayAlpha[m] - colorWallHitFalloff;
