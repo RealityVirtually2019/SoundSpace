@@ -21,12 +21,13 @@ public class RepeatEmitter : MonoBehaviour
     public void startEmitting(GameObject emitter)
     {
         emitterPrefab = emitter;
-        GameObject newEmitter = Instantiate(emitterPrefab, gameObject.transform.position, Quaternion.identity);
-        newEmitter.GetComponent<WaveEmitter>().MakeNoise();
+        GameObject newEmitter = Instantiate(emitterPrefab, gameObject.transform.position, gameObject.transform.rotation);
+        //newEmitter.GetComponent<WaveEmitter>().MakeNoise();
+        newEmitter.GetComponent<WaveEmitterBeam>().MakeNoise();
 
-        StartCoroutine(emit(3));
-        StartCoroutine(emit(6));
-                
+        //StartCoroutine(emit(3));
+        //StartCoroutine(emit(6));
+
     }
 
     IEnumerator emit(int seconds)
