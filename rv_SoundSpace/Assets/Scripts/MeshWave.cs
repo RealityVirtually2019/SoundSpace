@@ -56,11 +56,14 @@ public class MeshWave : MonoBehaviour
         mesh.RecalculateNormals();
 
         Color c = transform.GetComponent<MeshRenderer>().material.color;
+        Color c_base = transform.GetComponent<MeshRenderer>().material.color;
         float a = waveEmitter.colorArrayAlpha[0];
         float gloss = a * 0.2f;
         c.a = waveEmitter.colorArrayAlpha[0];
         c.r = 1-waveEmitter.colorArrayAlpha[0];
+
         transform.GetComponent<MeshRenderer>().material.SetColor("_Color", c);
+        transform.GetComponent<MeshRenderer>().material.SetColor("_RimColor", c);
         transform.GetComponent<MeshRenderer>().material.SetFloat("_Glossiness", gloss);
     }
        

@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: FresnelTest
-  m_Shader: {fileID: 4800000, guid: a1c4ecffb37e6804b8382b50af63a1a3, type: 3}
+  m_Shader: {fileID: 4800000, guid: a2c0979acdcf520428acdd14b3186076, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -70,12 +70,14 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _RimWidth: 0.7
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.1509434, g: 0.1509434, b: 0.1509434, a: 0.019607844}
+    - _Color: {r: 0.18867922, g: 0.057849765, b: 0.057849765, a: 0.25882354}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FresnelColor: {r: 1, g: 0.995283, b: 0.995283, a: 0.24313726}
+    - _RimColor: {r: 0.48584908, g: 0.5477847, b: 1, a: 1}
