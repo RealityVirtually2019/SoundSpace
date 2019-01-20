@@ -11,7 +11,7 @@ public class MainSoundControl : MonoBehaviour
     public GameObject emitterPrefab;
     public GameObject emitterBeamPrefab;
     public GameObject repeatEmitterPrefab;
-
+    public bool MeshesAreVisible = true;
     TriangleList.EmitType emitType = TriangleList.EmitType.Beam;
 
     // Start is called before the first frame update
@@ -136,7 +136,7 @@ public class MainSoundControl : MonoBehaviour
             WaveEmitter[] spheres = GameObject.FindObjectsOfType<WaveEmitter>();
             foreach (WaveEmitter v in spheres)
             {
-                //v.KillThisSound();
+                v.KillThisSound();
             }
         }
 
@@ -161,6 +161,20 @@ public class MainSoundControl : MonoBehaviour
 
     }
 
+    public void ToggleMeshes(bool newVisiblity)
+    {
+        MeshesAreVisible = newVisiblity;
+        MeshWave[] wavelist = GameObject.FindObjectsOfType<MeshWave>();
+        foreach(MeshWave mw in wavelist)
+        {
+            mw.GetComponent<MeshRenderer>().enabled = MeshesAreVisible;
+        }
+        MeshWaveBeam[] beamlist = GameObject.FindObjectsOfType<MeshWaveBeam>();
+        foreach (MeshWaveBeam m in beamlist)
+        {
+            m.GetComponent<MeshRenderer>().enabled = MeshesAreVisible;
+        }
+    }
 
 
     public void CreateRepeatEmitter(Vector3 position, Quaternion rotation, GameObject emitter)

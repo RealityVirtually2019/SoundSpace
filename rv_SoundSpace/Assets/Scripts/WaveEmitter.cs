@@ -228,6 +228,16 @@ public class WaveEmitter : MonoBehaviour
         }
     }
 
+    public void KillThisSound()
+    {
+        for (int m = 0; m < numOfVectors; m++)
+        {
+            Destroy(EmptyRayHolders[m]);
+        }
+        Destroy(gameObject);
+        hasBeenPressed = 0;
+    }
+
     public void MakeNoise()
     {
         //hasBeenPressed = 1;
