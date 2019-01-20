@@ -2,3 +2,5 @@
 /.idea
 /routes/data
 /.vscode
+
+.env
