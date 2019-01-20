@@ -14,7 +14,7 @@
     overflow: hidden;
 }
 .forgeTreeContainer {
-    overflow: hidden; padding:0;  border:1px solid silver; height:250px;
+    overflow: hidden; padding:0; height:250px;
 }
 .forgeControlContainer {
     padding: 10px;
@@ -37,15 +37,15 @@
 }
 #forgeFileOptions {
     height: 65px;   bottom: 0px;
-    border-top-width: 1px; border-top-color: silver; border-top-style: solid;
+    border-top-width: 1px; border-top-color: white; border-top-style: solid;
 }
 #forgeProperties {
     height: 195px;  bottom: 0;
-    border-top-width: 1px; border-top-color: silver; border-top-style: solid;
+    border-top-width: 1px; border-top-color: white; border-top-style: solid;
 }
 #forgeUpload {
     height: 60px;   bottom: 0px;
-    border-top-width: 1px; border-top-color: silver; border-top-style: solid;
+    border-top-width: 1px; border-top-color: white; border-top-style: solid;
     overflow: hidden;
 }
 #forgeFiles {
