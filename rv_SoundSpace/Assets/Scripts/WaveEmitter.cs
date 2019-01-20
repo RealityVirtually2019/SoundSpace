@@ -156,7 +156,7 @@ public class WaveEmitter : MonoBehaviour
                         }
                         else
                         {
-                            GameObject ripple = Instantiate(spriteBillboardPrefab2, hit.point + Deconstruct, Quaternion.identity);
+                            GameObject ripple = Instantiate(spriteBillboardPrefab, hit.point + Deconstruct, Quaternion.identity);
                             Destroy(ripple, 1);
                         }
                     }
