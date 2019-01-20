@@ -2615,6 +2615,10 @@ MonoBehaviour:
   spherePrefab: {fileID: 0}
   spriteBillboardPrefab: {fileID: 7101138008352076436, guid: 6ca552eee7bc7cc428918a5c42afc16a,
     type: 3}
+  spriteBillboardPrefab1: {fileID: 7101138008352076436, guid: a00d03712c9289d409005c8cb9948104,
+    type: 3}
+  spriteBillboardPrefab2: {fileID: 7101138008352076436, guid: 9f2db52ee6ad2a7408999dfd3c730cb3,
+    type: 3}
   counter: 0
   lengthOfLineRenderer: 5
   hasBeenPressed: 0

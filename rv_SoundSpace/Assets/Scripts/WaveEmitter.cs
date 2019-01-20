@@ -21,6 +21,8 @@ public class WaveEmitter : MonoBehaviour
     public GameObject linePrefab; // reference the linestyle prefab
     public GameObject spherePrefab; //the balls that hit the walls
     public GameObject spriteBillboardPrefab; //the ripples that hit the walls
+    public GameObject spriteBillboardPrefab1; //the ripples that hit the walls
+    public GameObject spriteBillboardPrefab2; //the ripples that hit the walls
 
 
     //General Variables
@@ -121,12 +123,12 @@ public class WaveEmitter : MonoBehaviour
                             Destroy(ripple, 1);
                         }else if (NRC > .2 && NRC < .6)
                         {
-                            GameObject ripple = Instantiate(spriteBillboardPrefab, hit.point + Deconstruct, Quaternion.identity);
+                            GameObject ripple = Instantiate(spriteBillboardPrefab1, hit.point + Deconstruct, Quaternion.identity);
                             Destroy(ripple, 1);
                         }
                         else
                         {
-                            GameObject ripple = Instantiate(spriteBillboardPrefab, hit.point + Deconstruct, Quaternion.identity);
+                            GameObject ripple = Instantiate(spriteBillboardPrefab2, hit.point + Deconstruct, Quaternion.identity);
                             Destroy(ripple, 1);
                         }
                     }
