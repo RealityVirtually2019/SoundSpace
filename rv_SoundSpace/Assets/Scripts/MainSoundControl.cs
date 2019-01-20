@@ -12,7 +12,7 @@ public class MainSoundControl : MonoBehaviour
     public GameObject emitterBeamPrefab;
     public GameObject repeatEmitterPrefab;
 
-    TriangleList.EmitType emitType = TriangleList.EmitType.LowRes;
+    TriangleList.EmitType emitType = TriangleList.EmitType.Beam;
 
     // Start is called before the first frame update
     void Start()
@@ -126,7 +126,7 @@ public class MainSoundControl : MonoBehaviour
                     CreateRepeatEmitter(hitPosition + offset, rot, emitterPrefab);
                 } else
                 {
-                    CreateRepeatEmitter(pos, rot, emitterBeamPrefab);
+                    CreateRepeatEmitter(pos + offset, rot, emitterBeamPrefab);
                 }
             }
                 
@@ -151,8 +151,6 @@ public class MainSoundControl : MonoBehaviour
         emitType = TriangleList.EmitType.LowRes;
 
     }
-
-
 
 
 
