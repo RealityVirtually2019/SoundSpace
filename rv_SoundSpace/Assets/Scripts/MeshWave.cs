@@ -5,12 +5,19 @@ using UnityEngine;
 public class MeshWave : MonoBehaviour
 {
     public bool enableMesh = true;
+    private bool meshisVisible = true;
     private WaveEmitter waveEmitter;
    
     // Start is called before the first frame update
     void Start()
     {       
         waveEmitter = GetComponent<WaveEmitter>();
+        GameObject main = GameObject.Find("MainSoundControl");
+        if (main != null)
+        {
+            meshisVisible = main.GetComponent<MainSoundControl>().MeshesAreVisible;
+            GetComponent<MeshRenderer>().enabled = meshisVisible;
+        }
     }
 
     // Update is called once per frame
