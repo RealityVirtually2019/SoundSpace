@@ -1,5 +1,6 @@
 {
-   "app_key" : "application.generated.unity.steamvr.exe",
+   "alias_info" : {},
+   "app_key" : "application.generated.unity.rv_soundspace.exe",
    "bindings" : {
       "/actions/buggy" : {
          "sources" : [
@@ -101,7 +102,7 @@
             {
                "inputs" : {
                   "click" : {
-                     "output" : "/actions/default/in/interactui"
+                     "output" : "/actions/default/in/teleport"
                   }
                },
                "mode" : "button",
@@ -109,17 +110,17 @@
             },
             {
                "inputs" : {
-                  "click" : {
-                     "output" : "/actions/default/in/teleport"
+                  "position" : {
+                     "output" : "/actions/default/in/controltime"
                   }
                },
-               "mode" : "button",
+               "mode" : "trackpad",
                "path" : "/user/hand/left/input/trackpad"
             },
             {
                "inputs" : {
                   "click" : {
-                     "output" : "/actions/default/in/grabgrip"
+                     "output" : "/actions/default/in/emitsound"
                   }
                },
                "mode" : "button",
@@ -168,17 +169,17 @@
             },
             {
                "inputs" : {
-                  "click" : {
-                     "output" : "/actions/default/in/teleport"
+                  "position" : {
+                     "output" : "/actions/default/in/controltime"
                   }
                },
-               "mode" : "button",
+               "mode" : "trackpad",
                "path" : "/user/hand/right/input/trackpad"
             },
             {
                "inputs" : {
                   "click" : {
-                     "output" : "/actions/default/in/grabgrip"
+                     "output" : "/actions/default/in/emitsound"
                   }
                },
                "mode" : "button",
@@ -206,6 +207,36 @@
                },
                "mode" : "trigger",
                "path" : "/user/hand/right/input/trigger"
+            },
+            {
+               "inputs" : {},
+               "mode" : "none",
+               "path" : "/user/hand/left/input/skeleton/left"
+            },
+            {
+               "inputs" : {},
+               "mode" : "none",
+               "path" : "/user/hand/right/input/skeleton/left"
+            },
+            {
+               "inputs" : {},
+               "mode" : "none",
+               "path" : "/user/hand/left/input/skeleton/left"
+            },
+            {
+               "inputs" : {},
+               "mode" : "none",
+               "path" : "/user/hand/right/input/skeleton/left"
+            },
+            {
+               "inputs" : {},
+               "mode" : "none",
+               "path" : "/user/hand/left/input/application_menu"
+            },
+            {
+               "inputs" : {},
+               "mode" : "none",
+               "path" : "/user/hand/right/input/application_menu"
             }
          ]
       },
@@ -252,5 +283,7 @@
    },
    "controller_type" : "vive_controller",
    "description" : "",
-   "name" : "vive_controller"
+   "name" : "vive_controller",
+   "options" : {},
+   "simulated_actions" : []
 }
