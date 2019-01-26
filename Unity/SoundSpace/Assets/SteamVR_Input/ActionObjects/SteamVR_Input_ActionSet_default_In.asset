@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 065f6fed1039e654aad336acc9822349, type: 3}
+  m_Name: SteamVR_Input_ActionSet_default_In
+  m_EditorClassIdentifier: 
+  actionSet: {fileID: 0}
+  listDirection: 0
+  actions:
+  - {fileID: 11400000, guid: 5230aff78f2cd0a4999fdfdbaad8fd80, type: 2}
+  - {fileID: 11400000, guid: 0242b3ba351c901459638e38c74d9b12, type: 2}
+  - {fileID: 11400000, guid: e8355c827ba57f94e8b82ffcfbe067bc, type: 2}
+  - {fileID: 11400000, guid: 3e36f5c59ab050743842f278ea0a6692, type: 2}
+  - {fileID: 11400000, guid: 1aafad1fbafb7b94981adaeacb79e703, type: 2}
+  InteractUI: {fileID: 11400000, guid: 5230aff78f2cd0a4999fdfdbaad8fd80, type: 2}
+  Teleport: {fileID: 11400000, guid: 0242b3ba351c901459638e38c74d9b12, type: 2}
+  ControlTime: {fileID: 11400000, guid: e8355c827ba57f94e8b82ffcfbe067bc, type: 2}
+  EmitSound: {fileID: 11400000, guid: 3e36f5c59ab050743842f278ea0a6692, type: 2}
+  Pose: {fileID: 11400000, guid: 1aafad1fbafb7b94981adaeacb79e703, type: 2}
