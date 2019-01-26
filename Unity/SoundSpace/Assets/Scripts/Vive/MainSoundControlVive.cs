@@ -44,7 +44,7 @@ public class MainSoundControlVive : MonoBehaviour
     public void CreateEmitter(Vector3 position)
     {
         GameObject newEmitter = Instantiate(emitterPrefab, position, Quaternion.identity);
-        newEmitter.GetComponent<WaveEmitter>().MakeNoise();
+        //newEmitter.GetComponent<WaveEmitter>().MakeNoise();
 
        }
 

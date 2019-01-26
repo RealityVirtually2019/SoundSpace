@@ -4026,7 +4026,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1218698630}
-  - component: {fileID: 1218698629}
   - component: {fileID: 1218698631}
   m_Layer: 0
   m_Name: MainSoundControlVive
@@ -4035,25 +4034,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1218698629
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1218698628}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e854f0cf0bc63934a8d9ea839d5a05e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  emitterPrefab: {fileID: 7024971291593200805, guid: 6d7400811ebb50240b77c7ee83294a4a,
-    type: 3}
-  emitterBeamPrefab: {fileID: 7024971291593200805, guid: 8aaeb8d53acab9d4487bf4abfcb50749,
-    type: 3}
-  repeatEmitterPrefab: {fileID: 2661246846336162083, guid: 8e01c9dff156ac6459596c9edecdba32,
-    type: 3}
-  MeshesAreVisible: 1
 --- !u!4 &1218698630
 Transform:
   m_ObjectHideFlags: 0
@@ -4081,13 +4061,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rightHandPointer: {fileID: 1408702178}
-  emitterPrefab: {fileID: 7024971291593200805, guid: 6d7400811ebb50240b77c7ee83294a4a,
+  emitterPrefab: {fileID: 7024971291593200805, guid: 96442ee5dcfbb574685f7e5149bc049e,
     type: 3}
   emitterBeamPrefab: {fileID: 7024971291593200805, guid: 8aaeb8d53acab9d4487bf4abfcb50749,
     type: 3}
   repeatEmitterPrefab: {fileID: 2661246846336162083, guid: 8e01c9dff156ac6459596c9edecdba32,
     type: 3}
-  MeshesAreVisible: 1
+  MeshesAreVisible: 0
 --- !u!1001 &1268805573
 PrefabInstance:
   m_ObjectHideFlags: 0

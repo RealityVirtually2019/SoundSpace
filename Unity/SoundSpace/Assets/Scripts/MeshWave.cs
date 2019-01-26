@@ -6,16 +6,16 @@ public class MeshWave : MonoBehaviour
 {
     public bool enableMesh = true;
     private bool meshisVisible = true;
-    private WaveEmitter waveEmitter;
+    private NewWaveEmitter waveEmitter;
    
     // Start is called before the first frame update
     void Start()
     {       
-        waveEmitter = GetComponent<WaveEmitter>();
-        GameObject main = GameObject.Find("MainSoundControl");
+        waveEmitter = GetComponent<NewWaveEmitter>();
+        GameObject main = GameObject.Find("MainSoundControlVive");
         if (main != null)
         {
-            meshisVisible = main.GetComponent<MainSoundControl>().MeshesAreVisible;
+            meshisVisible = main.GetComponent<MainSoundControlVive>().MeshesAreVisible;
             GetComponent<MeshRenderer>().enabled = meshisVisible;
         }
     }
@@ -29,6 +29,7 @@ public class MeshWave : MonoBehaviour
 
     public void GenerateMesh()
     {
+        
         var mesh = new Mesh();
         if (!transform.GetComponent<MeshFilter>()) //If you havent got any meshrenderer or filter
         {           
