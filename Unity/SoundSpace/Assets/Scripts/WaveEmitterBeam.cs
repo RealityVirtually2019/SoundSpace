@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+#if UNITY_WSA
 using UnityEngine.XR.WSA.Input;
-
+#endif
 
 public class WaveEmitterBeam : MonoBehaviour
 {
@@ -46,9 +47,11 @@ public class WaveEmitterBeam : MonoBehaviour
     void Start()
     {
         //Contoller events for thumbstick
+#if UNITY_WSA
         InteractionManager.InteractionSourcePressed += OnControllerPressed;
         InteractionManager.InteractionSourceUpdated += OnSourceUpdated;
 
+#endif
         for (int m = 0; m < numOfVectors; m++)
         {
             colorArrayAlpha[m] = 1.0f;
@@ -65,6 +68,7 @@ public class WaveEmitterBeam : MonoBehaviour
         }
     }
 
+#if UNITY_WSA
     //Forward and backwards with thumb stick
     public void OnSourceUpdated(InteractionSourceUpdatedEventArgs eventData)
     {
@@ -88,6 +92,7 @@ public class WaveEmitterBeam : MonoBehaviour
             PauseSound();
         }
     }
+#endif
 
     void Update()
     {

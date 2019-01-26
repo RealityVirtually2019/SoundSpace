@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-using UnityEngine.XR.WSA.Input;
 using UnityEngine.EventSystems;
+
+#if UNITY_WSA
+using UnityEngine.XR.WSA.Input;
+#endif
 
 public class PointerLine : MonoBehaviour
 {
@@ -16,6 +18,7 @@ public class PointerLine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        #if UNITY_WSA
         var interactionSourceStates = InteractionManager.GetCurrentReading();
         foreach (var interactionSourceState in interactionSourceStates)
         {
@@ -68,5 +71,6 @@ public class PointerLine : MonoBehaviour
                 }
             }
         }
+#endif
     }
 }

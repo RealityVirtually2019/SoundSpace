@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+#if UNITY_WSA
 using UnityEngine.XR.WSA.Input;
 //using HoloToolkit.Unity.InputModule;
+#endif
 
 public class MainSoundControl : MonoBehaviour
 {
@@ -17,9 +19,10 @@ public class MainSoundControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        #if UNITY_WSA
         InteractionManager.InteractionSourcePressed += OnControllerPressed;
         InteractionManager.InteractionSourceUpdated += OnSourceUpdated;
-
+#endif
         //TurnCrowdOff();
     }
 
@@ -47,6 +50,7 @@ public class MainSoundControl : MonoBehaviour
         //}
     }
 
+#if UNITY_WSA
     public void OnSourceUpdated(InteractionSourceUpdatedEventArgs eventData)
     {
         if (eventData.state.source.handedness == InteractionSourceHandedness.Right && eventData.state.touchpadTouched)
@@ -145,6 +149,7 @@ public class MainSoundControl : MonoBehaviour
 
     }
 
+#endif
     public void CreateEmitter(Vector3 position)
     {
         GameObject newEmitter = Instantiate(emitterPrefab, position, Quaternion.identity);

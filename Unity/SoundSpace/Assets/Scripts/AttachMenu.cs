@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+#if UNITY_WSA
 using UnityEngine.XR.WSA.Input;
+#endif
 
 public class AttachMenu : MonoBehaviour
 {
@@ -60,7 +62,7 @@ public class AttachMenu : MonoBehaviour
         //    }
         //}
     }
-
+    #if UNITY_WSA
     public void OnControllerPressed(InteractionSourcePressedEventArgs eventData)
     {
         if (eventData.pressType == InteractionSourcePressType.Menu)
@@ -70,4 +72,5 @@ public class AttachMenu : MonoBehaviour
         }
             
     }
+#endif
 }

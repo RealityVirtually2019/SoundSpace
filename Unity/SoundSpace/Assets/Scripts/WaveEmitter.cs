@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+#if UNITY_WSA
 using UnityEngine.XR.WSA.Input;
-
+#endif
 public class WaveEmitter : MonoBehaviour
 {
 
@@ -45,9 +46,11 @@ public class WaveEmitter : MonoBehaviour
 
     void Start()
     {
+#if UNITY_WSA
         //Contoller events for thumbstick
         InteractionManager.InteractionSourcePressed += OnControllerPressed;
         InteractionManager.InteractionSourceUpdated += OnSourceUpdated;
+#endif
 
         for (int m = 0; m < numOfVectors; m++)
         {
@@ -60,7 +63,7 @@ public class WaveEmitter : MonoBehaviour
 
 
     }
-
+#if UNITY_WSA
     public void OnSourceUpdated(InteractionSourceUpdatedEventArgs eventData)
     {
         if (eventData.state.thumbstickPosition.x > 0.5)
@@ -81,7 +84,7 @@ public class WaveEmitter : MonoBehaviour
             PauseSound();
         }
     }
-
+#endif
     void Update()
     {
         if (Input.GetKeyDown("space"))
